@@ -4,19 +4,6 @@
   
     
     <entry>
-      <title>wod</title>
-      <link href="/2022/04/18/wod/"/>
-      <url>/2022/04/18/wod/</url>
-      
-        <content type="html"><![CDATA[<h2 id="我的"><a href="#我的" class="headerlink" title="我的"></a>我的</h2><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a = <span class="number">0</span>;</span><br><span class="line"><span class="type">int</span> b = <span class="number">3</span>;</span><br><span class="line"><span class="type">int</span> c = <span class="number">4</span>;</span><br></pre></td></tr></tbody></table></figure>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>MarkDown基础</title>
       <link href="/2022/04/15/markdown-jiao-cheng/"/>
       <url>/2022/04/15/markdown-jiao-cheng/</url>
