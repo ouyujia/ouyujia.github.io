@@ -911,3 +911,126 @@ gantt
 
 ```
 
+## Typora快捷方式（系统默认）
+
+### 文件
+
+| 功能               | 热键 (Windows/Linux) | 热键 (macOS)         |
+| :----------------- | :------------------- | -------------------- |
+| 新建               | Ctrl + N             | Command  + N         |
+| 新窗口             | Ctrl + Shift + N     | Command  +Shift + N  |
+| 新标签             | *（不支持）*         | Command  + T         |
+| 打开               | Ctrl + O             | Command  + O         |
+| 快速打开           | Ctrl + P             | Command  + Shift + O |
+| 重新打开关闭的文件 | Ctrl + Shift + T     | Command  + Shift + T |
+| 保存               | Ctrl + S             | Command  + S         |
+| 另存为/复制        | Ctrl + Shift + S     | Command + Shift + S  |
+| 关闭               | Ctrl + W             | Command  + W         |
+
+### 编辑
+
+| 功能                                | 热键 (Windows/Linux)       | 热键 (macOS)                        |
+| :---------------------------------- | :------------------------- | ----------------------------------- |
+| 新段落                              | Enter                      | Enter                               |
+| 新行                                | Shift + Enter              | Shift + Enter                       |
+| 剪切                                | Ctrl + X                   | Command  + X                        |
+| 复制                                | Ctrl + C                   | Command  + C                        |
+| 粘贴                                | Ctrl + V                   | Command  + V                        |
+| 复制为 Markdown                     | Ctrl + Shift + C           | Command + Shift + C                 |
+| 粘贴为纯文本                        | Ctrl + Shift + V           | Command + Shift + V                 |
+| 全选                                | Ctrl + A                   | Command + A                         |
+| 选择行/句子 选择行（在表格中）      | Ctrl + L                   | Command + L                         |
+| 删除行（在表中）                    | Ctrl + Shift + Backspace   | Command + Shift + Backspace         |
+| 选择样式范围 选择单元格（在表格中） | Ctrl + E                   | Command + E                         |
+| 选择单词                            | Ctrl + D                   | Command + D                         |
+| 删除单词                            | Ctrl + Shift + D           | Command + Shift + D                 |
+| 跳到顶部                            | Ctrl + home                | Command + ↑                         |
+| 跳转到选择                          | Ctrl + J                   | Command + J                         |
+| 跳到底部                            | Ctrl + end                 | Command + ↓                         |
+| 寻找                                | Ctrl + F                   | Command + F                         |
+| 找下一个                            | F3 / Enter                 | Command + G / Enter                 |
+| 查找上一个                          | Shift + F3 / Shift + Enter | Command + Shift + G / Shift + Enter |
+| 代替                                | Ctrl + H                   | Command + H                         |
+
+### 段落
+
+| 功能           | 热键 (Windows/Linux)   | 热键 (macOS)              |
+| :------------- | :--------------------- | ------------------------- |
+| 标题 1 至 6    | Ctrl + 1/2/3/4/5/6     | Command + 1/2/3/4/5/6     |
+| 增加标题级别   | Ctrl + =               | Command + =               |
+| 降低标题级别   | Ctrl + -               | Command  + -              |
+| 桌子           | Ctrl + T               | Command + Option + T      |
+| 代码围栏       | Ctrl + Shift + K       | Command  + Option + C     |
+| 数学块         | Ctrl + Shift + M       | Command + Option + B      |
+| 引用           | Ctrl + Shift + Q       | Command  + Option + Q     |
+| 有序列表       | Ctrl + Shift + [       | Command + Option + O      |
+| 无序列表       | Ctrl + Shift + ]       | Command + Option + U      |
+| 缩进一个制表符 | Ctrl + [ / Tab         | Command + [ / Tab         |
+| 前进一个制表符 | Ctrl + ] / Shift + Tab | Command + ] / Shift + Tab |
+
+### 格式
+
+| 功能     | 热键 (Windows/Linux) | 热键 (macOS)        |
+| :------- | :------------------- | ------------------- |
+| 字体加粗 | Ctrl + B             | Command + B         |
+| 斜体     | Ctrl + I             | Command +I          |
+| 下划线   | Ctrl + U             | Command + U         |
+| 代码     | Ctrl + Shift + ` |Command + Shift + `|
+| 删除线   | Alt + Shift + 5      | Control+ Shift + `  |
+| 超链接   | Ctrl + K             | Command  + K        |
+| 图片     | Ctrl + Shift + I     | Command +Control+I  |
+| 清除格式 | Ctrl + \             | Command + \         |
+
+### view
+
+| 功能                 | 热键 (Windows/Linux) | 热键 (macOS)         |
+| :------------------- | :------------------- | -------------------- |
+| 切换侧边栏           | Ctrl + Shift + L     | Command + Shift + L  |
+| 显示大纲             | Ctrl + Shift + 1     | Command + 控制 + 1   |
+| 显示文件             | Ctrl + Shift + 2     | Command + 控制 + 2   |
+| 显示文件树           | Ctrl + Shift + 3     | Command + 控制 + 3   |
+| 源代码模式(再次取消) | Ctrl + /             | Command + /          |
+| 对焦模式             | F8                   | F8                   |
+| 打字机模式           | F9                   | F9                   |
+| 切换全屏             | F11                  | Command + Option + F |
+| 真实大小             | Ctrl + Shift + 0     | *（不支持）*         |
+| 放大                 | Ctrl + Shift + =     | *（不支持）*         |
+| 缩小                 | Ctrl + Shift + -     | *（不支持）*         |
+| 在打开的文档之间切换 | Ctrl + Tab           | 命令 + `             |
+
+## Typora自定义快捷方式
+
+Typora有些功能是没有快捷键的，需要使用者自定义。这里以给`内联公式`设置快捷键为例，讲解如何自定义快捷键。
+
+### 给内联公式设置自定义快捷方式
+
+1. 在进行设置前，推荐将软件的语言设置称英语，理由后面再说。具体操作:
+   文 件 ⟹ 偏 好 设 置 ⟹ 通 用 ⟹ 语 言 ， 选 择 ‘ English ’ ， 重 新 启 动 。
+2. 重新启动完成后，查看二级菜单中`内联公式`的英文名称是`Inline Math`，记下该拼写。![img](https://img-blog.csdnimg.cn/20210626224751567.png#pic_center)
+3. 再次打开`偏好设置`（快捷键`Ctrl+,`），在`通用`中找到`高级设置`，具体操作：File ⟹ Preferences ⟹ General ⟹ Open Advanced Setting
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20210626225203912.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1FDU1lTWlE=,size_16,color_FFFFFF,t_70#pic_center)
+
+4. 之后会显示一个文件夹，有两个配置文件，选择`conf.user.json`（在另一个文件中设置无效），打开之后找到`keyBinding`，在下面添加`"Inline Math":"Ctrl+M"`（这里的快捷键我设置成了`Ctrl +M`，在保证快捷键不冲突的条件下，可以随意设置），如图所示
+
+   ![在这里插入图片描述](https://img-blog.csdnimg.cn/20210626225840503.png#pic_center)
+
+保存配置文件，重启Typora，可以发现在选项`Inline Math`旁边显示了快捷键`Ctrl +M`，经过测试快捷键能正常使用。
+
+### 为什么不在中文环境下配置？
+
+在中文环境下，也可以进行设置，在配置文件中添加`"内联公式":"Ctrl+M"`，也可以换成`"Inline Math":"Ctrl+M"`，在不知道菜单选项的英文名称时可以直接写上对应的中文名称（所以推荐在开始设置前将Typora设置成英文环境，便于查看菜单项的英文名称），如
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20210626231115945.png#pic_center)
+
+重启Typora
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20210626231529681.png#pic_center)
+
+中文菜单`内联公式`旁出现了设置的快捷键，表示快捷键设置成功。
+但是我如果心血来潮，想切换成英文环境，再查看菜单项的快捷键时发现快捷键没有了
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20210626231943998.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1FDU1lTWlE=,size_16,color_FFFFFF,t_70#pic_center)
+
+如果当初我在配置文件中使用`"Inline Math":"Ctrl+M"`，不使用中文的名称，无论我将Typora的语言环境设置成何种语言，都不会影响自定义快捷键的使用。
+

@@ -12,9 +12,8 @@ mathjax: false
 summary: 
 categories: 
 tags:
-  - Typora
-  - Markdown
-keywords: MarkDown
+  - C++
+keywords: 
 reprintPolicy:
 abbrlink: 
 ---

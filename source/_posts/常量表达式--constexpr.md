@@ -1,0 +1,257 @@
+---
+title: C++11新特性--constexpr
+author: 欧阳
+top: false
+cover: false
+toc: true
+mathjax: false
+tags:
+  - C++
+date: 2022-04-20 17:27:12
+img:
+coverImg:
+password:
+summary: C++11新特性，常量表达式--constexpr解析
+categories: C++11新特性
+keywords:
+reprintPolicy:
+abbrlink:
+---
+
+## 修饰常量表达式--constexpr
+
+### const
+
+在 C++11 之前只有 <font color='red'>`const`</font> 关键字，从功能上来说这个关键字有双重语义：<font color='red'>变量只读，修饰常量</font>，举一个简单的例子：
+
+```C++
+void func(const int num)
+{
+    const int count = 24;
+    int array[num];            // error，num是一个只读变量，不是常量
+    int array1[count];         // ok，count是一个常量
+
+    int a1 = 520;
+    int a2 = 250;
+    const int& b = a1;
+    b = a2;                         // error
+    a1 = 1314;
+    cout << "b: " << b << endl;     // 输出结果为1314
+}
+```
+
+- 函数 <font color='orange'>void func(const int num)</font> 的参数 <font color='orange'>num </font>表示这个变量是只读的，但不是常量（<font color='orange'>`num根据实参传入改变而改变`</font>），因此使用 <font color='orange'>int array[num];</font> 这种方式定义一个数组，<font color='red'>编译器是会报错的</font>，提示 <font color='orange'>num</font>  不可用作为常量来使用。
+- <font color='orange'>const int count = 24;</font> 中的 <font color='orange'>count </font>却是一个常量，因此可以使用这个常量来定义一个静态数组。
+
+另外，<font color='orange'>变量只读并不等价于常量</font>，二者是两个概念不能混为一谈，分析一下这句测试代码 <font color='orange'>const int& b = a1;</font>：
+
+- <font color='orange'>b</font> 是一个常量的引用，所以 b 引用的变量是不能被修改的，也就是说<font color='orange'> b = a2;</font> 这句代码语法是错误的。
+
+- 在<font color='orange'> const</font> 对于变量<font color='orange'> a1</font> 是没有任何约束的，<font color='orange'>a1</font> 的值变了 <font color='orange'>b</font> 的值也就变了
+
+- 引用 <font color='orange'>b</font> 是只读的，但是并不能保证它的值是不可改变的，也就是说它不是常量。
+
+---
+
+### constexpr
+
+在 C++11 中添加了一个新的关键字 <font color='orange'>constexpr</font>，这个关键字是用来修饰常量表达式的。<font color='orange'>所谓常量表达式，指的就是由多个（≥1）常量（值不会改变）组成并且在编译过程中就得到计算结果的表达式。</font>
+
+在介绍<font color='orac'> gcc/g++ 工作流程</font>的时候说过，C++ 程序从编写完毕到执行分为四个阶段：<font color='orange'>预处理</font>、<font color='orange'> 编译</font>、<font color='orange'>汇编</font>和<font color='orange'>链接 </font>4 个阶段，得到可执行程序之后就可以运行了。需要额外强调的是，<font color='orange'>常量表达式和非常量表达式的计算时机不同，非常量表达式只能在程序运行阶段计算出结果，但是常量表达式的计算往往发生在程序的编译阶段，这可以极大提高程序的执行效率</font>，因为<font color='red'>表达式只需要在编译阶段计算一次，节省了每次程序运行时都需要计算一次的时间</font>。
+
+那么问题来了，编译器如何识别表达式是不是常量表达式呢？在 C++11 中添加了 <font color='orange'>constexpr</font> 关键字之后就可以在程序中使用它来修改常量表达式，用来提高程序的执行效率。在使用中建议将 <font color='orange'>const</font> 和 <font color='orange'>constexpr</font> 的功能区分开，即凡是表达“只读”语义的场景都使用 const，表达“常量”语义的场景都使用 <font color='orange'>constexpr</font>。
+
+在定义常量时，<font color='orange'>const</font> 和 <font color='orange'>constexpr </font>是等价的，都可以在程序的编译阶段计算出结果，例如：
+
+```c++
+const int m = f();  // 不是常量表达式，m的值只有在运行时才会获取。
+const int i=520;    // 是一个常量表达式
+const int j=i+1;    // 是一个常量表达式
+
+constexpr int i=520;    // 是一个常量表达式
+constexpr int j=i+1;    // 是一个常量表达式
+```
+
+对于 C++ 内置类型的数据，可以直接用<font color='orange'> constexpr</font> 修饰，但如果是自定义的数据类型（用 <font color='orange'>struct </font>或者<font color='orange'> class</font> 实现），直接用 <font color='orange'>constexpr</font> 修饰是不行的，只能修饰自定义数据类型的<font color='cornflowerblue'>实例对象</font>。
+
+```C++
+// 此处的constexpr修饰是无效的
+constexpr struct Test
+{
+    int id;
+    int num;
+};
+```
+
+如果要定义一个结构体 / 类常量对象，可以这样写：
+
+```C++
+struct Test
+{
+    int id;
+    int num;
+};
+
+int main()
+{
+    constexpr Test t{ 1, 2 };
+    constexpr int id = t.id;
+    constexpr int num = t.num;
+    // error，不能修改常量
+    t.num += 100;
+    cout << "id: " << id << ", num: " << num << endl;
+
+    return 0;
+}
+```
+
+在第 13行的代码中 <font color='orange'>t.num += 100;</font> 的操作是错误的，对象 t 是一个常量，因此它的成员也是常量，常量是不能被修改的。
+
+## 常量表达式函数
+
+为了提高 C++ 程序的执行效率，我们可以将程序中值不需要发生变化的变量定义为常量，也可以使用<font color='orange'> constexpr </font>修饰函数的返回值，这种函数被称作<font color='orange'>常量表达式函数</font>，这些函数主要包括以下几种：<font color='red'>普通函数/类成员函数、类的构造函数、模板函数</font>。
+
+### 修饰普通函数/类成员函数
+
+<font color='orange'>constexpr </font>并不能修改任意函数的返回值，使这些函数成为常量表达式函数，必须要满足以下几个条件：
+
+1. <font color='red'>函数必须要有返回值，并且 return 返回的表达式必须是常量表达式。</font>
+
+```C++
+// error，不是常量表达式函数
+constexpr void func1()
+{
+    int a = 100;
+    cout << "a: " << a << endl;
+}
+
+// error，不是常量表达式函数
+constexpr int func1()
+{
+    int a = 100;
+    return a;
+}
+```
+
+- 函数 <font color='orange'>func1()</font> 没有返回值，不满足常量表达式函数要求
+- 函数 <font color='orange'>func2()</font> 返回值不是常量表达式，不满足常量表达式函数要求
+
+2. <font color='red'>函数在使用之前，必须有对应的定义语句</font>。
+
+```c++
+#include <iostream>
+using namespace std;
+
+constexpr int func1();
+int main()
+{
+    constexpr int num = func1();	// error 函数在使用之前，必须有对应的定义语句
+    return 0;
+}
+
+constexpr int func1()
+{
+    constexpr int a = 100;
+    return a;
+}
+```
+
+- 在测试程序<font color='orange'> `constexpr int num = func1()`;</font> 中，还没有定义 <font color='orange'>`func1(`)</font> 就直接调用了，应该将 <font color='orange'>`func1()` </font>函数的定义放到 <font color='orange'>`main()` </font>函数的上边。
+
+3. <font color='red'>整个函数的函数体中，不能出现非常量表达式之外的语句）</font><font color='orange'>（using 指令、typedef 语句以及 static_assert 断言、return 语句除外)</font>。
+
+```C++
+// error
+constexpr int func1()
+{
+    constexpr int a = 100;
+    constexpr int b = 10;
+    for (int i = 0; i < b; ++i)
+    {
+        cout << "i: " << i << endl;
+    }
+    return a + b;
+}
+
+// ok
+constexpr int func2()
+{
+    using mytype = int;
+    constexpr mytype a = 100;
+    constexpr mytype b = 10;
+    constexpr mytype c = a * b;
+    return c - (a + b);
+}
+```
+
+- 因为 <font color='orange'>`func1()`</font> 是一个常量表达式函数，在函数体内部是不允许出现非常量表达式以外的操作，因此函数体内部的 <font color='orange'>`for`</font> 循环是一个非法操作。
+
+> 以上三条规则不仅对应普通函数适用，对应类的成员函数也是适用的：
+
+### 修饰模板函数
+
+C++11 语法中，<font color='orange'>`constexpr`</font> 可以修饰函数模板，但由于模板中类型的不确定性，因此函数模板实例化后的模板函数是否符合常量表达式函数的要求也是不确定的(<font color='orange'>`主要看，模板函数调用时传递的实参是否是常量`</font>)。<font color='red'>如果 constexpr 修饰的模板函数实例化结果不满足常量表达式函数的要求，则 constexpr 会被自动忽略，即该函数就等同于一个普通函数。</font>
+
+```C++
+#include <iostream>
+using namespace std;
+
+struct Person {
+    const char* name;
+    int age;
+};
+
+// 定义函数模板
+template<typename T>
+constexpr T dispaly(T t) {
+    return t;
+}
+
+int main()
+{
+    struct Person p { "luffy", 19 };
+    //普通函数
+    struct Person ret = dispaly(p);
+    cout << "luffy's name: " << ret.name << ", age: " << ret.age << endl;
+
+    //常量表达式函数
+    constexpr int ret1 = dispaly(250);
+    cout << ret1 << endl;
+
+    constexpr struct Person p1 { "luffy", 19 };
+    constexpr struct Person p2 = dispaly(p1);
+    cout << "luffy's name: " << p2.name << ", age: " << p2.age << endl;
+    return 0;
+}
+```
+
+在上面示例程序中定义了一个函数模板 <font color='orange'>`display()`</font>，但由于其返回值类型未定，因此在实例化之前无法判断其是否符合常量表达式函数的要求：
+
+- <font color='orange'>`struct Person ret = dispaly(p);` </font>由于参数 p 是变量，所以实例化后的函数不是常量表达式函数，此时 <font color='orange'>`constexpr`</font> 是无效的
+- <font color='orange'>`constexpr int ret1 = dispaly(250);`</font>;参数是常量，符合常量表达式函数的要求，此时 <font color='orange'>`constexpr`</font> 是有效的
+- <font color='orange'>`constexpr struct Person p2 = dispaly(p1);`</font> 参数是常量，符合常量表达式函数的要求，此时 <font color='orange'>`constexpr`</font> 是有效的
+
+### 修饰构造函数
+
+如果想用<font color='orange'>`直接得到一个常量对象`</font>，也可以使用 constexpr 修饰一个构造函数，这样就可以得到一个常量构造函数了。常量构造函数有一个要求：<font color='red'>`构造函数的函数体必须为空，并且必须采用初始化列表的方式为各个成员赋值。`</font>
+
+```C++
+#include <iostream>
+using namespace std;
+
+struct Person {
+    constexpr Person(const char* p, int age) :name(p), age(age)
+    {
+    }
+    const char* name;
+    int age;
+};
+
+int main()
+{
+    constexpr struct Person p1("luffy", 19);
+    cout << "luffy's name: " << p1.name << ", age: " << p1.age << endl;
+    return 0;
+}
+```
+
