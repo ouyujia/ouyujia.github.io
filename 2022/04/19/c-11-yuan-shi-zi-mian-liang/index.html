@@ -627,10 +627,10 @@ int main()
 }
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>输出结果为：</p>
-<pre><code>D:helloworld    est.text
+<pre class="line-numbers language-C++"><code class="language-C++">D:helloworld    est.text
 D:\hello\world\test.text
 D:\hello\world\test.text
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>在 D:\hello\world\test.text 中 \h 和 \w 转义失败，对应的字符会原样输出</li>
 <li>在 D:\hello\world\test.text 中路径的间隔符为 \ 但是这个字符又是转义字符，因此需要使用转义字符将其转义，最终才能得到一个没有特殊含义的普通字符 \</li>
@@ -644,45 +644,29 @@ D:\hello\world\test.text
 using namespace std;
 int main()
 {
-    string str = "<html>\
-        <head>\
-        <title>\
-        海贼王\
-        </title>\
-        </head>\
-        <body>\
-        <p>\
+    string str = "\
+        我是路飞!!!\ 
         我是要成为海贼王的男人!!!\
-        </p>\
-        </body>\
-        </html>";
+        ";
     cout << str << endl;
     return 0;
 }
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <hr>
 <pre class="line-numbers language-C++"><code class="language-C++">#include<iostream>
 #include<string>
 using namespace std;
 int main()
 {
-    string str = R"(<html>
-        <head>
-        <title>
-        海贼王
-        </title>
-        </head>
-        <body>
-        <p>
+    string str = R"(
+        我是路飞!!!
         我是要成为海贼王的男人!!!
-        </p>
-        </body>
-        </html>)";
+        )";
     cout << str << endl;
 
     return 0;
 }
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <hr>
 <p>最后强调一个细节：<span style="color:red;background:背景颜色;font-size:文字大小;font-family:字体;">在R “xxx(raw string)xxx” 中，原始字符串必须用括号（）括起来，括号的前后可以加其他字符串，所加的字符串会被忽略，并且加的字符串必须在括号两边同时出现</span>。</p>
 <pre class="line-numbers language-markdown"><code class="language-markdown"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span><span class="token style-attr language-css"><span class="token attr-name"> <span class="token attr-name">style</span></span><span class="token punctuation">='</span><span class="token attr-value"><span class="token property">color</span><span class="token punctuation">:</span>文字颜色<span class="token punctuation">;</span><span class="token property">background</span><span class="token punctuation">:</span>背景颜色<span class="token punctuation">;</span><span class="token property">font-size</span><span class="token punctuation">:</span>文字大小<span class="token punctuation">;</span><span class="token property">font-family</span><span class="token punctuation">:</span>字体<span class="token punctuation">;</span></span><span class="token punctuation">'</span></span><span class="token punctuation">></span></span>文字<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span>
