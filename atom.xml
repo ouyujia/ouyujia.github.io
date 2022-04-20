@@ -6,7 +6,7 @@
   <link href="https://ouyujia.github.io/atom.xml" rel="self"/>
   
   <link href="https://ouyujia.github.io/"/>
-  <updated>2022-04-20T08:27:02.257Z</updated>
+  <updated>2022-04-20T10:19:08.427Z</updated>
   <id>https://ouyujia.github.io/</id>
   
   <author>
@@ -17,18 +17,68 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>C++11新特性--constexpr</title>
+    <link href="https://ouyujia.github.io/2022/04/20/chang-liang-biao-da-shi-constexpr/"/>
+    <id>https://ouyujia.github.io/2022/04/20/chang-liang-biao-da-shi-constexpr/</id>
+    <published>2022-04-20T09:27:12.000Z</published>
+    <updated>2022-04-20T10:19:08.427Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;修饰常量表达式–constexpr&quot;&gt;&lt;a href=&quot;#修饰常量表达式–constexpr&quot; class=&quot;headerlink&quot; title=&quot;修饰常量表达式–constexpr&quot;&gt;&lt;/a&gt;修饰常量表达式–constexpr&lt;/h2&gt;&lt;h3</summary>
+        
+      
+    
+    
+    
+    <category term="C++11新特性" scheme="https://ouyujia.github.io/categories/C-11%E6%96%B0%E7%89%B9%E6%80%A7/"/>
+    
+    
+    <category term="C++" scheme="https://ouyujia.github.io/tags/C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C++11新特性--nullPtr</title>
+    <link href="https://ouyujia.github.io/2022/04/20/kong-zhi-zhen-lei-xing-nullptr/"/>
+    <id>https://ouyujia.github.io/2022/04/20/kong-zhi-zhen-lei-xing-nullptr/</id>
+    <published>2022-04-20T09:25:18.000Z</published>
+    <updated>2022-04-20T09:34:41.423Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;空指针类型–nullptr&quot;&gt;&lt;a href=&quot;#空指针类型–nullptr&quot; class=&quot;headerlink&quot; title=&quot;空指针类型–nullptr&quot;&gt;&lt;/a&gt;空指针类型–nullptr&lt;/h2&gt;&lt;p&gt;在 C++</summary>
+        
+      
+    
+    
+    
+    <category term="C++11新特性" scheme="https://ouyujia.github.io/categories/C-11%E6%96%B0%E7%89%B9%E6%80%A7/"/>
+    
+    
+    <category term="C++11" scheme="https://ouyujia.github.io/tags/C-11/"/>
+    
+  </entry>
+  
+  <entry>
     <title>C++11新特性--原始字面量</title>
-    <link href="https://ouyujia.github.io/2022/04/19/c-11-xin-te-xing/"/>
-    <id>https://ouyujia.github.io/2022/04/19/c-11-xin-te-xing/</id>
+    <link href="https://ouyujia.github.io/2022/04/19/zi-fu-chuan-yuan-shi-zi-mian-liang/"/>
+    <id>https://ouyujia.github.io/2022/04/19/zi-fu-chuan-yuan-shi-zi-mian-liang/</id>
     <published>2022-04-19T12:26:02.000Z</published>
-    <updated>2022-04-20T08:27:02.257Z</updated>
+    <updated>2022-04-20T09:33:24.741Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h2 id=&quot;字符串原始字面量&quot;&gt;&lt;a href=&quot;#字符串原始字面量&quot; class=&quot;headerlink&quot; title=&quot;字符串原始字面量&quot;&gt;&lt;/a&gt;字符串原始字面量&lt;/h2&gt;&lt;h3 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;h2 id=&quot;字符串原始字面量–R”-”&quot;&gt;&lt;a href=&quot;#字符串原始字面量–R”-”&quot; class=&quot;headerlink&quot; title=&quot;字符串原始字面量–R”()”&quot;&gt;&lt;/a&gt;字符串原始字面量–R”()”&lt;/h2&gt;&lt;h3 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot;</summary>
         
       
     
@@ -46,7 +96,7 @@
     <link href="https://ouyujia.github.io/2022/04/15/markdown-jiao-cheng/"/>
     <id>https://ouyujia.github.io/2022/04/15/markdown-jiao-cheng/</id>
     <published>2022-04-14T16:00:00.000Z</published>
-    <updated>2022-04-20T07:55:01.033Z</updated>
+    <updated>2022-04-20T09:52:26.917Z</updated>
     
     
       

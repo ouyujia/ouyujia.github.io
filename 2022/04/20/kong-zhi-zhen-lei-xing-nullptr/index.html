@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="movies, 相遇之初">
-    <meta name="description" content="工作之余记录自己踩过的坑">
+    <meta name="keywords" content="C++11新特性--nullPtr, 相遇之初">
+    <meta name="description" content="C++11新特性，空指针类型--nullptr解析">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -19,7 +19,7 @@
 
     
 
-    <title>movies | 相遇之初</title>
+    <title>C++11新特性--nullPtr | 相遇之初</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -420,12 +420,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/38.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">movies</h1>
+                    <h1 class="description center-align post-title">C++11新特性--nullPtr</h1>
                 </div>
             </div>
         </div>
@@ -539,12 +539,25 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/C-11/">
+                                <span class="chip bg-color">C++11</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/C-11%E6%96%B0%E7%89%B9%E6%80%A7/" class="post-category">
+                                C++11新特性
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -553,21 +566,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-04-19
+                    2022-04-20
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-04-19
+                    2022-04-20
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    378
                 </div>
                 
 
@@ -594,7 +607,82 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h2 id="空指针类型–nullptr"><a href="#空指针类型–nullptr" class="headerlink" title="空指针类型–nullptr"></a>空指针类型–nullptr</h2><p>在 C++ 程序开发中，为了提高程序的健壮性，一般会在定义指针的同时完成初始化操作，或者在指针的指向尚未明确的情况下，都会给指针初始化为<span style="color:red;background:背景颜色;font-size:文字大小;font-family:字体;">NULL</span> ，避免产生<span style="color:red;background:背景颜色;font-size:文字大小;font-family:字体;">野指针（没有明确指向的指针，操作也这种指针极可能导致程序发生异常）</span>。C++98/03 标准中，将一个指针初始化为空指针的方式有 2 种：</p>
+<pre class="line-numbers language-C++"><code class="language-C++">char *ptr = 0;
+char *ptr = NULL;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>在底层源码中 NULL 这个宏是这样定义的:</p>
+<pre class="line-numbers language-C++"><code class="language-C++">#ifndef NULL
+    #ifdef __cplusplus
+        #define NULL 0
+    #else
+        #define NULL ((void *)0)
+    #endif
+#endif
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>也就是说如果源码是 C++ 程序 <span style="color:red;background:背景颜色;font-size:文字大小;font-family:字体;">NULL</span> 就是<span style="color:red;background:背景颜色;font-size:文字大小;font-family:字体;">0</span> ，如果是 C 程序  <span style="color:red;background:背景颜色;font-size:文字大小;font-family:字体;">NULL</span>  表示  <span style="color:red;background:背景颜色;font-size:文字大小;font-family:字体;">(void*)0</span> 。那么为什么要这样做呢？ 是由于 C++ 中，<span style="color:red;background:背景颜色;font-size:文字大小;font-family:字体;">void *&nbsp;</span>  类型无法隐式转换为其他类型的指针，此时使用 <span style="color:red;background:背景颜色;font-size:文字大小;font-family:字体;">0</span>  代替 <span style="color:red;background:背景颜色;font-size:文字大小;font-family:字体;">((void *)0)</span> ，用于解决空指针的问题。这个 0（0x0000 0000）表示的就是虚拟地址空间中的 0 地址，这块地址是只读的。</p>
+<hr>
+<p>C++ 中将 NULL 定义为字面常量 0，并不能保证在所有场景下都能很好的工作，比如，函数重载时，NULL 和 0 无法区分：</p>
+<pre class="line-numbers language-C+_+"><code class="language-C+_+">#include <iostream>
+using namespace std;
+
+void func(char *p)
+{
+    cout << "void func(char *p)" << endl;
+}
+
+void func(int p)
+{
+    cout << "void func(int p)" << endl;
+}
+
+int main()
+{
+    func(NULL);   // 想要调用重载函数 void func(char *p)，但实际调用的是fun(0)
+    func(250);    // 想要调用重载函数 void func(int p)
+
+    return 0;
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>测试代码打印的结果为：</p>
+<pre class="line-numbers language-C++"><code class="language-C++">void func(int p)
+void func(int p)
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>通过打印的结果可以看到，虽然调用 <font color="red">func(NULL)</font>; 最终链接到的还是 <font color="red">void func(int p)</font> 和预期是不一样的，其实这个原因前边已经说的很明白了，在 C++ 中 <font color="red">NULL</font> 和 <font color="red">0</font> 是等价的。</p>
+<hr>
+<p>出于兼容性的考虑，C++11 标准并没有对 NULL 的宏定义做任何修改，而是另其炉灶，引入了一个新的关键字 <font color="orange">nullptr</font>。<font color="orange">nullptr专用于初始化空类型指针，不同类型的指针变量都可以使用 nullptr 来初始化 </font>：</p>
+<pre class="line-numbers language-c++"><code class="language-c++">int*    ptr1 = nullptr;
+char*   ptr2 = nullptr;
+double* ptr3 = nullptr;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>对应上面的代码编译器会分别将 <font color="red">nullptr</font> 隐式转换成<font color="red">int*</font>、<font color="red">char*</font>、以及 <font color="red">double*</font> 指针类型。</p>
+<p>使用 <font color="red">nullptr </font>可以很完美的解决上边提到的函数重载问题:</p>
+<pre class="line-numbers language-C++"><code class="language-C++">#include <iostream>
+using namespace std;
+
+void func(char *p)
+{
+    cout << "void func(char *p)" << endl;
+}
+
+void func(int p)
+{
+    cout << "void func(int p)" << endl;
+}
+
+int main()
+{
+    func(nullptr);
+    func(250);
+    return 0;
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>测试代码输出的结果:</p>
+<pre class="line-numbers language-c++"><code class="language-c++">void func(char *p)
+void func(int p)
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>通过输出的结果可以看出，<font color="red">nullptr 无法隐式转换为整形，但是可以隐式匹配指针类型。在 C++11 标准下，相比 NULL 和 0，使用 nullptr 初始化空指针可以令我们编写的程序更加健壮。</font></p>
+
                 
             </div>
             <hr/>
@@ -620,7 +708,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://ouyujia.github.io/movies/index.html">https://ouyujia.github.io/movies/index.html</a>
+                    <a href="https://ouyujia.github.io/2022/04/20/kong-zhi-zhen-lei-xing-nullptr/">https://ouyujia.github.io/2022/04/20/kong-zhi-zhen-lei-xing-nullptr/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -657,7 +745,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/C-11/">
+                                    <span class="chip bg-color">C++11</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -1095,39 +1187,49 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/movies/index.html">
+                <a href="/2022/04/20/chang-liang-biao-da-shi-constexpr/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="movies">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="C++11新特性--constexpr">
                         
-                        <span class="card-title">movies</span>
+                        <span class="card-title">C++11新特性--constexpr</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            C++11新特性，常量表达式--constexpr解析
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-19
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-04-20
+                        </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            欧阳
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/C-11%E6%96%B0%E7%89%B9%E6%80%A7/" class="post-category">
+                                    C++11新特性
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/C/">
+                        <span class="chip bg-color">C++</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -1135,22 +1237,22 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/movies/index.html">
+                <a href="/2022/04/19/zi-fu-chuan-yuan-shi-zi-mian-liang/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="movies">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="C++11新特性--原始字面量">
                         
-                        <span class="card-title">movies</span>
+                        <span class="card-title">C++11新特性--原始字面量</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            C++11新特性，原始字面量解析
                         
                     </div>
                     <div class="publish-info">
@@ -1159,13 +1261,24 @@
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            欧阳
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/C-11%E6%96%B0%E7%89%B9%E6%80%A7/" class="post-category">
+                                    C++11新特性
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/C-11/">
+                        <span class="chip bg-color">C++11</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
