@@ -6,7 +6,7 @@
   <link href="https://ouyujia.github.io/atom.xml" rel="self"/>
   
   <link href="https://ouyujia.github.io/"/>
-  <updated>2022-04-19T06:54:54.932Z</updated>
+  <updated>2022-04-20T05:57:26.275Z</updated>
   <id>https://ouyujia.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>ouy</title>
-    <link href="https://ouyujia.github.io/2022/04/19/ouy/"/>
-    <id>https://ouyujia.github.io/2022/04/19/ouy/</id>
-    <published>2022-04-19T06:52:55.000Z</published>
-    <updated>2022-04-19T06:54:54.932Z</updated>
+    <title>C++11新特性--原始字面量</title>
+    <link href="https://ouyujia.github.io/2022/04/19/c-11-yuan-shi-zi-mian-liang/"/>
+    <id>https://ouyujia.github.io/2022/04/19/c-11-yuan-shi-zi-mian-liang/</id>
+    <published>2022-04-19T12:26:02.000Z</published>
+    <updated>2022-04-20T05:57:26.275Z</updated>
     
     
       
@@ -29,16 +29,16 @@
         
         
     <summary type="html">&lt;hr&gt;
-&lt;h2 id=&quot;wo&quot;&gt;&lt;a href=&quot;#wo&quot; class=&quot;headerlink&quot; title=&quot;wo&quot;&gt;&lt;/a&gt;wo&lt;/h2&gt;&lt;pre class=&quot;line-numbers language-C++&quot;&gt;&lt;code</summary>
+&lt;h3 id=&quot;语法&quot;&gt;&lt;a href=&quot;#语法&quot; class=&quot;headerlink&quot; title=&quot;语法&quot;&gt;&lt;/a&gt;语法&lt;/h3&gt;&lt;p&gt;在 C++11 中添加了定义原始字符串的字面量，定义方式为：R “xxx(原始字符串)xxx”</summary>
         
       
     
     
     
-    <category term="C++" scheme="https://ouyujia.github.io/categories/C/"/>
+    <category term="C++11新特性" scheme="https://ouyujia.github.io/categories/C-11%E6%96%B0%E7%89%B9%E6%80%A7/"/>
     
     
-    <category term="C++" scheme="https://ouyujia.github.io/tags/C/"/>
+    <category term="C++11" scheme="https://ouyujia.github.io/tags/C-11/"/>
     
   </entry>
   
