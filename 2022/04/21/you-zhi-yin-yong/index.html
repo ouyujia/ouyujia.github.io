@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="galleries, 相遇之初">
-    <meta name="description" content="工作之余记录自己踩过的坑">
+    <meta name="keywords" content="C++11新特性--右值引用, 相遇之初">
+    <meta name="description" content="C++11新特性，右值和右值引用">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -19,7 +19,7 @@
 
     
 
-    <title>galleries | 相遇之初</title>
+    <title>C++11新特性--右值引用 | 相遇之初</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -420,12 +420,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/24.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/37.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">galleries</h1>
+                    <h1 class="description center-align post-title">C++11新特性--右值引用</h1>
                 </div>
             </div>
         </div>
@@ -539,12 +539,25 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/C-11%E6%96%B0%E7%89%B9%E6%80%A7/">
+                                <span class="chip bg-color">C++11新特性</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/C-11/" class="post-category">
+                                C++11
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -553,28 +566,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-04-19
+                    2022-04-21
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-04-19
+                    2022-04-21
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    603
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -594,7 +607,171 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h3 id="右值引用"><a href="#右值引用" class="headerlink" title="右值引用"></a>右值引用</h3><h4 id="右值"><a href="#右值" class="headerlink" title="右值"></a>右值</h4><p>C++11 增加了一个新的类型，称为<font color="orange">右值引用</font>（ R-value reference），标记为 <font color="orange">&amp;&amp;</font>。在介绍<font color="orange">右值引用</font>类型之前先要了解什么是<font color="orange">左值</font>和<font color="orange">右值</font>：</p>
+<ul>
+<li><font color="orange">lvalue </font>是 <font color="cornflowerblue">loactor value</font> 的缩写，<font color="orange">rvalue </font>是 <font color="orange">read value</font> 的缩写</li>
+<li><font color="orange">左值</font>是<font color="red">指存储在内存中、有明确存储地址（可取地址）的数据；</font></li>
+<li><font color="orange">右值</font>是<font color="red">指可以提供数据值的数据（不可取地址）</font></li>
+</ul>
+<p>通过描述可以看出，区分左值与右值的便捷方法是：<font color="red">可以对表达式取地址（&amp;）就是左值，否则为右值 </font>。<font color="orange">所有有名字的变量或对象都是左值，而右值是匿名的。</font></p>
+<pre class="line-numbers language-C++"><code class="language-C++">int a = 520;
+int b = 1314;
+a = b;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>一般情况下，位于<font color="orange"> =</font> 前的表达式为左值，位于 <font color="orange">= </font>后边的表达式为右值。也就是说例子中的<font color="orange"> a, b</font> 为左值，<font color="orange">520,1314 </font>为右值。<font color="orange">a=b</font> 是一种特殊情况，在这个表达式中<font color="orange"> a, b </font>都是左值，因为变量<font color="orange"> b</font> 是可以被取地址的，不能视为右值。</p>
+<hr>
+<p>C++11 中右值可以分为两种：一个是<font color="orange">将亡值</font>2（ xvalue, expiring value），另一个则是<font color="orange">纯右值</font>（ prvalue, PureRvalue）：</p>
+<p><font color="orange">纯右值</font>：<font color="red">非引用返回的临时变量、运算表达式产生的临时变量、原始字面量和 lambda 表达式等</font><br><font color="orange">将亡值</font>：<font color="red">与右值引用相关的表达式，比如，T&amp;&amp; 类型函数的返回值、 std::move 的返回值等。</font></p>
+<hr>
+<h4 id="右值引用-1"><a href="#右值引用-1" class="headerlink" title="右值引用"></a>右值引用</h4><p>右值引用就是对一个右值进行引用的类型。因为右值是匿名的，所以我们只能通过引用的方式找到它。<font color="orange">无论声明左值引用还是右值引用都必须立即进行初始化，因为引用类型本身并不拥有所绑定对象的内存，只是该对象的一个别名。通过右值引用的声明，该右值又“重获新生”</font>，<font color="red">其生命周期与右值引用类型变量的生命周期一样，只要该右值引用类型变量还活着，该右值临时量将会一直存活下去。</font></p>
+<p>关于右值引用的使用，参考代码如下：</p>
+<pre class="line-numbers language-C++"><code class="language-C++">#include <iostream>
+using namespace std;
+
+int&& value = 520;
+class Test
+{
+public:
+    Test()
+    {
+        cout << "construct: my name is jerry" << endl;
+    }
+    Test(const Test& a)
+    {
+        cout << "copy construct: my name is tom" << endl;
+    }
+};
+
+Test getObj()
+{
+    return Test();
+}
+
+int main()
+{
+    int a1;
+    int &&a2 = a1;        // error
+    Test& t = getObj();   // error
+    Test && t = getObj();
+    const Test& t = getObj();
+    return 0;
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>在上面的例子中<font color="orange"> int&amp;&amp; value = 520;</font> 里面<font color="orange"> 520 </font>是纯右值，<font color="orange">value </font>是对字面量 <font color="orange">520 </font>这个右值的引用。</li>
+<li>在 <font color="orange">int &amp;&amp;a2 = a1; </font>中 <font color="orange">a1</font> 虽然写在了 <font color="orange">= </font>右边，但是它仍然是一个左值，<font color="orange">使用左值初始化一个右值引用类型是不合法的。</font></li>
+<li>在 <font color="orange">Test&amp; t = getObj()</font> 这句代码中语法是错误的，<font color="orange">右值不能给普通的左值引用赋值。</font></li>
+<li>在 <font color="orange">Test &amp;&amp; t = getObj();</font> 中 <font color="orange">getObj() </font>返回的<font color="orange">临时对象</font>被称之为<font color="orange">将亡值</font>，<font color="orange">t </font>是这个<font color="orange">将亡值</font>的右值引用。</li>
+<li><font color="orange">const Test&amp; t = getObj() </font>这句代码的语法是正确的，<font color="orange">常量左值引用是一个万能引用类型，它可以接受左值、右值、常量左值和常量右值。</font></li>
+</ul>
+<h3 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h3><p>在 C++ 中在进行对象赋值操作的时候，很多情况下会发生对象之间的深拷贝，如果堆内存很大，这个拷贝的代价也就非常大，在某些情况下，如果想要<font color="orange">避免对象的深拷贝，就可以使用右值引用进行性能的优化</font>。</p>
+<p>再来修改一下上面的实例代码：</p>
+<pre class="line-numbers language-C++"><code class="language-C++">#include <iostream>
+using namespace std;
+
+class Test
+{
+public:
+    Test() : m_num(new int(100))
+    {
+        cout << "construct: my name is jerry" << endl;
+    }
+
+    Test(const Test& a) : m_num(new int(*a.m_num))
+    {
+        cout << "copy construct: my name is tom" << endl;
+    }
+
+    ~Test()
+    {
+        delete m_num;
+    }
+
+    int* m_num;
+};
+
+Test getObj()
+{
+    Test t;
+    return t;
+}
+
+int main()
+{
+    Test t = getObj();
+    cout << "t.m_num: " << *t.m_num << endl;
+    return 0;
+};
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>测试代码执行的结果为:</p>
+<pre class="line-numbers language-C++"><code class="language-C++">construct: my name is jerry
+copy construct: my name is tom
+t.m_num: 100
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>通过输出的结果可以看到调用 <font color="orange">Test t = getObj();</font> 的时候调用拷贝构造函数对返回的临时对象进行了深拷贝得到了对象 <font color="orange">t</font>，在<font color="orange"> getObj()</font> 函数中创建的对象虽然进行了内存的申请操作，但是没有使用就释放掉了。如果能够使用临时对象已经申请的资源，既能节省资源，还能节省资源申请和释放的时间，如果要执行这样的操作就需要使用右值引用了，<font color="red">右值引用具有移动语义，移动语义可以将资源（堆、系统对象等）通过浅拷贝从一个对象转移到另一个对象这样就能减少不必要的临时对象的创建、拷贝以及销毁，可以大幅提高 C++ 应用程序的性能。</font></p>
+<hr>
+<pre class="line-numbers language-C++"><code class="language-C++">#include <iostream>
+using namespace std;
+
+class Test
+{
+public:
+    Test() : m_num(new int(100))
+    {
+        cout << "construct: my name is jerry" << endl;
+    }
+
+    Test(const Test& a) : m_num(new int(*a.m_num))
+    {
+        cout << "copy construct: my name is tom" << endl;
+    }
+
+    // 添加移动构造函数
+    Test(Test&& a) : m_num(a.m_num)
+    {
+        a.m_num = nullptr;
+        cout << "move construct: my name is sunny" << endl;
+    }
+
+    ~Test()
+    {
+        delete m_num;
+        cout << "destruct Test class ..." << endl;
+    }
+
+    int* m_num;
+};
+
+Test getObj()
+{
+    Test t;
+    return t;
+}
+
+int main()
+{
+    Test t = getObj();
+    cout << "t.m_num: " << *t.m_num << endl;
+    return 0;
+};
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>测试代码执行的结果如下:</p>
+<pre class="line-numbers language-C++"><code class="language-C++">construct: my name is jerry
+move construct: my name is sunny
+destruct Test class ...
+t.m_num: 100
+destruct Test class ...
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>通过修改，在上面的代码给 <font color="orange">Test </font>类添加了<font color="orange">移动构造函数（参数为右值引用类型）</font>，这样在进行 <font color="orange">Test t = getObj(); </font>操作的时候并没有调用拷贝构造函数进行深拷贝，而是调用了移动构造函数，在这个函数中只是进行了浅拷贝，没有对临时对象进行深拷贝，提高了性能。</p>
+<p>如果不使用移动构造，<font color="orange"><del>也没有提供深拷贝构造函数</del></font>，在执行<font color="orange"> Test t = getObj() </font>的时候也是进行了浅拷贝，但是当临时对象被析构的时候，类成员指针 <font color="orange">int* m_num;</font> 指向的内存也就被析构了，对象 t 也就无法访问这块内存地址了。</p>
+<p>在测试程序中 <font color="orange">getObj() </font>的返回值就是一个将亡值，也就是说是一个右值，在进行赋值操作的时候如果 <font color="orange">= </font>右边是一个右值，那么移动构造函数就会被调用。<font color="orange">移动构造中使用了右值引用，会将临时对象中的堆内存地址的所有权转移给对象t，这块内存被成功续命，因此在t对象中还可以继续使用这块内存。</font></p>
+<hr>
+<blockquote>
+<p><font color="red">对于需要动态申请大量资源的类，应该设计移动构造函数，以提高程序效率。需要注意的是，我们一般在提供移动构造函数的同时，也会提供常量左值引用的拷贝构造函数，以保证移动不成还可以使用拷贝构造函数</font><font color="red">。</font></p>
+</blockquote>
+<h3 id="amp-amp-的特性"><a href="#amp-amp-的特性" class="headerlink" title="&amp;&amp;的特性"></a>&amp;&amp;的特性</h3><p>在 C++ 中，并不是所有情况下 &amp;&amp; 都代表是一个右值引用，具体的场景体现在模板和自动类型推导中，如果是模板参数需要指定为 T&amp;&amp;，如果是自动类型推导需要指定为 auto &amp;&amp;，在这两种场景下 &amp;&amp; 被称作未定的引用类型。另外还有一点需要额外注意 const T&amp;&amp; 表示一个右值引用，不是未定引用类型。</p>
+<p>先来看第一个例子，在函数模板中使用 &amp;&amp;:</p>
+
                 
             </div>
             <hr/>
@@ -620,7 +797,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://ouyujia.github.io/galleries/index.html">https://ouyujia.github.io/galleries/index.html</a>
+                    <a href="https://ouyujia.github.io/2022/04/21/you-zhi-yin-yong/">https://ouyujia.github.io/2022/04/21/you-zhi-yin-yong/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -657,7 +834,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/C-11%E6%96%B0%E7%89%B9%E6%80%A7/">
+                                    <span class="chip bg-color">C++11新特性</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -1100,34 +1281,46 @@
                 <i class="far fa-dot-circle"></i>&nbsp;本篇
             </div>
             <div class="card">
-                <a href="/galleries/index.html">
+                <a href="/2022/04/21/you-zhi-yin-yong/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/24.jpg" class="responsive-img" alt="galleries">
+                        <img src="/medias/featureimages/37.jpg" class="responsive-img" alt="C++11新特性--右值引用">
                         
-                        <span class="card-title">galleries</span>
+                        <span class="card-title">C++11新特性--右值引用</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            C++11新特性，右值和右值引用
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-19
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-21
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            欧阳
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/C-11/" class="post-category">
+                                    C++11
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
 
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/C-11%E6%96%B0%E7%89%B9%E6%80%A7/">
+                        <span class="chip bg-color">C++11新特性</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -1135,37 +1328,48 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/galleries/index.html">
+                <a href="/2022/04/20/zi-dong-lei-xing-tui-dao-auto-decltype/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/24.jpg" class="responsive-img" alt="galleries">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="C++11新特性--自动类型推导">
                         
-                        <span class="card-title">galleries</span>
+                        <span class="card-title">C++11新特性--自动类型推导</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            C++11新特性，自动类型推导--auto、decltype
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-19
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-20
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            欧阳
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/C-11%E6%96%B0%E7%89%B9%E6%80%A7/" class="post-category">
+                                    C++11新特性
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/C-11/">
+                        <span class="chip bg-color">C++11</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>

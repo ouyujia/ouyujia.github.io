@@ -6,7 +6,7 @@
   <link href="https://ouyujia.github.io/atom.xml" rel="self"/>
   
   <link href="https://ouyujia.github.io/"/>
-  <updated>2022-04-21T10:07:02.896Z</updated>
+  <updated>2022-04-21T11:41:32.646Z</updated>
   <id>https://ouyujia.github.io/</id>
   
   <author>
@@ -17,11 +17,36 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>自动类型推导--auto、decltype</title>
+    <title>C++11新特性--右值引用</title>
+    <link href="https://ouyujia.github.io/2022/04/21/you-zhi-yin-yong/"/>
+    <id>https://ouyujia.github.io/2022/04/21/you-zhi-yin-yong/</id>
+    <published>2022-04-21T10:18:44.000Z</published>
+    <updated>2022-04-21T11:41:32.646Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;右值引用&quot;&gt;&lt;a href=&quot;#右值引用&quot; class=&quot;headerlink&quot; title=&quot;右值引用&quot;&gt;&lt;/a&gt;右值引用&lt;/h3&gt;&lt;h4 id=&quot;右值&quot;&gt;&lt;a href=&quot;#右值&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="C++11" scheme="https://ouyujia.github.io/categories/C-11/"/>
+    
+    
+    <category term="C++11新特性" scheme="https://ouyujia.github.io/tags/C-11%E6%96%B0%E7%89%B9%E6%80%A7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C++11新特性--自动类型推导</title>
     <link href="https://ouyujia.github.io/2022/04/20/zi-dong-lei-xing-tui-dao-auto-decltype/"/>
     <id>https://ouyujia.github.io/2022/04/20/zi-dong-lei-xing-tui-dao-auto-decltype/</id>
     <published>2022-04-20T10:37:36.000Z</published>
-    <updated>2022-04-21T10:07:02.896Z</updated>
+    <updated>2022-04-21T10:17:35.733Z</updated>
     
     
       
