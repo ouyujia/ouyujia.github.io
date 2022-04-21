@@ -6,7 +6,7 @@
   <link href="https://ouyujia.github.io/atom.xml" rel="self"/>
   
   <link href="https://ouyujia.github.io/"/>
-  <updated>2022-04-20T11:27:47.460Z</updated>
+  <updated>2022-04-21T10:07:02.896Z</updated>
   <id>https://ouyujia.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>自动类型推导--&lt;font color=&#39;orange&#39;&gt;`auto`&lt;/font&gt;、decltype</title>
-    <link href="https://ouyujia.github.io/2022/04/20/zi-dong-lei-xing-tui-dao-auto/"/>
-    <id>https://ouyujia.github.io/2022/04/20/zi-dong-lei-xing-tui-dao-auto/</id>
+    <title>自动类型推导--auto、decltype</title>
+    <link href="https://ouyujia.github.io/2022/04/20/zi-dong-lei-xing-tui-dao-auto-decltype/"/>
+    <id>https://ouyujia.github.io/2022/04/20/zi-dong-lei-xing-tui-dao-auto-decltype/</id>
     <published>2022-04-20T10:37:36.000Z</published>
-    <updated>2022-04-20T11:27:47.460Z</updated>
+    <updated>2022-04-21T10:07:02.896Z</updated>
     
     
       
