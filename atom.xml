@@ -6,7 +6,7 @@
   <link href="https://ouyujia.github.io/atom.xml" rel="self"/>
   
   <link href="https://ouyujia.github.io/"/>
-  <updated>2022-04-20T10:24:37.752Z</updated>
+  <updated>2022-04-20T11:27:47.460Z</updated>
   <id>https://ouyujia.github.io/</id>
   
   <author>
@@ -17,11 +17,36 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>自动类型推导--&lt;font color=&#39;orange&#39;&gt;`auto`&lt;/font&gt;、decltype</title>
+    <link href="https://ouyujia.github.io/2022/04/20/zi-dong-lei-xing-tui-dao-auto/"/>
+    <id>https://ouyujia.github.io/2022/04/20/zi-dong-lei-xing-tui-dao-auto/</id>
+    <published>2022-04-20T10:37:36.000Z</published>
+    <updated>2022-04-20T11:27:47.460Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;在 C++11 中增加了很多新的特性，比如可以使用 &lt;font color=&quot;orange&quot;&gt;&lt;code&gt;auto&lt;/code&gt;&lt;/font&gt; 自动推导变量的类型，还能够结合 &lt;font</summary>
+        
+      
+    
+    
+    
+    <category term="C++11新特性" scheme="https://ouyujia.github.io/categories/C-11%E6%96%B0%E7%89%B9%E6%80%A7/"/>
+    
+    
+    <category term="C++11" scheme="https://ouyujia.github.io/tags/C-11/"/>
+    
+  </entry>
+  
+  <entry>
     <title>C++11新特性--constexpr</title>
     <link href="https://ouyujia.github.io/2022/04/20/chang-liang-biao-da-shi-constexpr/"/>
     <id>https://ouyujia.github.io/2022/04/20/chang-liang-biao-da-shi-constexpr/</id>
     <published>2022-04-20T09:27:12.000Z</published>
-    <updated>2022-04-20T10:24:37.752Z</updated>
+    <updated>2022-04-20T10:40:29.363Z</updated>
     
     
       
@@ -37,7 +62,7 @@
     <category term="C++11新特性" scheme="https://ouyujia.github.io/categories/C-11%E6%96%B0%E7%89%B9%E6%80%A7/"/>
     
     
-    <category term="C++" scheme="https://ouyujia.github.io/tags/C/"/>
+    <category term="C++11" scheme="https://ouyujia.github.io/tags/C-11/"/>
     
   </entry>
   
@@ -96,7 +121,7 @@
     <link href="https://ouyujia.github.io/2022/04/15/markdown-jiao-cheng/"/>
     <id>https://ouyujia.github.io/2022/04/15/markdown-jiao-cheng/</id>
     <published>2022-04-14T16:00:00.000Z</published>
-    <updated>2022-04-20T09:52:26.917Z</updated>
+    <updated>2022-04-20T10:32:23.099Z</updated>
     
     
       

@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="books, 相遇之初">
-    <meta name="description" content="工作之余记录自己踩过的坑">
+    <meta name="keywords" content="自动类型推导--&lt;font color=&#39;orange&#39;&gt;`auto`&lt;/font&gt;、decltype, 相遇之初">
+    <meta name="description" content="C++11新特性，自动类型推导--auto、decltype">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -19,7 +19,7 @@
 
     
 
-    <title>books | 相遇之初</title>
+    <title>自动类型推导--&lt;font color=&#39;orange&#39;&gt;`auto`&lt;/font&gt;、decltype | 相遇之初</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -420,12 +420,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/30.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">books</h1>
+                    <h1 class="description center-align post-title">自动类型推导--&lt;font color=&#39;orange&#39;&gt;`auto`&lt;/font&gt;、decltype</h1>
                 </div>
             </div>
         </div>
@@ -539,12 +539,25 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/C-11/">
+                                <span class="chip bg-color">C++11</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/C-11%E6%96%B0%E7%89%B9%E6%80%A7/" class="post-category">
+                                C++11新特性
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -553,28 +566,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-04-19
+                    2022-04-20
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-04-19
+                    2022-04-20
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    876
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    3 分
                 </div>
                 
 
@@ -594,7 +607,87 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <p>在 C++11 中增加了很多新的特性，比如可以使用 <font color="orange"><code>auto</code></font> 自动推导变量的类型，还能够结合 <font color="orange"><code>decltype</code></font> 来表示函数的返回值。使用新的特性可以让我们写出更加简洁，更加现代的代码。</p>
+<h2 id="auto"><a href="#auto" class="headerlink" title="auto"></a>auto</h2><p>在 C++11 之前 <font color="orange"><code>auto</code></font> 和<font color="orange"> <code>static</code> </font>是对应的，表示变量是自动存储的，但是非 static 的局部变量默认都是自动存储的，因此这个关键字变得非常鸡肋，在 C++11 中他们赋予了新的含义，使用这个关键字能够像别的语言一样<font color="red"><code>自动推导出变量的实际类型</code></font>。</p>
+<h4 id="推导规则"><a href="#推导规则" class="headerlink" title="推导规则"></a>推导规则</h4><p>C++11 中 <font color="orange"><code>auto</code></font> 并不代表一种实际的数据类型，只是一个类型声明的 <font color="cornflowerblue"><code>“占位符”</code></font>，<font color="orange"><code>auto</code></font> 并不是万能的在任意场景下都能够推导出变量的实际类型，<font color="red">使用auto声明的变量必须要进行初始化，以让编译器推导出它的实际类型，在编译时将auto占位符替换为真正的类型</font>。使用语法如下：</p>
+<pre class="line-numbers language-C++"><code class="language-C++"><font color='orange'>`auto`</font> 变量名 = 变量值;
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<hr>
+<p>根据上述语法，来列举一些简单的例子：</p>
+<pre class="line-numbers language-C++"><code class="language-C++"><font color='orange'>`auto`</font> x = 3.14;      // x 是浮点型 double
+<font color='orange'>`auto`</font> y = 520;       // y 是整形 int
+<font color='orange'>`auto`</font> z = 'a';       // z 是字符型 char
+<font color='orange'>`auto`</font> nb;            // error，变量必须要初始化
+<font color='orange'>`auto`</font> double nbl;    // 语法错误, 不能修改数据类型   
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>不仅如此，<font color="orange"><code>auto</code></font> 还可以和<font color="orange"><code>指针</code></font>、<font color="orange"><code>引用</code></font>结合起来使用也可以带上 <font color="orange"><code>const</code></font>、<font color="orange"><code>volatile</code></font> 限定符，在不同的场景下有对应的推导规则，规则内容如下：</p>
+<ul>
+<li><font color="red">当变量不是指针或者引用类型时，推导的结果中不会保留 const、volatile 关键字</font></li>
+<li><font color="red">当变量是指针或者引用类型时，推导的结果中会保留 const、volatile 关键字</font></li>
+</ul>
+<hr>
+<p>先来看一组变量带指针和引用并使用 <font color="orange"><code>auto</code></font> 进行类型推导的例子：</p>
+<pre class="line-numbers language-C++"><code class="language-C++">int temp = 110;
+<font color='orange'>`auto`</font> *a = &temp;	
+<font color='orange'>`auto`</font> b = &temp;		
+<font color='orange'>`auto`</font> &c = temp;		
+<font color='orange'>`auto`</font> d = temp;		
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>变量 <font color="orange"><code>a</code> </font>的数据类型为<font color="orange"><code>int*</code></font>，因此 <font color="orange"><code>auto</code></font>  关键字被推导为 <font color="orange"><code>int类型</code></font><br>变量 <font color="orange"><code>b</code> </font>的数据类型为 <font color="orange"><code>int*</code></font>，因此 <font color="orange"><code>auto</code></font> 关键字被推导为  <font color="orange"><code>int*</code></font> 类型<br>变量 <font color="orange"><code>c</code> </font> 的数据类型为<font color="orange"> int&amp;</font>，因此 <font color="orange"><code>auto</code></font> 关键字被推导为  <font color="orange"><code>int类型</code></font><br>变量 <font color="orange"><code>d</code> </font> 的数据类型为 <font color="orange"><code>int</code></font>，因此 <font color="orange"><code>auto</code></font> 关键字被推导为  <font color="orange"><code>int</code></font>类型</p>
+<p>在来看一组带 <font color="orange"><code>const</code></font> 限定的变量，使用 <font color="orange"><code>auto</code></font> 进行类型推导的例子:</p>
+<pre class="line-numbers language-C++"><code class="language-C++">int tmp = 250;
+const <font color='orange'>`auto`</font> a1 = tmp;
+<font color='orange'>`auto`</font> a2 = a1;
+const <font color='orange'>`auto`</font> &a3 = tmp;
+<font color='orange'>`auto`</font> &a4 = a3;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>变量 <font color="orange"><code>a1</code> </font> 的数据类型为 <font color="orange"><code>const int</code></font>，因此 <font color="orange"><code>auto</code></font> 关键字被推导为 <font color="orange"><code>int</code></font> 类型<br>变量 <font color="orange"><code>a2</code> </font> 的数据类型为  <font color="orange"><code>int</code></font> ，但是 <font color="orange"><code>a2</code> </font> 没有声明为指针或引用因此 <font color="orange"><code>const</code></font>  属性被去掉，<font color="orange"><code>auto</code></font> 被推导为 <font color="orange"><code>int</code></font> 类型<br>变量 <font color="orange"><code>a3</code> </font>的数据类型为  <font color="orange"><code>const int&amp;</code></font> ，<font color="orange"><code>a2</code> </font>被声明为引用因此 <font color="orange"><code>const</code></font>属性被保留，<font color="orange"><code>auto</code></font> 关键字被推导为 <font color="orange"><code>int</code></font>  类型<br>变量 <font color="orange"><code>a4</code> </font> 的数据类型为 <font color="orange"><code>const int&amp;</code></font> ，<font color="orange"><code>a2</code> </font> 被声明为引用因此 <font color="orange"><code>const</code></font>属性被保留，<font color="orange"><code>auto</code></font> 关键字被推导为 <font color="orange"><code>const int</code></font> 类型</p>
+<hr>
+<h4 id="auto的限制"><a href="#auto的限制" class="headerlink" title="auto的限制"></a>auto的限制</h4><p><font color="orange"><code>auto</code></font> 关键字并不是万能的，在以下这些场景中是不能完成类型推导的：</p>
+<ul>
+<li>不能作为函数参数使用。因为<font color="red"><code>只有在函数调用的时候才会给函数参数传递实参(auto没有在定义时初始化)</code></font>，<font color="orange"><code>auto</code></font> 要求必须要给修饰的变量赋值，因此二者矛盾。</li>
+</ul>
+<pre class="line-numbers language-C++"><code class="language-C++">int func(auto a, auto b)	// error
+{	
+    cout << "a: " << a <<", b: " << b << endl;
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>不能用于类的非静态成员变量的初始化<font color="red"><code>（类的静态非常量成员不允许在类内部直接初始化</code>）</font></li>
+</ul>
+<pre class="line-numbers language-C++"><code class="language-C++">class Test
+{
+    auto v1 = 0;                    // error
+    static auto v2 = 0;             // error,类的静态非常量成员不允许在类内部直接初始化
+    static const auto v3 = 10;      // ok
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>不能使用<font color="orange"><code>auto</code></font> 关键字定义数组</li>
+</ul>
+<pre class="line-numbers language-C++"><code class="language-C++">int func()
+{
+    int array[] = {1,2,3,4,5};  // 定义数组
+    auto t1 = array;            // ok, t1被推导为 int* 类型
+    auto t2[] = array;          // error, auto无法定义数组
+    auto t3[] = {1,2,3,4,5};;   // error, auto无法定义数组
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>无法使用 auto 推导出模板参数</li>
+</ul>
+<pre class="line-numbers language-C++"><code class="language-C++">template <typename T>
+struct Test{}
+
+int func()
+{
+    Test<double> t;
+    Test<auto> t1 = t;           // error, 无法推导出模板类型
+    return 0;
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="auto的应用"><a href="#auto的应用" class="headerlink" title="auto的应用"></a>auto的应用</h4><p>了解了 <font color="orange"><code>auto</code></font> 的限制之后，我们就可以避开这些场景快乐的编程了，下面列举几个比较常用的场景：</p>
+
                 
             </div>
             <hr/>
@@ -620,7 +713,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://ouyujia.github.io/books/index.html">https://ouyujia.github.io/books/index.html</a>
+                    <a href="https://ouyujia.github.io/2022/04/20/zi-dong-lei-xing-tui-dao-auto/">https://ouyujia.github.io/2022/04/20/zi-dong-lei-xing-tui-dao-auto/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -657,7 +750,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/C-11/">
+                                    <span class="chip bg-color">C++11</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -1100,34 +1197,46 @@
                 <i class="far fa-dot-circle"></i>&nbsp;本篇
             </div>
             <div class="card">
-                <a href="/books/index.html">
+                <a href="/2022/04/20/zi-dong-lei-xing-tui-dao-auto/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="books">
+                        <img src="/medias/featureimages/30.jpg" class="responsive-img" alt="自动类型推导--&lt;font color=&#39;orange&#39;&gt;`auto`&lt;/font&gt;、decltype">
                         
-                        <span class="card-title">books</span>
+                        <span class="card-title">自动类型推导--&lt;font color=&#39;orange&#39;&gt;`auto`&lt;/font&gt;、decltype</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            C++11新特性，自动类型推导--auto、decltype
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-19
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-20
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            欧阳
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/C-11%E6%96%B0%E7%89%B9%E6%80%A7/" class="post-category">
+                                    C++11新特性
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
 
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/C-11/">
+                        <span class="chip bg-color">C++11</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -1135,37 +1244,48 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/books/index.html">
+                <a href="/2022/04/20/chang-liang-biao-da-shi-constexpr/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="books">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="C++11新特性--constexpr">
                         
-                        <span class="card-title">books</span>
+                        <span class="card-title">C++11新特性--constexpr</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            C++11新特性，常量表达式--constexpr解析
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-19
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-20
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            欧阳
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/C-11%E6%96%B0%E7%89%B9%E6%80%A7/" class="post-category">
+                                    C++11新特性
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/C-11/">
+                        <span class="chip bg-color">C++11</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
