@@ -553,8 +553,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/C-11/" class="post-category">
-                                C++11
+                            <a href="/categories/C-11%E6%96%B0%E7%89%B9%E6%80%A7/" class="post-category">
+                                C++11新特性
                             </a>
                         
                     </div>
@@ -573,14 +573,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-04-21
+                    2022-04-22
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    603
+                    602
                 </div>
                 
 
@@ -620,7 +620,7 @@ a = b;
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>一般情况下，位于<font color="orange"> =</font> 前的表达式为左值，位于 <font color="orange">= </font>后边的表达式为右值。也就是说例子中的<font color="orange"> a, b</font> 为左值，<font color="orange">520,1314 </font>为右值。<font color="orange">a=b</font> 是一种特殊情况，在这个表达式中<font color="orange"> a, b </font>都是左值，因为变量<font color="orange"> b</font> 是可以被取地址的，不能视为右值。</p>
 <hr>
-<p>C++11 中右值可以分为两种：一个是<font color="orange">将亡值</font>2（ xvalue, expiring value），另一个则是<font color="orange">纯右值</font>（ prvalue, PureRvalue）：</p>
+<p>C++11 中右值可以分为两种：一个是<font color="orange">将亡值</font>（ xvalue, expiring value），另一个则是<font color="orange">纯右值</font>（ prvalue, PureRvalue）：</p>
 <p><font color="orange">纯右值</font>：<font color="red">非引用返回的临时变量、运算表达式产生的临时变量、原始字面量和 lambda 表达式等</font><br><font color="orange">将亡值</font>：<font color="red">与右值引用相关的表达式，比如，T&amp;&amp; 类型函数的返回值、 std::move 的返回值等。</font></p>
 <hr>
 <h4 id="右值引用-1"><a href="#右值引用-1" class="headerlink" title="右值引用"></a>右值引用</h4><p>右值引用就是对一个右值进行引用的类型。因为右值是匿名的，所以我们只能通过引用的方式找到它。<font color="orange">无论声明左值引用还是右值引用都必须立即进行初始化，因为引用类型本身并不拥有所绑定对象的内存，只是该对象的一个别名。通过右值引用的声明，该右值又“重获新生”</font>，<font color="red">其生命周期与右值引用类型变量的生命周期一样，只要该右值引用类型变量还活着，该右值临时量将会一直存活下去。</font></p>
@@ -769,8 +769,109 @@ destruct Test class ...
 <blockquote>
 <p><font color="red">对于需要动态申请大量资源的类，应该设计移动构造函数，以提高程序效率。需要注意的是，我们一般在提供移动构造函数的同时，也会提供常量左值引用的拷贝构造函数，以保证移动不成还可以使用拷贝构造函数</font><font color="red">。</font></p>
 </blockquote>
-<h3 id="amp-amp-的特性"><a href="#amp-amp-的特性" class="headerlink" title="&amp;&amp;的特性"></a>&amp;&amp;的特性</h3><p>在 C++ 中，并不是所有情况下 &amp;&amp; 都代表是一个右值引用，具体的场景体现在模板和自动类型推导中，如果是模板参数需要指定为 T&amp;&amp;，如果是自动类型推导需要指定为 auto &amp;&amp;，在这两种场景下 &amp;&amp; 被称作未定的引用类型。另外还有一点需要额外注意 const T&amp;&amp; 表示一个右值引用，不是未定引用类型。</p>
-<p>先来看第一个例子，在函数模板中使用 &amp;&amp;:</p>
+<h3 id="amp-amp-的特性"><a href="#amp-amp-的特性" class="headerlink" title="&amp;&amp;的特性"></a>&amp;&amp;的特性</h3><p>在 C++ 中，并不是所有情况下 <font color="orange">&amp;&amp;</font> 都代表是一个右值引用，具体的场景体现在模板和自动类型推导中，如果是模板参数需要指定为<font color="orange"> T&amp;&amp;</font>，如果是自动类型推导需要指定为 <font color="orange">auto &amp;&amp;</font>，在这两种场景下 <font color="orange">&amp;&amp; </font>被称作<font color="orange">未定的引用类型</font>。另外还有一点需要额外注意 <font color="orange">const T&amp;&amp;</font> 表示一个右值引用，不是未定引用类型。</p>
+<p>先来看第一个例子，在函数模板中使用<font color="orange"> &amp;&amp;</font>:</p>
+<pre class="line-numbers language-C++"><code class="language-C++">template<typename T>
+void f(T&& param);
+void f1(const T&& param);
+f(10); 	
+int x = 10;
+f(x); 
+f1(x);
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>在上面的例子中函数模板进行了自动类型推导，需要通过传入的实参来确定参数 param 的实际类型。</p>
+<ul>
+<li>第 4 行中，对于<font color="orange"> f(10) </font>来说传入的实参 10 是右值，因此 <font color="orange">T&amp;&amp;</font> 表示右值引用</li>
+<li>第 6 行中，对于 <font color="orange">f(x)</font> 来说传入的实参是 x 是左值，因此 <font color="orange">T&amp;&amp; </font>表示左值引用</li>
+<li>第 7 行中，<font color="orange">f1(x) </font>的参数是 <font color="orange">const T&amp;&amp;</font> 不是未定引用类型，不需要推导，本身就表示一个右值引用</li>
+</ul>
+<p>再来看第二个例子:</p>
+<pre class="line-numbers language-C++"><code class="language-C++">int main()
+{
+    int x = 520, y = 1314;
+    auto&& v1 = x;
+    auto&& v2 = 250;
+    decltype(x)&& v3 = y;   // error
+    cout << "v1: " << v1 << ", v2: " << v2 << endl;
+    return 0;
+};
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>第 4 行中 <font color="orange">auto&amp;&amp; </font>表示一个整形的左值引用</li>
+<li>第 5 行中 <font color="orange">auto&amp;&amp;</font> 表示一个整形的右值引用</li>
+<li>第 6 行中 <font color="orange">decltype(x)&amp;&amp;</font> 等价于 <font color="orange">int&amp;</font>&amp; 是一个右值引用不是未定引用类型，y 是一个左值，<font color="orange">不能使用左值初始化一个右值引用类型。</font></li>
+</ul>
+<p>由于上述代码中存在 <font color="orange">T&amp;&amp; </font>或者 <font color="orange">auto&amp;&amp;</font> 这种未定引用类型，当它作为参数时，有可能被一个右值引用初始化，也有可能被一个左值引用初始化，在进行类型推导时右值引用类型（&amp;&amp;）会发生变化，这种变化被称为<font color="orange">引用折叠</font>。在 C++11 中引用折叠的规则如下：</p>
+<ul>
+<li><font color="red">通过右值推导 T&amp;&amp; 或者 auto&amp;&amp; 得到的是一个右值引用类型</font></li>
+<li><font color="red">通过非右值（右值引用、左值、左值引用、常量右值引用、常量左值引用）推导 T&amp;&amp; 或者 auto&amp;&amp; 得到的是一个左值引用类型</font></li>
+</ul>
+<pre class="line-numbers language-C++"><code class="language-C++">int&& a1 = 5;
+auto&& bb = a1;
+auto&& bb1 = 5;
+
+int a2 = 5;
+int &a3 = a2;
+auto&& cc = a3;
+auto&& cc1 = a2;
+
+const int& s1 = 100;
+const int&& s2 = 100;
+auto&& dd = s1;
+auto&& ee = s2;
+
+const auto&& x = 5;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>第 2 行：<font color="orange">a1 </font>为右值引用，推导出的 <font color="orange">bb </font>为<font color="orange">左值引用</font>类型</li>
+<li>第 3 行：<font color="orange">5 </font>为右值，推导出的 <font color="orange">bb1 </font>为<font color="orange">右值引用</font>类型</li>
+<li>第 7 行：<font color="orange">a3 </font>为左值引用，推导出的 <font color="orange">cc </font>为<font color="orange">左值引用</font>类型</li>
+<li>第 8 行：<font color="orange">a2 </font>为左值，推导出的 <font color="orange">cc1 </font>为<font color="orange">左值引用</font>类型</li>
+<li>第 12 行：<font color="orange">s1 </font>为常量左值引用，推导出的 <font color="orange">dd </font>为<font color="orange">常量左值引用</font>类型</li>
+<li>第 13 行：<font color="orange">s2 </font>为常量右值引用，推导出的 <font color="orange">ee </font>为<font color="orange">常量左值引用</font>类型</li>
+<li>第 15 行：<font color="orange">x </font>为右值引用，不需要推导，只能通过右值初始化</li>
+</ul>
+<pre class="line-numbers language-C++"><code class="language-C++">#include <iostream>
+using namespace std;
+
+void printValue(int &i)
+{
+    cout << "l-value: " << i << endl;
+}
+
+void printValue(int &&i)
+{
+    cout << "r-value: " << i << endl;
+}
+
+void forward(int &&k)
+{
+    printValue(k);
+}
+
+int main()
+{
+    int i = 520;
+    printValue(i);
+    printValue(1314);
+    forward(250);
+
+    return 0;
+};
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>测试代码输出的结果如下:</p>
+<pre class="line-numbers language-C++"><code class="language-C++">l-value: 520
+r-value: 1314
+l-value: 250
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>根据测试代码可以得知，编译器会根据传入的参数的类型（左值还是右值）调用对应的重置函数（printValue），函数 <font color="orange">forward ()</font> 接收的是一个右值，但是在这个函数中调用函数 printValue () 时，参数 <font color="orange">k </font>变成了一个命名对象，编译器会将其当做左值来处理。</p>
+<p>最后总结一下关于 &amp;&amp; 的使用：</p>
+<ul>
+<li><font color="red">左值和右值是独立于他们的类型的，右值引用类型可能是左值也可能是右值。</font></li>
+<li><font color="red">编译器会将已命名的右值引用视为左值，将未命名的右值引用视为右值。</font></li>
+<li><font color="red">auto&amp;&amp;或者函数参数类型自动推导的T&amp;&amp;是一个未定的引用类型，它可能是左值引用也可能是右值引用类型，这取决于初始化的值类型（上面有例子）。</font></li>
+<li><font color="red">通过右值推导 T&amp;&amp; 或者 auto&amp;&amp; 得到的是一个右值引用类型，其余都是左值引用类型。</font></li>
+</ul>
 
                 
             </div>
@@ -1304,8 +1405,8 @@ destruct Test class ...
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/C-11/" class="post-category">
-                                    C++11
+                            <a href="/categories/C-11%E6%96%B0%E7%89%B9%E6%80%A7/" class="post-category">
+                                    C++11新特性
                                 </a>
                             
                             
@@ -1331,7 +1432,7 @@ destruct Test class ...
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/04/20/zi-dong-lei-xing-tui-dao-auto-decltype/">
+                <a href="/2022/04/20/zi-dong-lei-xing-tui-dao/">
                     <div class="card-image">
                         
                         
@@ -1365,8 +1466,8 @@ destruct Test class ...
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/C-11/">
-                        <span class="chip bg-color">C++11</span>
+                    <a href="/tags/C-11%E6%96%B0%E7%89%B9%E6%80%A7/">
+                        <span class="chip bg-color">C++11新特性</span>
                     </a>
                     
                 </div>
