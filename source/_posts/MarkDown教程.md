@@ -9,7 +9,7 @@ coverlmg:
 password:
 toc: true
 mathjax: false
-summary: MarkDown基础入门，主要涉及MarkDown语法和绘图
+summary: MarkDown基础入门
 categories: MarkDown
 tags:
   - Typora
