@@ -6,7 +6,7 @@
   <link href="https://ouyujia.github.io/atom.xml" rel="self"/>
   
   <link href="https://ouyujia.github.io/"/>
-  <updated>2022-04-22T02:32:59.051Z</updated>
+  <updated>2022-04-24T00:54:10.405Z</updated>
   <id>https://ouyujia.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>C++新特性--智能指针</title>
+    <link href="https://ouyujia.github.io/2022/04/22/zhi-neng-zhi-zhen/"/>
+    <id>https://ouyujia.github.io/2022/04/22/zhi-neng-zhi-zhen/</id>
+    <published>2022-04-22T09:45:37.000Z</published>
+    <updated>2022-04-24T00:54:10.405Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;智能指针类型&quot;&gt;&lt;a href=&quot;#智能指针类型&quot; class=&quot;headerlink&quot; title=&quot;智能指针类型&quot;&gt;&lt;/a&gt;智能指针类型&lt;/h2&gt;&lt;p&gt;在 C++</summary>
+        
+      
+    
+    
+    
+    <category term="C++新特性" scheme="https://ouyujia.github.io/categories/C-%E6%96%B0%E7%89%B9%E6%80%A7/"/>
+    
+    
+    <category term="C++11新特性" scheme="https://ouyujia.github.io/tags/C-11%E6%96%B0%E7%89%B9%E6%80%A7/"/>
+    
+  </entry>
   
   <entry>
     <title>C++11新特性--右值引用</title>

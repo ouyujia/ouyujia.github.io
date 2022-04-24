@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="C++11新特性--原始字面量, 相遇之初">
-    <meta name="description" content="C++11新特性，原始字面量解析">
+    <meta name="keywords" content="C++新特性--智能指针, 相遇之初">
+    <meta name="description" content="C++11新特性，智能指针">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -19,7 +19,7 @@
 
     
 
-    <title>C++11新特性--原始字面量 | 相遇之初</title>
+    <title>C++新特性--智能指针 | 相遇之初</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -420,12 +420,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">C++11新特性--原始字面量</h1>
+                    <h1 class="description center-align post-title">C++新特性--智能指针</h1>
                 </div>
             </div>
         </div>
@@ -553,8 +553,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/C-11%E6%96%B0%E7%89%B9%E6%80%A7/" class="post-category">
-                                C++11新特性
+                            <a href="/categories/C-%E6%96%B0%E7%89%B9%E6%80%A7/" class="post-category">
+                                C++新特性
                             </a>
                         
                     </div>
@@ -566,28 +566,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-04-19
+                    2022-04-22
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-04-22
+                    2022-04-24
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    209
+                    556
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -607,92 +607,191 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="字符串原始字面量–R”-”"><a href="#字符串原始字面量–R”-”" class="headerlink" title="字符串原始字面量–R”()”"></a>字符串原始字面量–R”()”</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>在 C++11 中添加了定义原始字符串的字面量，定义方式为：<span style="color:red;background:背景颜色;font-size:文字大小;font-family:字体;">R “xxx(原始字符串)xxx” 其中（）两边的字符串可以省略</span>。原始字面量 R 可以直接表示字符串的实际含义，而不需要额外对字符串做转义或连接等操作。</p>
-<p>比如：编程过程中，使用的字符串中常带有一些特殊字符，对于这些字符往往要做专门的处理，使用了原始字面量就可以轻松的解决这个问题了，比如打印路径：</p>
-<pre class="line-numbers language-c++"><code class="language-c++">#include<iostream>
-#include<string>
-using namespace std;
-int main()
-{
-    string str = "D:\hello\world\test.text";
-    cout << str << endl;
-    string str1 = "D:\\hello\\world\\test.text";
-    //通过第一个'\'来转义第二个'\'
-    cout << str1 << endl;
-    string str2 = R"(D:\hello\world\test.text)";
-    cout << str2 << endl;
-
-    return 0;
-}
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>输出结果为：</p>
-<pre class="line-numbers language-C++"><code class="language-C++">D:helloworld    est.text
-D:\hello\world\test.text
-D:\hello\world\test.text
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<ul>
-<li>在 D:\hello\world\test.text 中 \h 和 \w 转义失败，对应的字符会原样输出</li>
-<li>在 D:\hello\world\test.text 中路径的间隔符为 \ 但是这个字符又是转义字符，因此需要使用转义字符将其转义，最终才能得到一个没有特殊含义的普通字符 \</li>
-<li>在 R”(D:\hello\world\test.text)” 使用了原始字面量 R（）中的内容就是描述路径的原始字符串，无需做任何处理</li>
-</ul>
-<p>在 R”(D:\hello\world\test.text)” 使用了原始字面量 R（）中的内容就是描述路径的原始字符串，无需做任何处理</p>
-<hr>
-<h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h3><p>在 C++11 之前如果一个字符串分别写到了不同的行里边，需要加连接符，这种方式不仅繁琐，还破坏了表达式的原始含义，如果使用原始字面量就变得简单很多，很强直观，可读性强。</p>
-<pre class="line-numbers language-C++"><code class="language-C++">#include<iostream>
-#include<string>
-using namespace std;
-int main()
-{
-    string str = "\
-        我是路飞!!!\ 
-        我是要成为海贼王的男人!!!\
-        ";
-    cout << str << endl;
-    return 0;
-}
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<hr>
-<pre class="line-numbers language-C++"><code class="language-C++">#include<iostream>
-#include<string>
-using namespace std;
-int main()
-{
-    string str = R"(
-        我是路飞!!!
-        我是要成为海贼王的男人!!!
-        )";
-    cout << str << endl;
-
-    return 0;
-}
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<hr>
-<p>最后强调一个细节：<span style="color:red;background:背景颜色;font-size:文字大小;font-family:字体;">在R “xxx(raw string)xxx” 中，原始字符串必须用括号（）括起来，括号的前后可以加其他字符串，所加的字符串会被忽略，并且加的字符串必须在括号两边同时出现</span>。</p>
-<pre class="line-numbers language-markdown"><code class="language-markdown"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span><span class="token style-attr language-css"><span class="token attr-name"> <span class="token attr-name">style</span></span><span class="token punctuation">='</span><span class="token attr-value"><span class="token property">color</span><span class="token punctuation">:</span>文字颜色<span class="token punctuation">;</span><span class="token property">background</span><span class="token punctuation">:</span>背景颜色<span class="token punctuation">;</span><span class="token property">font-size</span><span class="token punctuation">:</span>文字大小<span class="token punctuation">;</span><span class="token property">font-family</span><span class="token punctuation">:</span>字体<span class="token punctuation">;</span></span><span class="token punctuation">'</span></span><span class="token punctuation">></span></span>文字<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<pre class="line-numbers language-C++"><code class="language-C++">#include<iostream>
-#include<string>
-using namespace std;
-int main()
-{
-    string str1 = R"(D:\hello\world\test.text)";
-    cout << str1 << endl;
-    string str2 = R"luffy(D:\hello\world\test.text)luffy";
-    cout << str2 << endl;
-#if 0
-    // 语法错误，编译不通过
-    string str3 = R"luffy(D:\hello\world\test.text)robin";	
-    cout << str3 << endl;
-#endif
-
-    return 0;
-}
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>测试代码输出的结果为：</p>
-<pre class="line-numbers language-C++"><code class="language-C++">D:\hello\world\test.text
-D:\hello\world\test.text
+                <h2 id="智能指针类型"><a href="#智能指针类型" class="headerlink" title="智能指针类型"></a>智能指针类型</h2><p>在 C++ 中没有垃圾回收机制，必须自己释放分配的内存，否则就会造成内存泄露。解决这个问题最有效的方法是使用智能指针（smart pointer）。<font color="orange"><code>智能指针是存储指向动态分配（堆）对象指针的类，用于生存期的控制，能够确保在离开指针所在作用域时，自动地销毁动态分配的对象，防止内存泄露。智能指针的核心实现技术是引用计数，每使用它一次，内部引用计数加1，每析构一次内部的引用计数减1，减为0时，删除所指向的堆内存。</code></font></p>
+<p>C++11 中提供了三种智能指针，使用这些智能指针时需要引用头文件<font color="orange"><code>&lt;memory&gt;</code></font>:</p>
+<p><font color="orange"><code>std::shared_ptr</code></font>：共享的智能指针<br><font color="orange"><code>std::unique_ptr</code></font>：独占的智能指针<br><font color="orange"><code>std::weak_ptr</code></font>：弱引用的智能指针，它不共享指针，不能操作资源，是用来监视 <font color="orange"><code>shared_ptr</code> </font>的。</p>
+<h3 id="共享智能指针–shared-ptr"><a href="#共享智能指针–shared-ptr" class="headerlink" title="共享智能指针–shared_ptr"></a>共享智能指针–shared_ptr</h3><h4 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h4><p>共享智能指针是指多个智能指针可以同时管理同一块有效的内存，共享智能指针<font color="orange"> shared_ptr</font> 是一个模板类，如果要进行初始化有三种方式：<font color="orange">通过构造函数</font>、<font color="orange">std::make_shared 辅助函数</font>以及<font color="orange"> reset </font>方法。共享智能指针对象初始化完毕之后就指向了要管理的那块堆内存，如果想要查看当前有多少个智能指针同时管理着这块内存可以使用共享智能指针提供的一个成员函数 <font color="orange">use_count</font>，函数原型如下：</p>
+<pre class="line-numbers language-C++"><code class="language-C++">// 管理当前对象的 shared_ptr 实例数量，或若无被管理对象则为 0。
+long use_count() const noexcept;
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>通过输出的信息可以得到如下结论：<span style="color:red;background:背景颜色;font-size:文字大小;font-family:字体;">使用原始字面量 R “xxx (raw string) xxx”，（）两边的字符串在解析的时候是会被忽略的，因此一般不用指定。如果在（）前后指定了字符串，那么前后的字符串必须相同，否则会出现语法错误</span>。</p>
+<h5 id="通过构造函数初始化"><a href="#通过构造函数初始化" class="headerlink" title="通过构造函数初始化"></a>通过构造函数初始化</h5><pre class="line-numbers language-C++"><code class="language-C++">// shared_ptr<T> 类模板中，提供了多种实用的构造函数, 语法格式如下:
+std::shared_ptr<T> 智能指针名字(创建堆内存);
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>测试代码如下:</p>
+<pre class="line-numbers language-C++"><code class="language-C++">#include <iostream>
+#include <memory>
+using namespace std;
+
+int main()
+{
+    // 使用智能指针管理一块 int 型的堆内存
+    shared_ptr<int> ptr1(new int(520));
+    cout << "ptr1管理的内存引用计数: " << ptr1.use_count() << endl;
+    // 使用智能指针管理一块字符数组对应的堆内存
+    shared_ptr<char> ptr2(new char[12]);
+    cout << "ptr2管理的内存引用计数: " << ptr2.use_count() << endl;
+    // 创建智能指针对象, 不管理任何内存
+    shared_ptr<int> ptr3;
+    cout << "ptr3管理的内存引用计数: " << ptr3.use_count() << endl;
+    // 创建智能指针对象, 初始化为空
+    shared_ptr<int> ptr4(nullptr);
+    cout << "ptr4管理的内存引用计数: " << ptr4.use_count() << endl;
+
+    return 0;
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>测试代码输出的结果如下:</p>
+<pre class="line-numbers language-C++"><code class="language-C++">ptr1管理的内存引用计数: 1
+ptr2管理的内存引用计数: 1
+ptr3管理的内存引用计数: 0
+ptr4管理的内存引用计数: 0
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p><font color="red">如果智能指针被初始化了一块有效内存，那么这块内存的引用计数 + 1，如果智能指针没有被初始化或者被初始化为 nullptr 空指针，引用计数不会 + 1。另外，不要使用一个原始指针初始化多个 shared_ptr。</font></p>
+</blockquote>
+<pre class="line-numbers language-C++"><code class="language-C++">int *p = new int;
+shared_ptr<int> p1(p);
+shared_ptr<int> p2(p);		// error, 编译不会报错, 运行会出错
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h5 id="通过拷贝和移动构造函数初始化"><a href="#通过拷贝和移动构造函数初始化" class="headerlink" title="通过拷贝和移动构造函数初始化"></a>通过拷贝和移动构造函数初始化</h5><p>当一个智能指针被初始化之后，就可以通过这个智能指针初始化其他新对象。在创建新对象的时候，对应的拷贝构造函数或者移动构造函数就被自动调用了。</p>
+<pre class="line-numbers language-C++"><code class="language-C++">#include <iostream>
+#include <memory>
+using namespace std;
+
+int main()
+{
+    // 使用智能指针管理一块 int 型的堆内存, 内部引用计数为 1
+    shared_ptr<int> ptr1(new int(520));
+    cout << "ptr1管理的内存引用计数: " << ptr1.use_count() << endl;
+    //调用拷贝构造函数
+    shared_ptr<int> ptr2(ptr1);
+    cout << "ptr2管理的内存引用计数: " << ptr2.use_count() << endl;
+    shared_ptr<int> ptr3 = ptr1;
+    cout << "ptr3管理的内存引用计数: " << ptr3.use_count() << endl;
+    //调用移动构造函数
+    shared_ptr<int> ptr4(std::move(ptr1));
+    cout << "ptr4管理的内存引用计数: " << ptr4.use_count() << endl;
+    std::shared_ptr<int> ptr5 = std::move(ptr2);
+    cout << "ptr5管理的内存引用计数: " << ptr5.use_count() << endl;
+
+    return 0;
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>测试程序输入的结果:</p>
+<pre class="line-numbers language-C++"><code class="language-C++">ptr1管理的内存引用计数: 1
+ptr2管理的内存引用计数: 2
+ptr3管理的内存引用计数: 3
+ptr4管理的内存引用计数: 3
+ptr5管理的内存引用计数: 3
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h5 id="通过-std-make-shared初始化"><a href="#通过-std-make-shared初始化" class="headerlink" title="通过 std::make_shared初始化"></a>通过 std::make_shared初始化</h5><p>通过 C++ 提供的<font color="orange"> <code>std::make_shared()</code> </font>就可以完成内存对象的创建并将其初始化给智能指针，函数原型如下：</p>
+<pre class="line-numbers language-C++"><code class="language-C++">template< class T, class... Args >
+shared_ptr<T> make_shared( Args&&... args );
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<ul>
+<li><font color="orange">T</font>：模板参数的数据类型</li>
+<li><font color="orange">Args&amp;&amp;… args </font>：要初始化的数据，如果是通过 make_shared 创建对象，需按照构造函数的参数列表指定</li>
+</ul>
+<p>测试代码如下:</p>
+<pre class="line-numbers language-C++"><code class="language-C++">#include <iostream>
+#include <string>
+#include <memory>
+using namespace std;
+
+class Test
+{
+public:
+    Test() 
+    {
+        cout << "construct Test..." << endl;
+    }
+    Test(int x) 
+    {
+        cout << "construct Test, x = " << x << endl;
+    }
+    Test(string str) 
+    {
+        cout << "construct Test, str = " << str << endl;
+    }
+    ~Test()
+    {
+        cout << "destruct Test ..." << endl;
+    }
+};
+
+int main()
+{
+    // 使用智能指针管理一块 int 型的堆内存, 内部引用计数为 1
+    shared_ptr<int> ptr1 = make_shared<int>(520);
+    cout << "ptr1管理的内存引用计数: " << ptr1.use_count() << endl;
+
+    shared_ptr<Test> ptr2 = make_shared<Test>();
+    cout << "ptr2管理的内存引用计数: " << ptr2.use_count() << endl;
+
+    shared_ptr<Test> ptr3 = make_shared<Test>(520);
+    cout << "ptr3管理的内存引用计数: " << ptr3.use_count() << endl;
+
+    shared_ptr<Test> ptr4 = make_shared<Test>("我是要成为海贼王的男人!!!");
+    cout << "ptr4管理的内存引用计数: " << ptr4.use_count() << endl;
+    return 0;
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p><font color="red">使用 std::make_shared() 模板函数可以完成内存地址的创建，并将最终得到的内存地址传递给共享智能指针对象管理。如果申请的内存是普通类型，通过函数的（）可完成地址的初始化，如果要创建一个类对象，函数的（）内部需要指定构造对象需要的参数，也就是类构造函数的参数。</font></p>
+</blockquote>
+<h5 id="通过-reset-方法初始化"><a href="#通过-reset-方法初始化" class="headerlink" title="通过 reset 方法初始化"></a>通过 reset 方法初始化</h5><p><font color="orange"> <code>std::shared_ptr::reset</code></font> 有两种功能：</p>
+<ul>
+<li><font color="orange">通过 reset 方法来初始化</font></li>
+<li><font color="orange">调用 reset 会将共享智能指针引用计数减 1。</font></li>
+</ul>
+<p>共享智能指针类提供的<font color="orange"> <code>std::shared_ptr::reset</code></font> 方法函数原型如下：</p>
+<pre class="line-numbers language-C++"><code class="language-C++">void reset() noexcept;
+
+template< class Y >
+void reset( Y* ptr );
+
+template< class Y, class Deleter >
+void reset( Y* ptr, Deleter d );
+
+template< class Y, class Deleter, class Alloc >
+void reset( Y* ptr, Deleter d, Alloc alloc );
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li><font color="orange">ptr</font>：指向要取得所有权的对象的指针</li>
+<li><font color="orange">d</font>：指向要取得所有权的对象的指针</li>
+<li><font color="orange">aloc</font>：内部存储所用的分配器aloc</li>
+</ul>
+<p>测试代码如下：</p>
+<pre class="line-numbers language-C++"><code class="language-C++">#include <iostream>
+#include <string>
+#include <memory>
+using namespace std;
+
+int main()
+{
+    // 使用智能指针管理一块 int 型的堆内存, 内部引用计数为 1
+    shared_ptr<int> ptr1 = make_shared<int>(520);
+    shared_ptr<int> ptr2 = ptr1;
+    shared_ptr<int> ptr3 = ptr1;
+    shared_ptr<int> ptr4 = ptr1;
+    cout << "ptr1管理的内存引用计数: " << ptr1.use_count() << endl;
+    cout << "ptr2管理的内存引用计数: " << ptr2.use_count() << endl;
+    cout << "ptr3管理的内存引用计数: " << ptr3.use_count() << endl;
+    cout << "ptr4管理的内存引用计数: " << ptr4.use_count() << endl;
+
+    ptr4.reset();
+    cout << "ptr1管理的内存引用计数: " << ptr1.use_count() << endl;
+    cout << "ptr2管理的内存引用计数: " << ptr2.use_count() << endl;
+    cout << "ptr3管理的内存引用计数: " << ptr3.use_count() << endl;
+    cout << "ptr4管理的内存引用计数: " << ptr4.use_count() << endl;
+
+    shared_ptr<int> ptr5;
+    ptr5.reset(new int(250));
+    cout << "ptr5管理的内存引用计数: " << ptr5.use_count() << endl;
+
+    return 0;
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>
@@ -719,7 +818,7 @@ D:\hello\world\test.text
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://ouyujia.github.io/2022/04/19/zi-fu-chuan-yuan-shi-zi-mian-liang/">https://ouyujia.github.io/2022/04/19/zi-fu-chuan-yuan-shi-zi-mian-liang/</a>
+                    <a href="https://ouyujia.github.io/2022/04/22/zhi-neng-zhi-zhen/">https://ouyujia.github.io/2022/04/22/zhi-neng-zhi-zhen/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1198,41 +1297,43 @@ D:\hello\world\test.text
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2022/04/20/kong-zhi-zhen-lei-xing/">
+                <a href="/2022/04/22/zhi-neng-zhi-zhen/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/38.jpg" class="responsive-img" alt="C++11新特性--nullPtr">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="C++新特性--智能指针">
                         
-                        <span class="card-title">C++11新特性--nullPtr</span>
+                        <span class="card-title">C++新特性--智能指针</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            C++11新特性，空指针类型--nullptr解析
+                            C++11新特性，智能指针
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-04-20
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-22
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/C-11%E6%96%B0%E7%89%B9%E6%80%A7/" class="post-category">
-                                    C++11新特性
+                            <a href="/categories/C-%E6%96%B0%E7%89%B9%E6%80%A7/" class="post-category">
+                                    C++新特性
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1251,31 +1352,31 @@ D:\hello\world\test.text
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/04/15/markdown-jiao-cheng/">
+                <a href="/2022/04/21/you-zhi-yin-yong/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="MarkDown基础">
+                        <img src="/medias/featureimages/37.jpg" class="responsive-img" alt="C++11新特性--右值引用">
                         
-                        <span class="card-title">MarkDown基础</span>
+                        <span class="card-title">C++11新特性--右值引用</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            MarkDown基础入门
+                            C++11新特性，右值和右值引用
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-15
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-21
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/MarkDown/" class="post-category">
-                                    MarkDown
+                            <a href="/categories/C-11%E6%96%B0%E7%89%B9%E6%80%A7/" class="post-category">
+                                    C++11新特性
                                 </a>
                             
                             
@@ -1285,12 +1386,8 @@ D:\hello\world\test.text
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Typora/">
-                        <span class="chip bg-color">Typora</span>
-                    </a>
-                    
-                    <a href="/tags/Markdown/">
-                        <span class="chip bg-color">Markdown</span>
+                    <a href="/tags/C-11%E6%96%B0%E7%89%B9%E6%80%A7/">
+                        <span class="chip bg-color">C++11新特性</span>
                     </a>
                     
                 </div>
