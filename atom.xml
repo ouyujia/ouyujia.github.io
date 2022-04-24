@@ -6,7 +6,7 @@
   <link href="https://ouyujia.github.io/atom.xml" rel="self"/>
   
   <link href="https://ouyujia.github.io/"/>
-  <updated>2022-04-24T03:50:00.232Z</updated>
+  <updated>2022-04-24T07:29:23.195Z</updated>
   <id>https://ouyujia.github.io/</id>
   
   <author>
@@ -15,6 +15,23 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>C++11新特性--委托构造和继承构造函数</title>
+    <link href="https://ouyujia.github.io/2022/04/24/wei-tuo-gou-zao-he-ji-cheng-gou-zao-han-shu/"/>
+    <id>https://ouyujia.github.io/2022/04/24/wei-tuo-gou-zao-he-ji-cheng-gou-zao-han-shu/</id>
+    <published>2022-04-24T07:27:49.000Z</published>
+    <updated>2022-04-24T07:29:23.195Z</updated>
+    
+    
+    
+    
+    <category term="C++11特性" scheme="https://ouyujia.github.io/categories/C-11%E7%89%B9%E6%80%A7/"/>
+    
+    
+    <category term="C++11特性" scheme="https://ouyujia.github.io/tags/C-11%E7%89%B9%E6%80%A7/"/>
+    
+  </entry>
   
   <entry>
     <title>C++新特性--智能指针</title>
