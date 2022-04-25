@@ -1,6 +1,5 @@
 ---
 title: categories
-date: 2022-04-15 15:31:03
-type: "categories"
-layout: "categories"
+type: “categories”
+date: 2022-04-24 16:41:40
 ---

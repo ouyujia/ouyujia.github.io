@@ -3,19 +3,19 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
-subtitle: ''
-description: ''
+title: "相遇之初" 	#网站标题
+subtitle: 'ouyang' 		#网站副标题
+description: "工作之余记录自己踩过的坑" 	#网站描述
 keywords:
-author: 111
-language: zh-CN
-timezone: ''
+author: "欧阳" 	#作者
+language: zh-CN	#语言
+timezone: '' 	#时区，不填默认为电脑所在时区
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: http://example.com
-permalink: :year/:month/:day/:title/
-permalink_defaults:
+url: https://ouyujia.github.io 	#自己的网站域名 
+permalink: :year/:month/:day/:title/	#文章的永久链接格式 参考:https://hexo.io/zh-cn/docs/permalinks
+permalink_defaults:		#
 pretty_urls:
   trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
   trailing_html: true # Set to false to remove trailing '.html' from permalinks
@@ -44,17 +44,20 @@ post_asset_folder: false
 relative_link: false
 future: true
 highlight:
-  enable: true
+  enable: false
   line_number: true
   auto_detect: false
   tab_replace: ''
   wrap: true
   hljs: false
-prismjs:
-  enable: false
-  preprocess: true
-  line_number: true
-  tab_replace: ''
+
+# 添加prism_plugin配置项
+prism_plugin:
+  enable: true
+  mode: 'preprocess'    # realtime/preprocess
+  theme: 'tomorrow'
+  line_number: true    # default false
+  custom_css: 
 
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
@@ -62,7 +65,7 @@ prismjs:
 # order_by: Posts order. (Order by date descending by default)
 index_generator:
   path: ''
-  per_page: 10
+  per_page: 12
   order_by: -date
 
 # Category & Tag
@@ -85,7 +88,7 @@ updated_option: 'mtime'
 
 # Pagination
 ## Set per_page to 0 to disable pagination
-per_page: 10
+per_page: 12
 pagination_dir: page
 
 # Include / Exclude file(s)
@@ -97,7 +100,7 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: butterfly
+theme: matery
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
@@ -106,14 +109,31 @@ deploy:
   repo: https://github.com/ouyujia/ouyujia.github.io.git
   branch: master
 
-prism_plugin:
-  mode: 'preprocess' # realtime/preprocess
-  theme: 'default'
-  line_number: false # default false
+#新增搜索
+search:
+  path: search.xml
+  field: post
 
-algolia:
-  applicationID: NTRWPA5HOT
-  apiKey: 2c524345d71f8e9d3ec93723177a7fc2 
-  adminApiKey: c061d8455b6077a41ba4e4b4421233d2
-  indexName: hexo 
-  chunkSize: 5000
+#新增中文链接转拼音
+permalink_pinyin:
+  enable: true
+  separator: '-' # default: '-'
+
+#新增emoji表情支持
+githubEmojis:
+  enable: true
+  className: github-emoji
+  inject: true
+  styles:
+  customEmojis:
+
+#新增RSS订阅支持
+feed:
+  type: atom
+  path: atom.xml
+  limit: 20
+  hub:
+  content:
+  content_limit: 140
+  content_limit_delim: ' '
+  order_by: -date

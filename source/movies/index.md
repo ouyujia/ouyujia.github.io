@@ -1,4 +1,5 @@
 ---
 title: movies
-date: 2022-04-19 08:56:15
+type: movies
+date: 2022-04-24 17:11:30
 ---

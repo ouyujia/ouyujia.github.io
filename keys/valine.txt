@@ -1,0 +1,8 @@
+app_id: uj1iGWrB2oeD104tl0gqxNCP-gzGzoHsz
+app_key: Xf38NpY2yXzSSImLdo96JX9n
+
+副本：
+  appId: uj1iGWrB2oeD104tl0gqxNCP-gzGzoHsz
+  appKey: Xf38NpY2yXzSSImLdo96JX9n
+  app_id: uj1iGWrB2oeD104tl0gqxNCP-gzGzoHsz
+  app_key: Xf38NpY2yXzSSImLdo96JX9n

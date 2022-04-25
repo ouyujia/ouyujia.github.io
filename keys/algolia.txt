@@ -1,0 +1,12 @@
+Application ID: NTRWPA5HOT
+Search-Only API Key: 2c524345d71f8e9d3ec93723177a7fc2
+Admin API Key: c061d8455b6077a41ba4e4b4421233d2
+Usage API Key: d9db85bd64070ad0db1941baae97d9b3
+Monitoring API Key: c0d628f241d3faec6b0ba13bac210d13
+
+副本
+Application ID: NTRWPA5HOT
+Search-Only API Key: 2c524345d71f8e9d3ec93723177a7fc2
+Admin API Key: c061d8455b6077a41ba4e4b4421233d2
+Usage API Key: d9db85bd64070ad0db1941baae97d9b3
+Monitoring API Key: c0d628f241d3faec6b0ba13bac210d13
