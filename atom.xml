@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Hexo</title>
+  <title>相遇之初</title>
   
+  <subtitle>ouyang</subtitle>
+  <link href="https://ouyujia.github.io/atom.xml" rel="self"/>
   
-  <link href="http://example.com/atom.xml" rel="self"/>
-  
-  <link href="http://example.com/"/>
+  <link href="https://ouyujia.github.io/"/>
   <updated>2022-04-24T07:29:52.139Z</updated>
-  <id>http://example.com/</id>
+  <id>https://ouyujia.github.io/</id>
   
   <author>
-    <name>111</name>
+    <name>欧阳</name>
     
   </author>
   
@@ -18,25 +18,25 @@
   
   <entry>
     <title>C++11新特性--委托构造和继承构造函数</title>
-    <link href="http://example.com/2022/04/24/%E5%A7%94%E6%89%98%E6%9E%84%E9%80%A0%E5%92%8C%E7%BB%A7%E6%89%BF%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0/"/>
-    <id>http://example.com/2022/04/24/%E5%A7%94%E6%89%98%E6%9E%84%E9%80%A0%E5%92%8C%E7%BB%A7%E6%89%BF%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0/</id>
+    <link href="https://ouyujia.github.io/2022/04/24/%E5%A7%94%E6%89%98%E6%9E%84%E9%80%A0%E5%92%8C%E7%BB%A7%E6%89%BF%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0/"/>
+    <id>https://ouyujia.github.io/2022/04/24/%E5%A7%94%E6%89%98%E6%9E%84%E9%80%A0%E5%92%8C%E7%BB%A7%E6%89%BF%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0/</id>
     <published>2022-04-24T07:27:49.000Z</published>
     <updated>2022-04-24T07:29:52.139Z</updated>
     
     
     
     
-    <category term="C++11特性" scheme="http://example.com/categories/C-11%E7%89%B9%E6%80%A7/"/>
+    <category term="C++11特性" scheme="https://ouyujia.github.io/categories/C-11%E7%89%B9%E6%80%A7/"/>
     
     
-    <category term="C++11特性" scheme="http://example.com/tags/C-11%E7%89%B9%E6%80%A7/"/>
+    <category term="C++11特性" scheme="https://ouyujia.github.io/tags/C-11%E7%89%B9%E6%80%A7/"/>
     
   </entry>
   
   <entry>
     <title>C++新特性--智能指针</title>
-    <link href="http://example.com/2022/04/22/%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/"/>
-    <id>http://example.com/2022/04/22/%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/</id>
+    <link href="https://ouyujia.github.io/2022/04/22/%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/"/>
+    <id>https://ouyujia.github.io/2022/04/22/%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/</id>
     <published>2022-04-22T09:45:37.000Z</published>
     <updated>2022-04-24T03:50:00.232Z</updated>
     
@@ -50,17 +50,17 @@
     
     
     
-    <category term="C++新特性" scheme="http://example.com/categories/C-%E6%96%B0%E7%89%B9%E6%80%A7/"/>
+    <category term="C++新特性" scheme="https://ouyujia.github.io/categories/C-%E6%96%B0%E7%89%B9%E6%80%A7/"/>
     
     
-    <category term="C++11新特性" scheme="http://example.com/tags/C-11%E6%96%B0%E7%89%B9%E6%80%A7/"/>
+    <category term="C++11新特性" scheme="https://ouyujia.github.io/tags/C-11%E6%96%B0%E7%89%B9%E6%80%A7/"/>
     
   </entry>
   
   <entry>
     <title>C++11新特性--右值引用</title>
-    <link href="http://example.com/2022/04/21/%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8/"/>
-    <id>http://example.com/2022/04/21/%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8/</id>
+    <link href="https://ouyujia.github.io/2022/04/21/%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8/"/>
+    <id>https://ouyujia.github.io/2022/04/21/%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8/</id>
     <published>2022-04-21T10:18:44.000Z</published>
     <updated>2022-04-22T02:32:59.051Z</updated>
     
@@ -74,17 +74,17 @@
     
     
     
-    <category term="C++11新特性" scheme="http://example.com/categories/C-11%E6%96%B0%E7%89%B9%E6%80%A7/"/>
+    <category term="C++11新特性" scheme="https://ouyujia.github.io/categories/C-11%E6%96%B0%E7%89%B9%E6%80%A7/"/>
     
     
-    <category term="C++11新特性" scheme="http://example.com/tags/C-11%E6%96%B0%E7%89%B9%E6%80%A7/"/>
+    <category term="C++11新特性" scheme="https://ouyujia.github.io/tags/C-11%E6%96%B0%E7%89%B9%E6%80%A7/"/>
     
   </entry>
   
   <entry>
     <title>C++11新特性--自动类型推导</title>
-    <link href="http://example.com/2022/04/20/%E8%87%AA%E5%8A%A8%E7%B1%BB%E5%9E%8B%E6%8E%A8%E5%AF%BC/"/>
-    <id>http://example.com/2022/04/20/%E8%87%AA%E5%8A%A8%E7%B1%BB%E5%9E%8B%E6%8E%A8%E5%AF%BC/</id>
+    <link href="https://ouyujia.github.io/2022/04/20/%E8%87%AA%E5%8A%A8%E7%B1%BB%E5%9E%8B%E6%8E%A8%E5%AF%BC/"/>
+    <id>https://ouyujia.github.io/2022/04/20/%E8%87%AA%E5%8A%A8%E7%B1%BB%E5%9E%8B%E6%8E%A8%E5%AF%BC/</id>
     <published>2022-04-20T10:37:36.000Z</published>
     <updated>2022-04-22T01:14:07.315Z</updated>
     
@@ -98,17 +98,17 @@
     
     
     
-    <category term="C++11新特性" scheme="http://example.com/categories/C-11%E6%96%B0%E7%89%B9%E6%80%A7/"/>
+    <category term="C++11新特性" scheme="https://ouyujia.github.io/categories/C-11%E6%96%B0%E7%89%B9%E6%80%A7/"/>
     
     
-    <category term="C++11新特性" scheme="http://example.com/tags/C-11%E6%96%B0%E7%89%B9%E6%80%A7/"/>
+    <category term="C++11新特性" scheme="https://ouyujia.github.io/tags/C-11%E6%96%B0%E7%89%B9%E6%80%A7/"/>
     
   </entry>
   
   <entry>
     <title>C++11新特性--constexpr</title>
-    <link href="http://example.com/2022/04/20/%E5%B8%B8%E9%87%8F%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
-    <id>http://example.com/2022/04/20/%E5%B8%B8%E9%87%8F%E8%A1%A8%E8%BE%BE%E5%BC%8F/</id>
+    <link href="https://ouyujia.github.io/2022/04/20/%E5%B8%B8%E9%87%8F%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+    <id>https://ouyujia.github.io/2022/04/20/%E5%B8%B8%E9%87%8F%E8%A1%A8%E8%BE%BE%E5%BC%8F/</id>
     <published>2022-04-20T09:27:12.000Z</published>
     <updated>2022-04-22T01:13:18.436Z</updated>
     
@@ -122,17 +122,17 @@
     
     
     
-    <category term="C++11新特性" scheme="http://example.com/categories/C-11%E6%96%B0%E7%89%B9%E6%80%A7/"/>
+    <category term="C++11新特性" scheme="https://ouyujia.github.io/categories/C-11%E6%96%B0%E7%89%B9%E6%80%A7/"/>
     
     
-    <category term="C++11新特性" scheme="http://example.com/tags/C-11%E6%96%B0%E7%89%B9%E6%80%A7/"/>
+    <category term="C++11新特性" scheme="https://ouyujia.github.io/tags/C-11%E6%96%B0%E7%89%B9%E6%80%A7/"/>
     
   </entry>
   
   <entry>
     <title>C++11新特性--nullPtr</title>
-    <link href="http://example.com/2022/04/20/%E7%A9%BA%E6%8C%87%E9%92%88%E7%B1%BB%E5%9E%8B/"/>
-    <id>http://example.com/2022/04/20/%E7%A9%BA%E6%8C%87%E9%92%88%E7%B1%BB%E5%9E%8B/</id>
+    <link href="https://ouyujia.github.io/2022/04/20/%E7%A9%BA%E6%8C%87%E9%92%88%E7%B1%BB%E5%9E%8B/"/>
+    <id>https://ouyujia.github.io/2022/04/20/%E7%A9%BA%E6%8C%87%E9%92%88%E7%B1%BB%E5%9E%8B/</id>
     <published>2022-04-20T09:25:18.000Z</published>
     <updated>2022-04-22T01:13:36.714Z</updated>
     
@@ -146,17 +146,17 @@
     
     
     
-    <category term="C++11新特性" scheme="http://example.com/categories/C-11%E6%96%B0%E7%89%B9%E6%80%A7/"/>
+    <category term="C++11新特性" scheme="https://ouyujia.github.io/categories/C-11%E6%96%B0%E7%89%B9%E6%80%A7/"/>
     
     
-    <category term="C++11新特性" scheme="http://example.com/tags/C-11%E6%96%B0%E7%89%B9%E6%80%A7/"/>
+    <category term="C++11新特性" scheme="https://ouyujia.github.io/tags/C-11%E6%96%B0%E7%89%B9%E6%80%A7/"/>
     
   </entry>
   
   <entry>
     <title>C++11新特性--原始字面量</title>
-    <link href="http://example.com/2022/04/19/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8E%9F%E5%A7%8B%E5%AD%97%E9%9D%A2%E9%87%8F/"/>
-    <id>http://example.com/2022/04/19/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8E%9F%E5%A7%8B%E5%AD%97%E9%9D%A2%E9%87%8F/</id>
+    <link href="https://ouyujia.github.io/2022/04/19/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8E%9F%E5%A7%8B%E5%AD%97%E9%9D%A2%E9%87%8F/"/>
+    <id>https://ouyujia.github.io/2022/04/19/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8E%9F%E5%A7%8B%E5%AD%97%E9%9D%A2%E9%87%8F/</id>
     <published>2022-04-19T12:26:02.000Z</published>
     <updated>2022-04-22T01:14:18.532Z</updated>
     
@@ -170,17 +170,17 @@
     
     
     
-    <category term="C++11新特性" scheme="http://example.com/categories/C-11%E6%96%B0%E7%89%B9%E6%80%A7/"/>
+    <category term="C++11新特性" scheme="https://ouyujia.github.io/categories/C-11%E6%96%B0%E7%89%B9%E6%80%A7/"/>
     
     
-    <category term="C++11新特性" scheme="http://example.com/tags/C-11%E6%96%B0%E7%89%B9%E6%80%A7/"/>
+    <category term="C++11新特性" scheme="https://ouyujia.github.io/tags/C-11%E6%96%B0%E7%89%B9%E6%80%A7/"/>
     
   </entry>
   
   <entry>
     <title>MarkDown基础</title>
-    <link href="http://example.com/2022/04/15/MarkDown%E6%95%99%E7%A8%8B/"/>
-    <id>http://example.com/2022/04/15/MarkDown%E6%95%99%E7%A8%8B/</id>
+    <link href="https://ouyujia.github.io/2022/04/15/MarkDown%E6%95%99%E7%A8%8B/"/>
+    <id>https://ouyujia.github.io/2022/04/15/MarkDown%E6%95%99%E7%A8%8B/</id>
     <published>2022-04-14T16:00:00.000Z</published>
     <updated>2022-04-20T10:32:23.099Z</updated>
     
@@ -194,12 +194,12 @@
     
     
     
-    <category term="MarkDown" scheme="http://example.com/categories/MarkDown/"/>
+    <category term="MarkDown" scheme="https://ouyujia.github.io/categories/MarkDown/"/>
     
     
-    <category term="Typora" scheme="http://example.com/tags/Typora/"/>
+    <category term="Typora" scheme="https://ouyujia.github.io/tags/Typora/"/>
     
-    <category term="Markdown" scheme="http://example.com/tags/Markdown/"/>
+    <category term="Markdown" scheme="https://ouyujia.github.io/tags/Markdown/"/>
     
   </entry>
   
