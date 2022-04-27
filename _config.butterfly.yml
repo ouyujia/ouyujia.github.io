@@ -48,7 +48,7 @@ copy:
 # formal:
 #   icon: link || the description
 social:
-   fab fa-github: https://github.com/ouyujia/ouyujia.github.io || Github
+   fab fa-github: https://github.com/ouyujia || Github
    fas fa-envelope: mailto:ouyujia@gmail.com || Email
    fa-brands fa-qq: tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=1929913191&website=www.oicqzone.com || QQ
 
