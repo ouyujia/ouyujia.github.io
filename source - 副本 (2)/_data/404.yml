@@ -1,5 +1,0 @@
-# A simple 404 page
-error_404:
-  enable: true
-  subtitle: "页面没有找到"
-  background: 

@@ -11,6 +11,7 @@ menu:
      Music: /music/ || fas fa-music
      Movie: /movies/ || fas fa-video
    友链: /link/ || fas fa-link
+   留言: /contact/ || fas fa-comments
    关于: /about/ || fas fa-heart
 
 
@@ -104,7 +105,7 @@ avatar:
   effect: false
 
 # Disable all banner image (主页图片是否显示)
-disable_top_img: true
+disable_top_img: false
 
 # The banner image of home page (主页图片)
 index_img: /img/index_img/index_img.jpg
@@ -115,7 +116,7 @@ default_top_img: /img/default_top_img/default_top_img.jpg
 
 # The banner image of archive page
 # 归档页面的 top_img
-archive_img: /img/archive_img/archive_img.jpg
+archive_img: #/img/archive_img/archive_img.jpg
 
 # If the banner of tag page not setting, it will show the top_img
 # note: tag page, not tags page (子標籤頁面的 top_img)
@@ -503,7 +504,7 @@ site_verification:
 # The position of site info, eg: 300px/300em/300rem/10% (主頁標題距離頂部距離)
 index_site_info_top:
 # The height of top_img, eg: 300px/300em/300rem (主頁top_img高度)
-index_top_img_height: 400px
+index_top_img_height: 
 
 # The user interface setting of category and tag page (category和tag頁的UI設置)
 # index - same as Homepage UI (index 值代表 UI將與首頁的UI一樣)
@@ -514,7 +515,7 @@ tag_ui: # 留空或 index
 # Website Background (設置網站背景)
 # can set it to color or image (可設置圖片 或者 顔色)
 # The formal of image: url(http://xxxxxx.com/xxx.jpg)
-background: '#efefef'
+background: "#efefef"
 
 # Footer Background
 footer_bg: true
@@ -851,7 +852,8 @@ css_prefix: true
 # 插入代码到头部 </head> 之前 和 底部 </body> 之前
 inject:
   head:
-     - <link rel="stylesheet" href="/css/background.css">
+    - <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/static-butterfly/dist/css/index.min.css">
+
   bottom:
     # - <script src="xxxx"></script>
 

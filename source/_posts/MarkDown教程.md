@@ -1,23 +1,30 @@
 ---
 title: MarkDown基础
-date: 2022-04-15 00:00:00
-author: 欧阳
-img: 
-top: false
-cover: false
-coverlmg:
-password:
-toc: true
-mathjax: false
-summary: MarkDown基础入门
-categories: MarkDown
 tags:
+  - MarkDown
   - Typora
-  - Markdown
-keywords: MarkDown
-reprintPolicy:
+categories: MarkDown性
+description: MarkDown语法基础
+cover: 'https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202204270958596.jpg'
+toc: true
 abbrlink: 12449
-
+date: 2022-04-15 00:00:00
+updated:
+keywords:
+top_img:
+comments:
+toc_number:
+toc_style_simple:
+copyright:
+copyright_author:
+copyright_author_href:
+copyright_url:
+copyright_info:
+mathjax:
+katex:
+aplayer:
+highlight_shrink:
+aside:
 ---
 
 # MarkDown基础
