@@ -61,11 +61,9 @@ aside:
 selector { attribute: value; } 
 ```
 
-> <font color='cornflowerblue'><font color='cornflowerblue'>`在上面这条语句中, selector 代表选择器, 指明了哪个(或者说是哪种)控件将会受到规则影响.` </font>
+> 在上面这条语句中, selector 代表选择器, 指明了哪个(或者说是哪种)控件将会受到规则影响.
 >
-> <font color='cornflowerblue'>`{attribute: value;}代表声明语句, 其中 attribute 表示属性, value 表示该属性的值, 属性与它的值之间必须以冒号( : )隔开, 属性值后面必须以分号( ; )结束,表示这条属性已经设置完成. 整条语句加起来的意思是, 在整个应用程序中, 被 selector匹配的控件, 它们控件的 attribute 属性的值应该被设置为 value.`</font>
-
-
+> {attribute: value;}代表声明语句, 其中 attribute 表示属性, value 表示该属性的值, 属性与它的值之间必须以冒号( : )隔开, 属性值后面必须以分号( ; )结束,表示这条属性已经设置完成. 整条语句加起来的意思是, 在整个应用程序中, 被 selector匹配的控件, 它们控件的 attribute 属性的值应该被设置为 value.
 
 例如:
 
@@ -238,7 +236,7 @@ QAbstractSpinBox{
 ID 选择器一般用于为比较特殊的控件设置样式, 例如在我的某个页面中, 需要突出一个重要的按钮, 那么此时我可以给这个按钮设置一个独特的样式用以提醒用户, 如:
 
 ```css
-QPushButton**#settings_popup_fileDialog_button**{
+QPushButton#settings_popup_fileDialog_button{
 
  min-height: 31px;
 
@@ -318,15 +316,11 @@ BaseDialog QPushButton{
 
 5.  由于 Qt 中有继承关系的 Widgets 较多, 在使用子元素选择器时, 请特别注意继承关系,比如我只想选中 QGroupBox 中的 QPushButton, 那么我即可以写成
 
-   1. ```css
-      QWidget>QPushButton{color: red;} 
-      ```
-
-      也可以写成
-
-   2. ```css
-      QGroupBox>QPushButton{color: red;} 
-      ```
+   ```css
+   QWidget>QPushButton{color: red;} 
+   /*也可以写成*/
+   QGroupBox>QPushButton{color: red;} 
+   ```
 
    这是因为 QGroupBox 是 QWidget 的派生类, 类型选择器 QWidget 会选中所有它的派生类对象,这些对象中包括 QGroupBox, 因此写法.1 会将所有的 QPushButton 的前景色设置为红色.鉴于此种情况, 我推荐在使用子元素选择器时, 使用类选择器替代类型选择器.
 
@@ -380,7 +374,7 @@ BaseDialog QPushButton{
 
 而我在代码中, 设置的 objectName 的语句为:
 
-![image-20220508132646189](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081327869.png)
+![](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081327869.png)
 
 结果是只匹配到了 pBtn2 所指的对象
 
@@ -600,7 +594,7 @@ pBtn1->setStyleSheet("QPushButton, QPushButton *{color: green;}");
 
 下面看一个例子:假如需要完成一个界面, 如下图所示
 
-![image-20220508140938530](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081409652.png)
+![](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081409652.png)
 
 这里用户名输入框是一个 QComboBox 对象, 密码输入框是一个 QLineEdit 对象, 它们的父控件是一个 QDialog, 有这样一个需求:给这两个输入框设置相同的边框属性: 1 个像素宽的蓝色实线框, 为了方便更改风格, 我有一个 css 文件, 将所有样式都写在了这个文件里, 这时, 观察发现, 这两个控件都是QDialog的子控件,于是可以用后代选择器或者子元素选择器, 如下:
 
@@ -880,7 +874,7 @@ LI.red.level {} /* a=0 b=2 c=1 -> specificity = 21 */
 
 如图所示
 
-![image-20220508152049217](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081520165.png)
+![](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081520165.png)
 
 >**Margin** **（外边距）** - 与其他盒子之间的距离.
 >
@@ -894,7 +888,7 @@ LI.red.level {} /* a=0 b=2 c=1 -> specificity = 21 */
 
 对比一张生活中的一张照片墙来看会更容易理解
 
-![image-20220508152253561](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081522950.png)
+![](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081522950.png)
 
 ### **盒模型中的宽度与高度** 
 
@@ -960,15 +954,13 @@ QTextEdit{
 
 效果图：
 
-![img](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081535428.png)	![img](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081535917.png)
+![repeat-x](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081535428.png)	![repeat-y](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081535917.png)
 
-repeat-x	            											repeat-y
+​	            											
 
- 
+  ![repeat	](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081535678.png)![no-repeat](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081535053.png)  
 
-  ![img](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081535678.png)![img](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081535053.png)  
-
-repeat																no-repeat
+​															
 
 ##### **background-position**
 
@@ -1004,7 +996,7 @@ QTextEdit{
 
 效果图：
 
-![image-20220508153159508](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081535623.png)
+![](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081535623.png)
 
 ##### **background-attachment**
 
@@ -1044,9 +1036,9 @@ QTextEdit{
 
 效果图
 
-![image-20220508154135580](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081541879.png)![](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081541064.png)
+![scroll ](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081541879.png)![fixed](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081541064.png)
 
-scroll 																	fixed
+​																	
 
 ##### **background-clip**
 
@@ -1083,19 +1075,19 @@ QTextEdit{
 
 效果图：
 
-![image-20220508153916223](C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20220508153916223.png)
+![](C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20220508153916223.png)
 
 分别将 background-clip 属性的值设为 margin, border, padding, content, 
 
 效果图如下
 
-![image-20220508154218296](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081542686.png)![image-20220508154223719](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081548247.png)
+![margin ](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081542686.png)![border](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081548247.png)
 
- margin 																		border
+ 																		
 
-![image-20220508154229199](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081543791.png)![image-20220508154234880](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081543463.png)
+![padding](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081543791.png)![content](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081543463.png)
 
- padding 																		content
+ 																	content
 
 <font color='orange'>`可见, background-clip 属性只对背景的渲染区域有关系`</font>, 背景图片始终是靠在 padding 边上
 
@@ -1124,13 +1116,13 @@ QTextEdit{
 
 效果图：
 
-![image-20220508154835382](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081548330.png)![image-20220508154841815](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081549270.png)
+![ margin ](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081548330.png)![border](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081549270.png)
 
- margin 																	border
+​																	
 
-![image-20220508154914476](C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20220508154914476.png)![image-20220508154921623](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081549494.png)
+![padding](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081808678.png)![content](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081549494.png)
 
-  padding																 content
+  																 
 
 注意观察 border 与 padding 的图片, 它们是不同的, 差别就是 border 的 20 个像素所造成的不一致。
 
@@ -1159,7 +1151,7 @@ QTextEdit{
 
 效果图
 
-![image-20220508155215783](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081552920.png)
+![](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081552920.png)
 
 #### **前景属性** **color** 
 
@@ -1180,7 +1172,7 @@ QTextEdit{
 }
 ```
 
-![image-20220508155652938](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081556014.png)
+![](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081556014.png)
 
 #### ****边框属性** **border** 
 
@@ -1206,7 +1198,7 @@ QTextEdit{
 
 效果图
 
-![image-20220508155706441](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081557565.png)
+![](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081557565.png)
 
 ##### **border-style** 
 
@@ -1216,47 +1208,47 @@ QTextEdit{
 
 dashed 
 
-![image-20220508155733320](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081557030.png)
+![](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081557030.png)
 
 dot-dash 
 
-![image-20220508155743631](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081557540.png)
+![](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081557540.png)
 
 dot-dot-dash
 
-![image-20220508155756541](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081557180.png)
+![](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081557180.png)
 
 dotted
 
-![image-20220508155806551](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081558909.png)
+![](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081558909.png)
 
 double
 
-![image-20220508155815671](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081558333.png)
+![](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081558333.png)
 
 groove
 
-![image-20220508155829358](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081558590.png)
+![](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081558590.png)
 
 inset
 
-![image-20220508155836084](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081558125.png)
+![](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081558125.png)
 
 outset
 
-![image-20220508155847696](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081558853.png)
+![](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081558853.png)
 
 ridge
 
-![image-20220508155909952](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081559284.png)
+![](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081559284.png)
 
 solid
 
-![image-20220508155920657](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081559793.png)
+![](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081559793.png)
 
 none
 
-![image-20220508155931880](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081559309.png)
+![](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081559309.png)
 
 ##### **border-color** 
 
@@ -1272,7 +1264,7 @@ none
 
 示例图
 
-![image-20220508160020505](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081600183.png)
+![](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081600183.png)
 
 作用: 设置边框四个角的弧度
 
@@ -1304,7 +1296,7 @@ QTextEdit{
 }
 ```
 
-<img src="C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20220508160221330.png" alt="image-20220508160221330"  /><img src="C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20220508160225615.png" alt="image-20220508160225615" style="zoom:;" />
+<img src="https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081802324.png" alt=""  /><img src="https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081801057.png" alt="" style="zoom:;" />
 
  代码 1 效果图 												代码 2 效果图
 
@@ -1338,7 +1330,7 @@ border-image: border-image-source border-image-slice border-image-repeat
 
 下面是一个切片的具体示例:利用上面这张图片,来看一下 border-image 的一些效果图
 
-<img src="C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20220508160643576.png" alt="image-20220508160643576" style="zoom:150%;" />
+<img src="C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20220508160643576.png" alt="" style="zoom:150%;" />
 
 效果 1:
 
@@ -1351,7 +1343,7 @@ QTextEdit{
 }
 ```
 
-![image-20220508160720216](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081607846.png)
+![](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081607846.png)
 
 效果 2:
 
@@ -1364,7 +1356,7 @@ QTextEdit{
 }
 ```
 
-![image-20220508160905002](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081609325.png)
+![](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081609325.png)
 
 效果 3:
 
@@ -1377,7 +1369,7 @@ QTextEdit{
 }
 ```
 
-![image-20220508160942653](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081609923.png)
+![](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081609923.png)
 
 效果 4:
 
@@ -1390,7 +1382,7 @@ QTextEdit{
 }
 ```
 
-![image-20220508161017536](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081610885.png)
+![](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081610885.png)
 
 ##### **格式**
 
@@ -1415,7 +1407,7 @@ QTextEdit{
 }
 ```
 
-<img src="C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20220508161138157.png" alt="image-20220508161138157"  />
+<img src="C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20220508161138157.png" alt=""  />
 
 ###### **连写格式** **2** 
 
@@ -1442,7 +1434,7 @@ QTextEdit{
 }
 ```
 
-<img src="C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20220508161311854.png" alt="image-20220508161311854"  />
+<img src="C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20220508161311854.png" alt=""  />
 
 **连写格式** **3** 
 
@@ -1471,7 +1463,7 @@ QTextEdit{
 }
 ```
 
-<img src="C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20220508161913218.png" alt="image-20220508161913218"  />
+<img src="C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20220508161913218.png" alt=""  />
 
 示例 2:
 
@@ -1601,7 +1593,7 @@ QTextEdit{
 }
 ```
 
-![image-20220508163136062](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081631678.png)
+![](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081631678.png)
 
 #### **文本属性** 
 
@@ -1641,7 +1633,7 @@ QPushButton{
 }
 ```
 
-![image-20220508163752353](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081638898.png)
+![](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081638898.png)
 
 ##### **text-decoration**
 
@@ -1685,7 +1677,7 @@ QTextEdit{
 }
 ```
 
-![image-20220508163930922](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081639340.png)
+![](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081639340.png)
 
 #### **padding** **和** **margin** 
 
@@ -1764,7 +1756,7 @@ QTextEdit{
 } 
 ```
 
-![image-20220508164406340](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081644843.png)
+![](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081644843.png)
 
 
 
@@ -1796,7 +1788,7 @@ QComboBox{
 }
 ```
 
-![image-20220508164506550](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081645397.png)
+![](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081645397.png)
 
 **outline** 
 
@@ -1888,7 +1880,7 @@ QTextEdit{
 }
 ```
 
-![image-20220508165826146](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081658453.png)
+![](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081658453.png)
 
 ```css
 QTextEdit{ 
@@ -1900,7 +1892,7 @@ QTextEdit{
 }
 ```
 
-![image-20220508165933538](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081659550.png)
+![](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081659550.png)
 
 ```css
 QTextEdit{ 
@@ -1922,7 +1914,27 @@ assistan 搜索方法: 输入 style sheet 即可, 注意两个单词之间有空
 
 Qt Style Sheets Reference 专题, 如图:
 
-![image-20220508170128156](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081701854.png)
+![](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081701854.png)
 
-## 参考文件
+### 加载QSS文件方法
+
+```c++
+//可用过qApp对象设置整个程序的qss或者通过this指针设置单前界面的qss
+// 方法一
+qApp->setStyleSheet("file:///:qss/defaultStyle.qss"); //通过qApp对象设置
+qApp->setStyleSheet(QString("file:///%1").arg(qssFileName));
+
+this->setStyleSheet("file:///:qss/defaultStyle.qss"); //通过this对象设置当前界面的qss
+this->setStyleSheet(QString("file:///%1").arg(qssFileName));
+
+// 方法二
+QString qss;  
+QFile qssFile(":/qss/luffy.qss");  //样式表文件
+qssFile.open(QFile::ReadOnly);   
+if (qssFile.isOpen()) {        
+    qss = QLatin1String(qssFile.readAll());       
+    qApp->setStyleSheet(qss);       
+    qssFile.close();  
+}
+```
 
