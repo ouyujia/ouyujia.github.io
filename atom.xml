@@ -6,7 +6,7 @@
   <link href="https://ouyujia.github.io/atom.xml" rel="self"/>
   
   <link href="https://ouyujia.github.io/"/>
-  <updated>2022-05-08T10:11:32.937Z</updated>
+  <updated>2022-05-09T07:15:32.904Z</updated>
   <id>https://ouyujia.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>可调用对象包装器、绑定器</title>
+    <link href="https://ouyujia.github.io/2022/05/09/%E5%8F%AF%E8%B0%83%E7%94%A8%E5%AF%B9%E8%B1%A1%E5%8C%85%E8%A3%85%E5%99%A8%E3%80%81%E7%BB%91%E5%AE%9A%E5%99%A8/"/>
+    <id>https://ouyujia.github.io/2022/05/09/%E5%8F%AF%E8%B0%83%E7%94%A8%E5%AF%B9%E8%B1%A1%E5%8C%85%E8%A3%85%E5%99%A8%E3%80%81%E7%BB%91%E5%AE%9A%E5%99%A8/</id>
+    <published>2022-05-09T07:07:51.000Z</published>
+    <updated>2022-05-09T07:15:32.904Z</updated>
+    
+    
+    <summary type="html">C++11新特性</summary>
+    
+    
+    
+    <category term="C++" scheme="https://ouyujia.github.io/categories/C/"/>
+    
+    <category term="C++11" scheme="https://ouyujia.github.io/categories/C/C-11/"/>
+    
+    
+    <category term="C++11新特性" scheme="https://ouyujia.github.io/tags/C-11%E6%96%B0%E7%89%B9%E6%80%A7/"/>
+    
+    <category term="指针" scheme="https://ouyujia.github.io/tags/%E6%8C%87%E9%92%88/"/>
+    
+    <category term="可调用对象" scheme="https://ouyujia.github.io/tags/%E5%8F%AF%E8%B0%83%E7%94%A8%E5%AF%B9%E8%B1%A1/"/>
+    
+  </entry>
   
   <entry>
     <title>QSS入门</title>
