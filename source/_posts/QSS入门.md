@@ -1075,7 +1075,7 @@ QTextEdit{
 
 效果图：
 
-![](C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20220508153916223.png)
+![](https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205101117655.png)
 
 分别将 background-clip 属性的值设为 margin, border, padding, content, 
 
