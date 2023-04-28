@@ -3,17 +3,17 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
-subtitle: ''
-description: ''
+title: "相遇之初" 	#网站标题
+subtitle: 'ouyang' 		#网站副标题
+description: "工作之余记录自己踩过的坑" 	#网站描述
 keywords:
-author: 111
-language: zh-CN
-timezone: ''
+author: "欧阳" 	#作者
+language: zh-CN	#语言
+timezone: '' 	#时区，不填默认为电脑所在时区
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: http://example.com
+url: https://ouyujia.github.io
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
@@ -50,11 +50,20 @@ highlight:
   tab_replace: ''
   wrap: true
   hljs: false
+
 prismjs:
   enable: false
   preprocess: true
   line_number: true
   tab_replace: ''
+
+# 添加prism_plugin配置项
+prism_plugin:
+  enable: false
+  mode: 'preprocess'    # realtime/preprocess
+  theme: 'tomorrow'
+  line_number: true    # default false
+  custom_css: 
 
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
@@ -101,15 +110,15 @@ theme: butterfly
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
+# deploy:
+#   type: git
+#   repo: https://github.com/ouyujia/ouyujia.github.io.git
+#   branch: master
 deploy:
   type: git
-  repo: https://github.com/ouyujia/ouyujia.github.io.git
+  repo: git@github.com:ouyujia/ouyujia.github.io.git
   branch: master
 
-prism_plugin:
-  mode: 'preprocess' # realtime/preprocess
-  theme: 'default'
-  line_number: false # default false
 
 algolia:
   applicationID: NTRWPA5HOT

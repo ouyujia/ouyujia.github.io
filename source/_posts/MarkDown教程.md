@@ -1,23 +1,30 @@
 ---
 title: MarkDown基础
-date: 2022-04-15 00:00:00
-author: 欧阳
-img: 
-top: false
-cover: false
-coverlmg:
-password:
-toc: true
-mathjax: false
-summary: MarkDown基础入门
-categories: MarkDown
 tags:
+  - MarkDown
   - Typora
-  - Markdown
-keywords: MarkDown
-reprintPolicy:
+categories: MarkDown性
+description: MarkDown语法基础
+cover: 'https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202204270958596.jpg'
+toc: true
 abbrlink: 12449
-
+date: 2022-04-15 00:00:00
+updated:
+keywords:
+top_img:
+comments:
+toc_number:
+toc_style_simple:
+copyright:
+copyright_author:
+copyright_author_href:
+copyright_url:
+copyright_info:
+mathjax:
+katex:
+aplayer:
+highlight_shrink:
+aside:
 ---
 
 # MarkDown基础
@@ -192,6 +199,7 @@ cola|5
 * 可以使用 `*` 作为标记
 + 也可以使用 `+`
 - 或者 `-`
+使用两个回车键退出无序列表或者使用快捷键Ctrl+[
 ```
 
 
@@ -208,6 +216,7 @@ cola|5
 1. 有序列表以数字和 `.` 开始；
 3. 数字的序列并不会影响生成的列表序列；
 4. 但仍然推荐按照自然顺序（1.2.3...）编写。
+使用两个回车键退出无序列表或者使用快捷键Ctrl+shift+[
 ```
 
 1. 有序列表以数字和 `.` 开始；
