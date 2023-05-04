@@ -31,6 +31,31 @@
     
     
     <entry>
+      <title>QT自定义log系统</title>
+      <link href="/2023/04/29/QT%E8%87%AA%E5%AE%9A%E4%B9%89log%E7%B3%BB%E7%BB%9F/"/>
+      <url>/2023/04/29/QT%E8%87%AA%E5%AE%9A%E4%B9%89log%E7%B3%BB%E7%BB%9F/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> QT </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> QT </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>QT使用html</title>
       <link href="/2023/04/28/QTHtml/"/>
       <url>/2023/04/28/QTHtml/</url>
@@ -635,9 +660,9 @@
           
           <category> C++ </category>
           
-          <category> 指针 </category>
-          
           <category> C++11新特性 </category>
+          
+          <category> 指针 </category>
           
       </categories>
       
