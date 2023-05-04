@@ -31,6 +31,33 @@
     
     
     <entry>
+      <title>QT使用html</title>
+      <link href="/2023/04/28/QTHtml/"/>
+      <url>/2023/04/28/QTHtml/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> QT </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> QT </tag>
+            
+            <tag> Html </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>QT使用MingW编译器添加Dump调试功能</title>
       <link href="/2023/04/28/QTMingW%E6%B7%BBDump%E5%8A%9F%E8%83%BD/"/>
       <url>/2023/04/28/QTMingW%E6%B7%BBDump%E5%8A%9F%E8%83%BD/</url>
@@ -608,9 +635,9 @@
           
           <category> C++ </category>
           
-          <category> C++11新特性 </category>
-          
           <category> 指针 </category>
+          
+          <category> C++11新特性 </category>
           
       </categories>
       
