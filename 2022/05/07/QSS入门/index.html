@@ -1,0 +1,1065 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>QSS入门 | 相遇之初</title><meta name="keywords" content="QT,QSS,CSS"><meta name="author" content="欧阳"><meta name="copyright" content="欧阳"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="QT入门，QT样式表">
+<meta property="og:type" content="article">
+<meta property="og:title" content="QSS入门">
+<meta property="og:url" content="https://ouyujia.github.io/2022/05/07/QSS%E5%85%A5%E9%97%A8/index.html">
+<meta property="og:site_name" content="相遇之初">
+<meta property="og:description" content="QT入门，QT样式表">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ouyujia.github.io/img/default_top_img/default_top_img.jpg">
+<meta property="article:published_time" content="2022-05-07T03:26:07.000Z">
+<meta property="article:modified_time" content="2023-04-28T05:56:04.357Z">
+<meta property="article:author" content="欧阳">
+<meta property="article:tag" content="QT">
+<meta property="article:tag" content="QSS">
+<meta property="article:tag" content="CSS">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ouyujia.github.io/img/default_top_img/default_top_img.jpg"><link rel="shortcut icon" href="/img/favicon/favicon.png"><link rel="canonical" href="https://ouyujia.github.io/2022/05/07/QSS%E5%85%A5%E9%97%A8/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="manifest" href="/pwa/manifest.json"/><link rel="apple-touch-icon" sizes="180x180" href="/pwa/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/pwa/32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/pwa/16.png"/><link rel="mask-icon" href="/pwa/safari-pinned-tab.svg" color="#5bbad5"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":300},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":60,"languages":{"author":"作者: 欧阳","link":"链接: ","source":"来源: 相遇之初","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#FDDDE4","bgDark":"#1f1f1f","position":"bottom-left"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isAnchor: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'QSS入门',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-04-28 13:56:04'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/static-butterfly/dist/css/index.min.css"><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="相遇之初" type="application/atom+xml">
+
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">34</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">21</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">11</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 文娱</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/contact/"><i class="fa-fw fas fa-comments"></i><span> 留言</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/default_top_img/default_top_img.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">相遇之初</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 文娱</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/contact/"><i class="fa-fw fas fa-comments"></i><span> 留言</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">QSS入门</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-05-07T03:26:07.000Z" title="发表于 2022-05-07 11:26:07">2022-05-07</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-04-28T05:56:04.357Z" title="更新于 2023-04-28 13:56:04">2023-04-28</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/QT/">QT</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/QT/QSS/">QSS</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">12.1k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>41分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="QSS入门"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>为了书写方便, 文中一律使用 Qss 代替 Qt style sheet。</p>
+<p>首先来看 Qt 的官方介绍: 除了子类化 QStyle 以外, Qss 是一个非常强大的用于自定义控件外观的机制. 它的概念,术语以及语法都是受到了 HTML CSS 的启发(实际上就是 CSS 的语法), 但可以适应全局窗口部件(这一句我没明白是什么意思)。</p>
+<p>就是说, Qss 是用来设置界面样式的, 设置的方法就是类似于 CSS,通过以一定规则组织的字符串来给界面设置样式, 而不用我们调用控件对象的接口或子类化 QStyle 去设置样式. 这种组织字符串的规则就是它的语法, 下的总结也是主要讲一些 Qss 的语法, 包含少量的经验以及官方文档中没有说明的内容.</p>
+<p>个人认为使用 Qss 的好处:</p>
+<p>(1) 可读性高并且非常直观,便于设置界面样式;</p>
+<p>(2) 在每个平台上都有相同的显示效果. </p>
+<p>(3) 可以在界面代码中省去与显示效果相关的大量代码,将界面逻辑独立出来. </p>
+<p>(4) 在界面风格(配色, 字体等)改变的情况下, 可以不用修改 c++源码就可以实现.</p>
+<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><h3 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h3><p>样式表由一系列的样式规则组成。一条样式规则由一个<font color="orange"><code>选择器</code></font>和一个<font color="orange"><code>声明语句</code></font>组成，<font color="orange"><code>选择器指明了哪个（或者说是哪种）控件将会受规则影响，而声明语句则指明了哪些属性会设置到这个（这些）控件</code></font>. </p>
+<p>语法如下:</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">selector { attribute: value; } </span><br></pre></td></tr></tbody></table></figure>
+
+<blockquote>
+<p>在上面这条语句中, selector 代表选择器, 指明了哪个(或者说是哪种)控件将会受到规则影响.</p>
+<p>{attribute: value;}代表声明语句, 其中 attribute 表示属性, value 表示该属性的值, 属性与它的值之间必须以冒号( : )隔开, 属性值后面必须以分号( ; )结束,表示这条属性已经设置完成. 整条语句加起来的意思是, 在整个应用程序中, 被 selector匹配的控件, 它们控件的 attribute 属性的值应该被设置为 value.</p>
+</blockquote>
+<p>例如:</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">QPushButton{ <span class="attribute">color</span>: red;}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>表示将我们的应用程序中所有的 QPushbutton 对象以及它的子类对象应该使用 red 作为它们的前景色(即字体的颜色);由此看来, 我们要学会如何使用 qss 来控制我们的界面样式, 只需要学会两个方面的内容, 即选择器和属性, 下面将用专门的章节来讲解这两部分的内容.</p>
+<h3 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h3><h4 id="通用选择器"><a href="#通用选择器" class="headerlink" title="通用选择器"></a>通用选择器</h4><p>又叫通配符选择器</p>
+<h5 id="格式"><a href="#格式" class="headerlink" title="格式"></a>格式</h5><figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* { 属性: 值; }</span><br></pre></td></tr></tbody></table></figure>
+
+<p>通用选择器用( * )来表示, 它表示匹配程序中所有的 widget.</p>
+<h5 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h5><blockquote>
+<p><font color="cornflowerblue">由于通用选择器会匹配程序中所有的 widgets, 效率较低, 因此应该尽量减少或者不使用</font></p>
+</blockquote>
+<h5 id="一般用法"><a href="#一般用法" class="headerlink" title="一般用法"></a>一般用法</h5><p>通用选择器一般用来给应用程序设置统一的字体,例如</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">*{<span class="attribute">font</span>: normal <span class="number">20px</span> “微软雅黑”;}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>这条语句表示将程序中所有 widget 的字体大小都设置为 20px 大小, 字体采用微软雅黑.</p>
+<h4 id="类型选择器"><a href="#类型选择器" class="headerlink" title="类型选择器"></a>类型选择器</h4><h5 id="格式-1"><a href="#格式-1" class="headerlink" title="格式"></a>格式</h5><figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">类名 { 属性: 值; }</span><br></pre></td></tr></tbody></table></figure>
+
+<p>类名即 Widget 类名, 由 QObject :: metaObject() :: className()获取, 类型选择器匹配所有该类以及该类的派生类的对象.</p>
+<p>例如:</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">QPushButton{ </span><br><span class="line">	<span class="attribute">color</span>: blue; </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>这条语句表示, 程序中<font color="orange"><code>所有的 QPushButton 类和它的派生类的对象, 它们的前景色(即文字颜色)被设置为蓝色.</code></font></p>
+<h5 id="注意点-1"><a href="#注意点-1" class="headerlink" title="注意点"></a>注意点</h5><p>Qt 样式表使用 widget 的 <font color="orange"><code>QObject::className()</code></font>来决定何时应用<font color="orange"><code>类型选择器</code></font>。当<font color="red"><code>自定义控件在命名空间之中</code></font>(或它是一个嵌套类)，<font color="red">QObject::className()会返回( :: )</font>, 这与后面介绍的子控件选择器相冲突. 为了解决这个问题，当为命名空间中 widget 使用类型选择器时, 我们必须将<font color="orange"><code>” :: ”</code></font>替换成<font color="orange"><code>” -- ”</code></font>, 下面即将介绍的类选择器也是一样. </p>
+<p>例子如下:</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">namespace</span> ns {</span><br><span class="line"></span><br><span class="line"> <span class="keyword">class</span> <span class="title class_">MyPushButton</span> : <span class="keyword">public</span> QPushButton {</span><br><span class="line"></span><br><span class="line"> <span class="comment">// ...</span></span><br><span class="line"></span><br><span class="line"> } </span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line"></span><br><span class="line">qApp-&gt;<span class="built_in">setStyleSheet</span>(<span class="string">"ns--MyPushButton { background: yellow; }"</span>);</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h5 id="一般用法-1"><a href="#一般用法-1" class="headerlink" title="一般用法"></a><strong>一般用法</strong></h5><p>类型选择器会匹配<font color="orange"><code>所有该类以及该类的派生类的对象</code></font>, 所以我们在程序中, 有时为了统一具有相似性的控件的样式, 可以使用类型选择器, 如, 我们想要为 <font color="orange">QSpinBox</font>,<font color="orange">QDoubleSpinBox</font>, <font color="orange">QDateTimeEdit</font>, <font color="orange">QTimeEdit</font>, <font color="orange">QDateEdit</font> 等这些编辑框的控件设置一些相同的样式, 因为它们都是 <font color="orange">QAbstractSpinBox 类的派生类</font>, 因此可以如下写:</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">QAbstractSpinBox{</span><br><span class="line">	<span class="attribute">min-height</span>: <span class="number">30px</span>;</span><br><span class="line">	<span class="attribute">max-height</span>: <span class="number">30px</span>;</span><br><span class="line">	<span class="attribute">border-width</span>: <span class="number">1px</span>;</span><br><span class="line">	rder-style: solid;</span><br><span class="line">	<span class="attribute">order</span>-<span class="attribute">color</span>: gray; </span><br><span class="line">	<span class="attribute">padding</span>: <span class="number">0px</span>; </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h4 id="类选择器"><a href="#类选择器" class="headerlink" title="类选择器"></a><strong>类选择器</strong></h4><h5 id="格式-2"><a href="#格式-2" class="headerlink" title="格式"></a><strong>格式</strong></h5><figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.类名 { 属性: 值; }</span><br></pre></td></tr></tbody></table></figure>
+
+<p>这里的类名与类型选择器中的类名一样, 不同的是, 类选择器的类名前面有一个( . ), 这种选择器<font color="red"><code>只会匹配该类的所有对象, 而不会匹配其派生类的对象.</code></font> </p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.QPushButton</span>{ </span><br><span class="line">	<span class="attribute">color</span>: blue; </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h5 id="一般用法-2"><a href="#一般用法-2" class="headerlink" title="一般用法"></a><strong>一般用法</strong></h5><p>类选择器提供了一种<font color="orange"><code>匹配所有该类的对象但不会匹配派生类的方法</code></font>, 通常用来特例化拥有派生类的类对象, 但不仅限于此.例如在在我的应用程序中, 我用 QFrame 来作为容器 widget,此时我想对它设置一些样式, 但又不想影响它的子类对象(QLabel, QAbstractScrollArea 等等),那么我可以使用类选择器给所有的 QFrame 设置相同的样式 . </p>
+<p>例如:</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.QFrame</span>{</span><br><span class="line">	<span class="attribute">padding</span>: <span class="number">15px</span> <span class="number">25px</span>; </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="ID-选择器"><a href="#ID-选择器" class="headerlink" title="ID 选择器"></a><strong>ID</strong> <strong>选择器</strong></h4><h5 id="格式-3"><a href="#格式-3" class="headerlink" title="格式"></a><strong>格式</strong></h5><figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#id</span>{ 属性: 值; }</span><br></pre></td></tr></tbody></table></figure>
+
+<p>这里的 id 指的是 objectName, 每个 QObject 类及其派生类都有的一个属性, “#” + objectName构成了我们的 ID 选择器, <font color="orange"><code>它匹配所有 objectName 为 ID 选择器所指定的名称的对象</code></font>, 为其设置样式. </p>
+<p>例如:</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#button_1</span>{</span><br><span class="line"> <span class="attribute">color</span>: red; </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h5 id="注意点-2"><a href="#注意点-2" class="headerlink" title="注意点"></a><strong>注意点</strong></h5><ol>
+<li><p>objectName 是大小写敏感的.</p>
+</li>
+<li><p>“#”与 ID 之间不可以有空格</p>
+</li>
+<li><p>由于 objectName 是所有 QObject 类对象的一个属性, 在运行过程中可以改变, 所以一般情况下, 要使用 ID 选择器时,<font color="orange"> <code>保证 objectName 不要在运行时被改变, 否则重新加载stylesheet 文件时, 对应的 ID 选择器将不会匹配到原来的控件.</code></font></p>
+</li>
+<li><p>由于 objectName 允许字符串中含有空格, 但是 ID 选择器中,<font color="orange"> <code>ID 是从紧跟#后的第一个字符开始直到遇到空格或“{”之间的字符串, 因此, 如果是为了使用 ID 选择器而设置objectName, 则 objectName 中不能含有空格</code></font></p>
+</li>
+<li><p><font color="orange"><code>由于任何对象的 objectName 都可以出现重复, 因此在设置 objectName 时, 尽量保持其唯一性</code></font></p>
+</li>
+<li><p>Qt 官方给出的 ID 选择器的格式为:</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">类名<span class="selector-id">#id</span>{ 属性: 值; }</span><br></pre></td></tr></tbody></table></figure>
+
+<p>但实际上不加类名也是可以的(加了类名的 ID 选择器在 CSS 中被称为交集选择器),在正式开发中, 还是<font color="orange"><code>建议加上类名, 因为这样可以看出这个 id 选择器所匹配的对象的类型,有利于提高阅读性.</code></font>基于以上特点, 我们在设置 objectName 时, 一般使用下划线”_”连接的多个单词表明此对象的功能.</p>
+</li>
+</ol>
+<h5 id="一般用法-3"><a href="#一般用法-3" class="headerlink" title="一般用法"></a><strong>一般用法</strong></h5><p>ID 选择器一般用于为比较特殊的控件设置样式, 例如在我的某个页面中, 需要突出一个重要的按钮, 那么此时我可以给这个按钮设置一个独特的样式用以提醒用户, 如:</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">QPushButton<span class="selector-id">#settings_popup_fileDialog_button</span>{</span><br><span class="line"></span><br><span class="line"> <span class="attribute">min-height</span>: <span class="number">31px</span>;</span><br><span class="line"></span><br><span class="line"> <span class="attribute">min-width</span>: <span class="number">70px</span>;</span><br><span class="line"></span><br><span class="line"> <span class="attribute">border</span>: <span class="number">1px</span> solid black;</span><br><span class="line"></span><br><span class="line"> <span class="attribute">color</span>: <span class="number">#F0F0F0</span>;</span><br><span class="line"></span><br><span class="line"> <span class="attribute">min-height</span>: <span class="number">10px</span>;</span><br><span class="line"></span><br><span class="line"> <span class="attribute">border-radius</span>:<span class="number">3px</span>;</span><br><span class="line"></span><br><span class="line"> <span class="attribute">background</span>: <span class="built_in">qlineargradient</span>(spread:pad, x1:<span class="number">0</span>, y1:<span class="number">0</span>, x2:<span class="number">0</span>, y2:<span class="number">1</span>,</span><br><span class="line"></span><br><span class="line">stop:<span class="number">0</span> <span class="number">#454648</span>, stop:<span class="number">1</span> <span class="number">#7A7A7A</span>); </span><br><span class="line"></span><br><span class="line">} </span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h4 id="后代选择器"><a href="#后代选择器" class="headerlink" title="后代选择器"></a><strong>后代选择器</strong></h4><h5 id="格式-4"><a href="#格式-4" class="headerlink" title="格式"></a><strong>格式</strong></h5><figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">选择器<span class="number">1</span> 选择器<span class="number">2</span>{ 属性: 值; }</span><br></pre></td></tr></tbody></table></figure>
+
+<p>这个选择器表示: <font color="orange"><code>在选择器 1 匹配的所有对象中, 找到选择器 2 所匹配的所有后代对象, 并给它们设置样式.</code></font></p>
+<h5 id="注意点-3"><a href="#注意点-3" class="headerlink" title="注意点"></a><strong>注意点</strong></h5><ol>
+<li>后代选择器必须用空格隔开每个选择器</li>
+<li><font color="orange"><code>后代选择器可以通过空格一直延续下去</code></font>, 例如:选择器 1 选择器 2 选择器 3 … 选择器 N{ 属性: 值; }</li>
+<li><font color="red"><code>顾名思义, 后代选择器不仅包含”儿子”, 还包含”孙子”, “重孙子”等, 一般来说, 只要 B 控件显示在 A 控件上, 那么 B 控件就是 A 控件的后代.</code></font></li>
+<li>后代选择器不仅可以使用类型选择器, 还可以使用类选择器, id 选择器以及后面提及的属性选择器等.</li>
+<li>Qt 中, 各控件的父子关系:通过简单的验证, 各控件的父子关系并非我们在创建对象时所指定的那样, <font color="orange"><code>实际父子关系取决于如何布局.</code> </font></li>
+</ol>
+<h5 id="一般用法-4"><a href="#一般用法-4" class="headerlink" title="一般用法"></a><strong>一般用法</strong></h5><p>后代选择器一般用于指定特定类的后代的样式, 例如在我的应用程序中, 有很多个相似的对话框, 它们中包含一些样式相同的按钮, 那么我可以使用后代选择器为他们指定样式, 例如:</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">BaseDialog QPushButton{</span><br><span class="line">	<span class="attribute">min-width</span>: <span class="number">120px</span>;</span><br><span class="line">	<span class="attribute">min-height</span>: <span class="number">40px</span>;</span><br><span class="line">	<span class="attribute">max-width</span>: <span class="number">120px</span>;</span><br><span class="line">	<span class="attribute">max-height</span>: <span class="number">40px</span>;</span><br><span class="line">	<span class="attribute">font-size</span>: <span class="number">20px</span>;</span><br><span class="line">	<span class="attribute">padding</span>: <span class="number">0px</span>; </span><br><span class="line">} </span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="子元素选择器"><a href="#子元素选择器" class="headerlink" title="子元素选择器"></a><strong>子元素选择器</strong></h4><h5 id="格式-5"><a href="#格式-5" class="headerlink" title="格式"></a><strong>格式</strong></h5><figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">选择器<span class="number">1</span> &gt;选择器<span class="number">2</span> { 属性: 值; }</span><br></pre></td></tr></tbody></table></figure>
+
+<p>子元素选择器表示找到指定选择器所匹配的对象中的所有特定直接子元素然后设置属性, </p>
+<p>即找到选择器 1 匹配到的对象中的被选择器 2 匹配盗的直接子元素然后设置属性</p>
+<p><strong>注意点</strong></p>
+<ol>
+<li><p>子元素选择器必须用”&gt;”连接, “&gt;”两边有没有空格都可以, 但是不建议写空格, 因为会与后代选择器的连接符混淆.</p>
+</li>
+<li><p><font color="orange"><code>子元素选择器只会查找”儿子”, 不会查找其他后代.</code></font></p>
+</li>
+<li><p>子元素选择器不仅可以使用类型选择器, 还可以使用类选择器,id 等选择器</p>
+</li>
+<li><p><font color="red"><code>子元素选择器不能通过”&gt;”一直延续下去, 只能有一个”&gt;”</code></font></p>
+</li>
+<li><p>由于 Qt 中有继承关系的 Widgets 较多, 在使用子元素选择器时, 请特别注意继承关系,比如我只想选中 QGroupBox 中的 QPushButton, 那么我即可以写成</p>
+</li>
+</ol>
+   <figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">QWidget&gt;QPushButton{<span class="attribute">color</span>: red;} </span><br><span class="line"><span class="comment">/*也可以写成*/</span></span><br><span class="line">QGroupBox&gt;QPushButton{<span class="attribute">color</span>: red;} </span><br></pre></td></tr></tbody></table></figure>
+
+<p>   这是因为 QGroupBox 是 QWidget 的派生类, 类型选择器 QWidget 会选中所有它的派生类对象,这些对象中包括 QGroupBox, 因此写法.1 会将所有的 QPushButton 的前景色设置为红色.鉴于此种情况, 我推荐在使用子元素选择器时, 使用类选择器替代类型选择器.</p>
+<h5 id="一般用法-5"><a href="#一般用法-5" class="headerlink" title="一般用法"></a><strong>一般用法</strong></h5><p>子元素选择器一般用于一些特定布局条件中的控件, 例如我想给直接布局在 QGroupBox 的QCheckBox 设置一些特定属性, 那么可以这样做: </p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.QGroupBox</span> &gt; <span class="selector-class">.QCheckBox</span>{</span><br><span class="line">	<span class="attribute">color</span>: blue; </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="属性选择器"><a href="#属性选择器" class="headerlink" title="属性选择器"></a><strong>属性选择器</strong></h4><h5 id="格式-6"><a href="#格式-6" class="headerlink" title="格式"></a><strong>格式</strong></h5><figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-attr">[attribute=value]</span>{ 属性: 值; }</span><br><span class="line"></span><br><span class="line"><span class="selector-attr">[attribute|=value]</span>{ 属性:值; }</span><br><span class="line"></span><br><span class="line"><span class="selector-attr">[attribute~=value]</span>{ 属性:值; }</span><br></pre></td></tr></tbody></table></figure>
+
+<blockquote>
+<p><font color="orange"><code>attribute=value 表示匹配有特定属性 attribute, 并且值为 value 的所有控件, 然后设置样式;</code></font></p>
+<p><font color="orange"><code>attribute|=value 表示匹配有特定属性 attribute, 并且值以 value 开头的所有控件, 然后设置样式;</code></font></p>
+<p><font color="orange"><code>attribute~=value 表示匹配有特定属性 attribute, 并且值包含 value 的所有控件, 然后设置样 式;</code></font></p>
+</blockquote>
+<h5 id="注意点-4"><a href="#注意点-4" class="headerlink" title="注意点"></a><strong>注意点</strong></h5><p><font color="red"><code>attribute|=value 表示 attribute 属性的值以 value 开头, 无论 value 后面还有没有值, 或者value 后面是什么, 均能匹配到</code></font>, 例如:</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-attr">[objectName|=<span class="string">"button"</span>]</span>{</span><br><span class="line">	<span class="attribute">color</span>: red; </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>这表示将 objectName 属性以 button 开头的所有控件的前景色设置为红色.</p>
+<p><font color="red"><code>attribute~=value 表示 attribute 属性的值中包含 value, 这里要注意的是:value 必须是独立的单词, 也就是包含 value 并且 value 是被空格隔开的</code></font>, 例如:</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-attr">[objectName~=<span class="string">"button"</span>]</span>{</span><br><span class="line">	<span class="attribute">color</span>: red; </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>而我在代码中, 设置的 objectName 的语句为:</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081327869.png"></p>
+<p>结果是只匹配到了 pBtn2 所指的对象</p>
+<h5 id="官方文档的解释"><a href="#官方文档的解释" class="headerlink" title="官方文档的解释:"></a>官方文档的解释:</h5><p>通常情况下, 这里的属性指的是, 使用 <font color="blue"><code>Q_PROPERTY</code> </font>宏所声明的属性, 并且属性类型要受 <font color="orange"><code>QVariant::toString()</code></font>支持.</p>
+<p>这个选择器类型也可以用来判断动态属性，要了解更多使用自定义动态属性的细节，请参考使用自定义动态属性 </p>
+<p><font color="orange"><code>除了使用=，你还可以使用~=来判断一个 QStringList 中是否包含给定的 QString</code></font>。警告：如果在设置了样式表后，相应的属性值发生了改变(如：flat 变成了”true”)，则有必要重新加载样式表，一个有效的方法是，取消样式表，再重新设置一次,下面的代码是其中一种方式：</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">style()-&gt;unpolish(this);</span><br><span class="line"></span><br><span class="line">style()-&gt;polish(this);</span><br></pre></td></tr></tbody></table></figure>
+
+<h5 id="一般用法-6"><a href="#一般用法-6" class="headerlink" title="一般用法"></a><strong>一般用法</strong></h5><p>属性选择器一般不常用, 如果要用, 请参照官方文档的方法使用</p>
+<h4 id="并集选择器"><a href="#并集选择器" class="headerlink" title="并集选择器"></a><strong>并集选择器</strong></h4><h5 id="格式-7"><a href="#格式-7" class="headerlink" title="格式"></a><strong>格式</strong></h5><figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">选择器<span class="number">1</span>,选择器<span class="number">2</span>,选择器<span class="number">3</span>{ 属性: 值; }</span><br></pre></td></tr></tbody></table></figure>
+
+<p>并集选择器表示, 将每个单独选择器匹配到的控件放在同一个结果集中, 并给结果集中的每个控件都设置声明语句中的样式.</p>
+<h5 id="注意点-5"><a href="#注意点-5" class="headerlink" title="注意点"></a><strong>注意点</strong></h5><ol>
+<li>并集选择器必须使用”,”来连接不同的选择器</li>
+<li>并集选择器可以使用类选择器, 类型选择器, id 选择器, 属性选择器等.</li>
+</ol>
+<p><strong>一般用法</strong></p>
+<p>主要用于给具有相同属性并且外观相似的的控件设置样式, 例如: </p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.QLineEdit</span>, <span class="selector-class">.QComboBox</span>{</span><br><span class="line">	<span class="attribute">border</span>: <span class="number">1px</span> solid gray;</span><br><span class="line">	<span class="attribute">background-color</span>:white; </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h4 id="两个特殊的选择器"><a href="#两个特殊的选择器" class="headerlink" title="两个特殊的选择器"></a><strong>两个特殊的选择器</strong></h4><h5 id="子控件选择器"><a href="#子控件选择器" class="headerlink" title="子控件选择器"></a><strong>子控件选择器</strong></h5><h5 id="格式-8"><a href="#格式-8" class="headerlink" title="格式"></a><strong>格式</strong></h5><figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">类型选择器::子控{ 属性: 值; }</span><br><span class="line"></span><br><span class="line">类选择器::子控件{ 属性: 值; }</span><br></pre></td></tr></tbody></table></figure>
+
+<p>表示对类型选择器或类选择器指定的所有控件的<font color="orange"><code>子控件</code></font>设置样式;</p>
+<p><strong>Qt</strong> <strong>官方说明</strong> </p>
+<p>为了样式化你的复杂 widget，很有必要使用 widget 的 subcontrol，比如 QComboBox 的 drop-down 部分或者是 QSpinBox 的上和下箭头。选择器也许会包含 subcontrols 用于限制 widget的 subcontrols, 举个例子:</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">QComboBox::down-arrow{</span><br><span class="line">	image: <span class="built_in">url</span>(<span class="string">:/res/arrowdown.png</span>); </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>上述规则样式化所有 QComboBox 的 drop-down 部分，虽然双冒号(::)让人联想到 CSS3 的伪元素语法，但是 Qt 的 Sub-Controls 跟它是不一样的。</p>
+<p> Sub-Controls 始终相对于另一个元素来定位–一个参考元素。这个参考元素可以是一个Widget 又或者是另一个 Sub-Control。举个例子，QComboBox 的::drop-down 默认被放置于QComboBox 的 Padding rectangle(盒子模型)的右上角。::drop-down 默认会被放置于另一个::drop-down Sub-Control 的中心。查看可样式化的 Widget 列表以了解更多使用 Sub-Control来样式化 Widget 和初始化其位置的内容。源 rectangle 可以使用 subcontrol-origin 来改变。</p>
+<p>举个例子，如果我们想要把 drop-down 放置于 QComboBox 的 margin rectangle 而不是默认的 Padding rectangle，我们可以像下面这样指</p>
+<p>定：</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">QComboBox {</span><br><span class="line">	<span class="attribute">margin-right</span>: <span class="number">20px</span>; </span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">QComboBox::drop-down {</span><br><span class="line">    subcontrol-origin: margin; </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>drop-down 在 Margin rectangle 内的排列方式可以由 subcontrol-position 来改变. </p>
+<p>width 和 height 属性可以用来控制 Sub-control 的 size.需要注意的是，设置了 image 就隐式的设置了 Sub-control 的 size 了。</p>
+<ol>
+<li>相对定位方案（position:relative）,允许 Sub-Control 的位置从它的初始化位置作出偏移。</li>
+</ol>
+<p>举个例子，当 QComboBox 的 drop-down 按钮被 pressed 时，我们也许想要那个箭头作出位移以显示一种“pressed”的效果，为了达到目标，我们可以像下面那样指定</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">QComboBox::down-arrow {</span><br><span class="line"> 	image*: <span class="built_in">url</span>(<span class="string">down_arrow.png</span>); </span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">QComboBox::down-arrow:pressed {</span><br><span class="line">	<span class="attribute">position</span>: relative;</span><br><span class="line">	<span class="attribute">top</span>: <span class="number">1px</span>; <span class="attribute">left</span>: <span class="number">1px</span>; </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<ol start="2">
+<li>绝对定位方(position : absolute)，使得 Sub-control 的 position 和 size 基于其参考元素而改</li>
+</ol>
+<p>变。一旦定位，它们将会与 widget 同等对待并且可以使用盒子模型来样式化。查看 Sub-Control 列表以了解那些 sub-control 是被支持的，并且可以查看自定义QPushButton 的菜单指示器 Sub-Control 来了解一个实际的使用例子。注意：像 QComboBox 和 QScrollBar 这样的复杂部件，如果 sub-control 的一项属性是自定义的，那么其他所有的属性跟 sub-control 也都应该自定义。</p>
+<h5 id="子控件表（参考）"><a href="#子控件表（参考）" class="headerlink" title="子控件表（参考）"></a>子控件表（参考）</h5><table>
+<thead>
+<tr>
+<th>子部件</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>::down-arrow</td>
+<td>combo box或spin box的下拉箭头</td>
+</tr>
+<tr>
+<td>::down-button</td>
+<td>spin box的向下按钮</td>
+</tr>
+<tr>
+<td>::drop-down</td>
+<td>combo box的下拉箭头</td>
+</tr>
+<tr>
+<td>::indicato</td>
+<td>checkbox、radio button或可选择group box的指示器</td>
+</tr>
+<tr>
+<td>::item</td>
+<td>menu、menu bar或status bar的子项目</td>
+</tr>
+<tr>
+<td>::menu-indicator</td>
+<td>push button的菜单指示器</td>
+</tr>
+<tr>
+<td>::title</td>
+<td>group box的标题</td>
+</tr>
+<tr>
+<td>::up-arrow</td>
+<td>spin box的向上箭头</td>
+</tr>
+<tr>
+<td>::up-button</td>
+<td>spin box的向上按钮</td>
+</tr>
+</tbody></table>
+<h5 id="伪类选择器"><a href="#伪类选择器" class="headerlink" title="伪类选择器"></a><strong>伪类选择器</strong></h5><h5 id="格式-9"><a href="#格式-9" class="headerlink" title="格式"></a><strong>格式</strong></h5><figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">类型选择器:状态{ 属性: 值; }</span><br><span class="line"></span><br><span class="line">类选择器:状态{ 属性: 值; }</span><br></pre></td></tr></tbody></table></figure>
+
+<p>表示对类型选择器或类选择器指定的所有控件设置它在指定状态时的样式.</p>
+<p><strong>Qt</strong> <strong>官方说明</strong> </p>
+<p>选择器也许会包含基于 widget 的 state 的程序限制规则的伪状态。<font color="orange"><code>伪状态以冒号(:)作为分隔紧跟着选择器</code></font>。举个例子，下面的规则在鼠标悬浮在 QPushButton 的上方时生效：</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">QPushButton<span class="selector-pseudo">:hover</span> { <span class="attribute">color</span>: white }</span><br></pre></td></tr></tbody></table></figure>
+
+<p><font color="orange"><code>伪状态可以使用感叹号进行取反</code></font>，下面一条规则在鼠标没有悬浮在 QRadioButton 上方时生效：</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">QRadioButton:!hover { <span class="attribute">color</span>: red }</span><br></pre></td></tr></tbody></table></figure>
+
+<p><font color="orange"><code>伪状态可以链接，在这样的情况下，隐式地包含了逻辑与</code></font>。举个例子，下面一条规则在鼠标悬浮到一个已 check 的 QCheckBox 上时生效：</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">QCheckBox<span class="selector-pseudo">:hover</span><span class="selector-pseudo">:checked</span> { <span class="attribute">color</span>: white }</span><br></pre></td></tr></tbody></table></figure>
+
+<p>伪状态的取反也可以出现在伪状态链中，举个例子，下面的规则在鼠标悬浮到一个没有被press 的 QPushButton 上时生效：</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">QPushButton<span class="selector-pseudo">:hover</span>:!pressed { <span class="attribute">color</span>: blue; }</span><br></pre></td></tr></tbody></table></figure>
+
+<p><font color="orange"><code>如果有需要，可以使用逗号来表示逻辑或, 即并集选择器</code></font></p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">QCheckBox<span class="selector-pseudo">:hover</span>, QCheckBox<span class="selector-pseudo">:checked</span> { <span class="attribute">color</span>: white }</span><br></pre></td></tr></tbody></table></figure>
+
+<p><font color="orange"><code>伪状态可以与 subcontrol 组合使用</code></font>，举个例子：</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">QComboBox::drop-down:hover { *image*: <span class="built_in">url</span>(<span class="string">dropdown_bright.png</span>) }</span><br></pre></td></tr></tbody></table></figure>
+
+<h5 id="伪状态表（参考）"><a href="#伪状态表（参考）" class="headerlink" title="伪状态表（参考）"></a>伪状态表（参考）</h5><table>
+<thead>
+<tr>
+<th>伪状态</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>:unchecked</td>
+<td>button部件未被选中</td>
+</tr>
+<tr>
+<td>:checked</td>
+<td>button部件被选中</td>
+</tr>
+<tr>
+<td>:disabled</td>
+<td>部件被禁用</td>
+</tr>
+<tr>
+<td>:enabled</td>
+<td>部件被启用</td>
+</tr>
+<tr>
+<td>:focus</td>
+<td>部件获得焦点</td>
+</tr>
+<tr>
+<td>:hover</td>
+<td>鼠标位于部件上</td>
+</tr>
+<tr>
+<td>:indeterminate</td>
+<td>checkbox或radiobutton被部分选中</td>
+</tr>
+<tr>
+<td>:off</td>
+<td>部件可以切换，且处于off状态</td>
+</tr>
+<tr>
+<td>:on</td>
+<td>部件可以切换，且处于on状态</td>
+</tr>
+<tr>
+<td>:pressed</td>
+<td>部件被鼠标按下</td>
+</tr>
+</tbody></table>
+<h4 id="没有选择器的情况"><a href="#没有选择器的情况" class="headerlink" title="没有选择器的情况"></a><strong>没有选择器的情况</strong></h4><p>如果在 c++的代码中直接调用控件对象的 setStyleSheet 函数来设置样式,但样式中没有任何选择器, 例如下面这样</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pBtn1-&gt;setStyleSheet("<span class="attribute">color</span>: green;");</span><br></pre></td></tr></tbody></table></figure>
+
+<p>即使这种写法可以生效, 但它不符合语法规则, 因此不推荐使用.经过测试, <font color="red"><code>这样的语句被忽略的选择器相当于通用选择器</code></font>或下面例子中的选择器, 假如 pBtn1 是一个 QPushButton 对象的指针, 那么这条语句等价于</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pBtn1-&gt;setStyleSheet("QPushButton, QPushButton *{<span class="attribute">color</span>: green;}");</span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="选择器的匹配规则"><a href="#选择器的匹配规则" class="headerlink" title="选择器的匹配规则"></a><strong>选择器的匹配规则</strong></h4><p>之所以要把这个问题单独作为一个小节来写, 是因为在日常开发过程中, 经常会犯这方面的错误.</p>
+<p>下面看一个例子:假如需要完成一个界面, 如下图所示</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081409652.png"></p>
+<p>这里用户名输入框是一个 QComboBox 对象, 密码输入框是一个 QLineEdit 对象, 它们的父控件是一个 QDialog, 有这样一个需求:给这两个输入框设置相同的边框属性: 1 个像素宽的蓝色实线框, 为了方便更改风格, 我有一个 css 文件, 将所有样式都写在了这个文件里, 这时, 观察发现, 这两个控件都是QDialog的子控件,于是可以用后代选择器或者子元素选择器, 如下:</p>
+<p>第一种:</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">QDialog QComboBox,QLineEdit{</span><br><span class="line">	<span class="attribute">border</span>:<span class="number">1px</span> solid blue; </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>第二种:</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">QDialog&gt;QComboBox,QLineEdit{</span><br><span class="line">	<span class="attribute">border</span>:<span class="number">1px</span> solid blue; </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>当我写完并运行程序后, 发现无论采用哪种写法 QComboBox 是正常的, 但是我的程序界面中, <font color="orange"><code>其他所有的 QLineEdit 的边框都变成了 1 个像素款的蓝色实线框</code></font>, 而这并不是我想要的效果.</p>
+<p>因此对于上面的现象, 我们很容易得出结论: <font color="red"><code>多个选择器组合(并集选择器)使用时, 它们的结合方向是自右向左, 而不是我们认为的自左向右</code></font>.也就是说, 这两个选择器分别被理解为<font color="orange"><code>(QDialogQComboBox), QLineEdit</code></font> 和<font color="orange"><code>(QDialog&gt;QComboBox),QLineEdit</code>.</font></p>
+<p>其实, 这应该与 CSS 的选择器匹配规则是一样的, 是为了提高效率的一种做法, 具体原因这 里不细谈.</p>
+<p>正确的写法应该是</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">QDialog QComboBox, QDialog QLineEdit{</span><br><span class="line">	<span class="attribute">border</span>:<span class="number">1px</span> solid blue; </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>或</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">QDialog&gt;QComboBox, QDialog&gt;QLineEdit{</span><br><span class="line">	<span class="attribute">border</span>:<span class="number">1px</span> solid blue; </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h2 id="Qss-的特性"><a href="#Qss-的特性" class="headerlink" title="Qss 的特性"></a><strong>Qss</strong> <strong>的特性</strong></h2><h3 id="层叠性"><a href="#层叠性" class="headerlink" title="层叠性"></a><strong>层叠性</strong></h3><p>qss 的语法来源于 css, 而 css 的全称是 Cascading StyleSheet, 翻译过来叫做层叠样式表,</p>
+<p>也叫级联样式表, 本文中一律使用层叠样式表.</p>
+<p>层叠性是 css 处理冲突的一种能力.</p>
+<p>只有在多个选择器匹配到同一个控件时才会发生层叠性, 如下面的例子:</p>
+ <figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pBtn1-&gt;setStyleSheet("QPushButton{<span class="attribute">color</span>: blue;}");</span><br><span class="line"></span><br><span class="line"> pBtn1-&gt;setStyleSheet("<span class="selector-class">.QPushButton</span>{<span class="attribute">color</span>: green;}");</span><br></pre></td></tr></tbody></table></figure>
+
+<p>这两个选择器匹配到了同一个按钮, (<font color="orange"><code>选择器优先级相同的情况下</code></font>)结果是后面的样式覆盖掉了前面的, 这就是层叠现象.</p>
+<h3 id="继承性-Qt-Version-gt-x3D-5-7"><a href="#继承性-Qt-Version-gt-x3D-5-7" class="headerlink" title="继承性(Qt-Version >= 5.7)"></a><strong>继承性</strong><strong>(Qt-Version &gt;= 5.7)</strong></h3><p>在典型的 CSS 中，如果一个标签的字体和颜色没有显式设置，它会自动从其父亲获得。当使</p>
+<p>用 Qt 样式表时，控件**<font color="orange">不会</font>**从其<font color="orange"><strong>父亲(不是父类)</strong></font>继承字体和颜色的设置(请注意，父亲和父类、孩子和子类都是不同的概念，不要搞混)</p>
+<p>举个例子，考虑一个 QGroupBox 内有一个 QPushButton：</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">qApp-&gt;setStyleSheet("QGroupBox{ <span class="attribute">color</span>: red; }");</span><br></pre></td></tr></tbody></table></figure>
+
+<p>QPushButton 没有任何显式的 color 设置。因此，<font color="orange"><code>它会获得系统的颜色而不是从父亲继承 color的值</code></font>。如果我们要设置 QGroupBox 及其所有孩子的 color，我们可以这样写：</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">qApp-&gt;setStyleSheet("QGroupBox,QGroupBox * { <span class="attribute">color</span>: red; }");</span><br></pre></td></tr></tbody></table></figure>
+
+<p>注意 QGroupBox 和*之间的空格。与此相反，使用 QWidget::setFont()可以设置字体包括孩子的字体，使用 <font color="orange"><code>QWidget::setPalette()</code></font>可以设置调色板包括孩子的调色板。如果想要字体和调 色板被孩子继承 , 可以给 QApplication 设 置<font color="orange"><code>Qt::AA_UseStyleSheetPropagationInWidgetStyles</code></font>(Qt5.7 加入)属性, 例如:</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">QCoreApplication::<span class="built_in">setAttribute</span>(Qt::AA_UseStyleSheetPropagationInWidgetStyles, true);</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h2 id="优先级"><a href="#优先级" class="headerlink" title="优先级"></a><strong>优先级</strong></h2><p>为什么要有优先级？</p>
+<p>当一个控件被多个选择器选中并且设置了相同的属性（值不同）时， 不能仅仅根据设置样式语句出现的先后顺序进行层叠, 那么控件的样式如何确定，于是引出了选择器的优先级问题。</p>
+<p>一般通过下面两步进行选择器优先级的判定.</p>
+<h3 id="第一步：-设置方式所产生的优先级问题"><a href="#第一步：-设置方式所产生的优先级问题" class="headerlink" title="第一步： 设置方式所产生的优先级问题"></a><strong>第一步：</strong> <strong>设置方式所产生的优先级问题</strong></h3><p>在 CSS 中， 有如下层叠优先级规则：</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">内联样式&gt;内部样式&gt;外部样式&gt;浏览器缺省</span><br></pre></td></tr></tbody></table></figure>
+
+<p>而在 Qss 中, 这个规则表现为:</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">给控件直接设置的样式&gt;给QApplication设置的样式</span><br></pre></td></tr></tbody></table></figure>
+
+<p><font color="orange"><code>就是说， 调用控件的 setStylesheet 设置的样式的优先级永远高于给 QApplication 设置的样式， 即使 QApplication 中的选择器优先级更高</code></font></p>
+<h3 id="第二步：样式表本身的优先级问题"><a href="#第二步：样式表本身的优先级问题" class="headerlink" title="第二步：样式表本身的优先级问题"></a><strong>第二步：样式表本身的优先级问题</strong></h3><p>当设置方式相同，且几个样式规则为同一个控件的同一个属性指定不同的值时,就产生了冲突.此时, 如何层叠就由选择器的优先级来确定.一般而言，<font color="red"><code>选择器越特殊，它的优先级越高。也就是选择器指向的越准确，它的优先级就越高。</code></font></p>
+<h3 id="优先级判断的三种方式"><a href="#优先级判断的三种方式" class="headerlink" title="优先级判断的三种方式"></a><strong>优先级判断的三种方式</strong></h3><h4 id="间接选中"><a href="#间接选中" class="headerlink" title="间接选中"></a>间接选中</h4><p>间接选中就是指继承, 也就是在 Qt5.7 及以上版本, 程序中给 <font color="orange"><code>QApplication</code></font> 对象设置了<font color="purple"><code>Qt::AA_UseStyleSheetPropagationInWidgetStyles</code> </font>属性时, 才会有间接选中.</p>
+<p><font color="orange"><code>如果是间接选中,那么最终的样式就是离目标最近的那个</code></font>, 这里的近指的是两个控件的父子关系. </p>
+<p>例如:</p>
+<blockquote>
+<p>一个 QPushButton 对象被布局在 QGroupBox 中, 而 QGroupBox 又被布局在 QWidget 中, 此时如果给 QGroupBox 和 QWidget 都设置了 color 属性的颜色, 那么无论设置顺序如何, QPushButton 的前景色总是表现为 QGroupBox 设置的颜色, 因为QGroupBox 显然是离 QPushButton 最近的那一个.</p>
+</blockquote>
+<h4 id="相同选择器-直接选中"><a href="#相同选择器-直接选中" class="headerlink" title="相同选择器(直接选中)"></a>相同选择器(直接选中)</h4><p>如果都是直接选中, 并且都是同类型的选择器, 那么写在后面的样式会覆盖掉前面的样式, 例如</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pBtn1-&gt;setStyleSheet("QPushButton{<span class="attribute">color</span>: green;}");</span><br><span class="line"></span><br><span class="line">pBtn1-&gt;setStyleSheet("QPushButton{<span class="attribute">color</span>: blue;}");</span><br></pre></td></tr></tbody></table></figure>
+
+<p>显而易见, pBtn1 的前景色是蓝色.</p>
+<h4 id="不同选择器-直接选中"><a href="#不同选择器-直接选中" class="headerlink" title="不同选择器(直接选中)"></a>不同选择器(直接选中)</h4><p>如果都是直接选中, 并且不是相同类型的选择器, 那么就会按照选择器的优先级来层叠.</p>
+<p>具体的优先级如下: </p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Id &gt; 类 &gt; 类型 &gt; 通配符 &gt; 继承 &gt; 默认</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="优先级权重"><a href="#优先级权重" class="headerlink" title="优先级权重"></a><strong>优先级权重</strong></h3><p>为什么会有优先级权重？</p>
+<p>当多个选择器混合在一起使用时, 我们可以通过计算权重来判断谁的优先级最高,从而确定控件的样式.</p>
+<p>注意点： </p>
+<p><font color="red"><code>只有选择器是直接选中控件时才需要计算权重， 否则直接选择器高于一切间接选中的选择器</code></font></p>
+<p>优先级权重的计算方式:</p>
+<blockquote>
+<ol>
+<li><p>计算选择器中的 id 选择器数量[=a]</p>
+</li>
+<li><p>计算选择器中类选择器的数量+属性选择器的数量[=b]</p>
+</li>
+<li><p>计算选择器中类型选择器的数量[=c]</p>
+</li>
+<li><p>忽略子控件选择器</p>
+</li>
+</ol>
+<p>串联这三个数字 a-b-c 就得到优先级权重, 数字越大优先级越高.</p>
+</blockquote>
+<p>串联这三个数字 a-b-c 就得到优先级权重, 数字越大优先级越高.</p>
+<p>这里给出我写的一个例子， qss 文件位于资源文件中：</p>
+<h3 id="Qt-官方关于冲突解决的说明"><a href="#Qt-官方关于冲突解决的说明" class="headerlink" title="Qt 官方关于冲突解决的说明"></a><strong>Qt</strong> <strong>官方关于冲突解决的说明</strong></h3><p>当几个样式规则为同一个属性指定不同的值时，就产生了冲突。请考虑下面的样式表：</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">QPushButton**<span class="selector-id">#okButton</span>** { <span class="attribute">color</span>: gray; }</span><br><span class="line"></span><br><span class="line">QPushButton { <span class="attribute">color</span>: red; }</span><br></pre></td></tr></tbody></table></figure>
+
+<p>两条规则都匹配名为 okButton 的 QPushButton 实例并且冲突于颜色属性。为了解决冲突，我们必须考虑到选择器的特殊性。在上面的例子中，QPushButton#okButton 被视为比QPushButton 更特殊，<font color="orange"><code>因为它（通常）指向一个单一的对象而不是 QPushButton 的所有实例</code></font>。 相似的，<font color="orange"><code>指定了伪状态的选择器比没有指定伪状态的更特殊</code></font>。从而，下面的样式表指明了当鼠标悬浮到 QPushButton 上方时其字体颜色应该为白色，而其余情况则为红色：</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">QPushButton<span class="selector-pseudo">:hover</span> { <span class="attribute">color</span>: white; }</span><br><span class="line"></span><br><span class="line">QPushButton { <span class="attribute">color</span>: red; }</span><br></pre></td></tr></tbody></table></figure>
+
+<p>接下来看一个很有意思的：</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">QPushButton<span class="selector-pseudo">:hover</span> { <span class="attribute">color</span>: white; }</span><br><span class="line"></span><br><span class="line">QPushButton<span class="selector-pseudo">:enabled</span> { <span class="attribute">color</span>: red; }</span><br></pre></td></tr></tbody></table></figure>
+
+<p><font color="orange"><code>两个选择器都有相同的特殊性</code></font>，所以当鼠标悬浮在一个 enabled 的按钮上时，第二条规则优先。</p>
+<p>如果在这种情况下我们想要文字变成白色，我们可以像下面那样重新排布一下样式规则：</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">QPushButton<span class="selector-pseudo">:enabled</span> { <span class="attribute">color</span>: red; }</span><br><span class="line"></span><br><span class="line">QPushButton<span class="selector-pseudo">:hover</span> { <span class="attribute">color</span>: white; }</span><br></pre></td></tr></tbody></table></figure>
+
+<p>另外，我们可以使第一条规则更特殊一些：</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">QPushButton<span class="selector-pseudo">:hover</span><span class="selector-pseudo">:enabled</span> { <span class="attribute">color</span>: white; }</span><br><span class="line"></span><br><span class="line">QPushButton<span class="selector-pseudo">:enabled</span> { <span class="attribute">color</span>: red; }</span><br></pre></td></tr></tbody></table></figure>
+
+<p>相似的问题出现在相互配合的类型选择器上。考虑以下情况：</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">QPushButton { <span class="attribute">color</span>: red; }</span><br><span class="line"></span><br><span class="line">QAbstractButton { <span class="attribute">color</span>: gray; }</span><br></pre></td></tr></tbody></table></figure>
+
+<p>两条规则都应用于 QPushButton 的实例（因为 QPushButton 继承于 QAbstractButton）并且冲突于 color 属性。因为 QPushButton 继承于 QAbstractButton，这让人不禁想到 QPushButton比 QAbstractButton 更特殊(<font color="red">并没有更特殊</font>)。然而，<font color="orange"><code>对于样式表的运算，所有的类型选择器都具有同等的特殊性，并且出现在更后面的规则优先级更高</code></font>。换句话说，QAbstractButton 的 color 会被设置成灰色，包括 QPushButton。如果我们确实想要 QPushButton 字体颜色设置为红色，<font color="orange"><code>我们总是可以使用重新排列样式表规则顺序的方式实现</code></font>。</p>
+<p>为确定规则的特殊性，Qt 样式表跟随 CSS2 规范</p>
+<p>一个选择器的特殊性由下面的方式计算：</p>
+<blockquote>
+<ul>
+<li><p>计算选择器中 ID 属性的数量[=a] </p>
+</li>
+<li><p>计算选择器中其他属性和伪类的数量[=b] </p>
+</li>
+<li><p>计算选择器中元素名字的数量[=c] </p>
+</li>
+<li><p>忽略伪原素[如:subcontrol]</p>
+</li>
+</ul>
+</blockquote>
+<p>串联这三个数字<font color="orange"> <code>a-b-c</code></font>（在一个大基数的数字系统）就得到了特殊性等级。</p>
+<p>举个例子：</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">* {} <span class="comment">/* a=0 b=0 c=0 -&gt; specificity = 0 */</span></span><br><span class="line"></span><br><span class="line"><span class="selector-tag">LI</span> {} <span class="comment">/* a=0 b=0 c=1 -&gt; specificity = 1 */</span></span><br><span class="line"></span><br><span class="line"><span class="selector-tag">UL</span> <span class="selector-tag">LI</span> {} <span class="comment">/* a=0 b=0 c=2 -&gt; specificity = 2 */</span></span><br><span class="line"></span><br><span class="line"><span class="selector-tag">UL</span> <span class="selector-tag">OL</span>+<span class="selector-tag">LI</span> {} <span class="comment">/* a=0 b=0 c=3 -&gt; specificity = 3 */</span></span><br><span class="line"></span><br><span class="line"><span class="selector-tag">H1</span> + *<span class="selector-attr">[REL=up]</span>{} <span class="comment">/* a=0 b=1 c=1 -&gt; specificity = 11 */</span></span><br><span class="line"></span><br><span class="line"><span class="selector-tag">UL</span> <span class="selector-tag">OL</span> <span class="selector-tag">LI</span><span class="selector-class">.red</span> {} <span class="comment">/* a=0 b=1 c=3 -&gt; specificity = 13 */</span></span><br><span class="line"></span><br><span class="line"><span class="selector-tag">LI</span><span class="selector-class">.red</span><span class="selector-class">.level</span> {} <span class="comment">/* a=0 b=2 c=1 -&gt; specificity = 21 */</span></span><br><span class="line"></span><br><span class="line"><span class="selector-id">#x34y</span> {} <span class="comment">/* a=1 b=0 c=0 -&gt; specificity = 100 */</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h2 id="盒模型"><a href="#盒模型" class="headerlink" title="盒模型"></a><strong>盒模型</strong></h2><p>在讲解属性之前, 我们必须了解一下 QSS 的盒模型.</p>
+<h3 id="什么是盒模型"><a href="#什么是盒模型" class="headerlink" title="**什么是盒模型? **"></a>**什么是盒模型? **</h3><p>盒模型仅仅是一个形象的比喻, 所有的 widget 都被看做是一个”盒子”, 一个盒子包括：外边距，边框，内边距，和实际内容. 它们可以看作是有包含关系的矩形, 并且这种包含关系是固定不变的.</p>
+<p>如图所示</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081520165.png"></p>
+<blockquote>
+<p><strong>Margin</strong> <strong>（外边距）</strong> - 与其他盒子之间的距离.</p>
+<p><strong>Border</strong> <strong>（边框）</strong> - 外边距与内边距之间的区域.边框有自己的颜色不会受到盒子的背景颜色影响</p>
+<p><strong>Padding</strong> <strong>（内边距）</strong> - 内容和边框之间的区域.会受到背景颜色影响. </p>
+<p><strong>Content</strong> <strong>（内容）</strong> - 盒子的内容,显示文本,图像或其他控件</p>
+</blockquote>
+<p>除了内容外, 其他三个部分均不能单独设置颜色, 只能设置其宽度, 并且是以像素为单位.</p>
+<p>对比一张生活中的一张照片墙来看会更容易理解</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081522950.png"></p>
+<h3 id="盒模型中的宽度与高度"><a href="#盒模型中的宽度与高度" class="headerlink" title="盒模型中的宽度与高度"></a><strong>盒模型中的宽度与高度</strong></h3><p>在属性中将要学到的 width, height 两个属性, 设置的均是盒子的<strong>内容</strong>的宽高, 而我们在 c++</p>
+<p>代码中的窗口的 width 与 height 指的是<strong>整个盒子的宽度与高度</strong>, 这一点非常重要.</p>
+<p>整个盒子的宽度应该等于:</p>
+<p>左外边距 + 左边框 + 左内边距 + 内容宽度 + 右内边距 + 右边框 + 右外边距,</p>
+<p>同理, 整个盒子的高度也是上下外边距,内边距,边框和内容高度的和.</p>
+<h4 id="属性"><a href="#属性" class="headerlink" title="属性"></a><strong>属性</strong></h4><p><font color="orange"><code>属性即控件的具体外观样式</code></font>, 比如背景颜色, 边框宽度等等. 本节主要列举一些常用的属性,并介绍它们的具体格式或取值</p>
+<p>注意:<font color="red"><code>一个属性并不是被所有 widget 都支持的</code></font>, 要想查看什么 widget 支持哪些属性, 或一个属性被哪些 widget 支持, 请查看文档后面给出的官方链接.</p>
+<h4 id="背景属性-background"><a href="#背景属性-background" class="headerlink" title="背景属性 background"></a><strong>背景属性</strong> <strong>background</strong></h4><p>背景共有 7 个属性, <font color="orange"><code>既可以每个属性单独设置, 也可以连写</code></font>, 下面将对他们逐一进行分析,并在最后给出其连写格式</p>
+<h5 id="background-color"><a href="#background-color" class="headerlink" title="background-color"></a><strong>background-color</strong></h5><p>取值: Brush 类型(Brush 类型介绍见本节最后)</p>
+<p>作用: 设置控件的背景颜色, <font color="orange"><code>默认是 border 之内的矩形区域, 包括内边距和内容矩形</code></font>.</p>
+<h5 id="background-image"><a href="#background-image" class="headerlink" title="background-image"></a><strong>background-image</strong></h5><p>取值: Url 类型, 格式是 url(filename), <font color="orange"><code>filename 是一个本地文件路径或 Qt 资源文件路径, 不支持网络图片</code></font></p>
+<p>作用: 设置控件的背景图片. <font color="orange"><code>可以与背景颜色共存, 背景图片会覆盖背景颜色, 在没有被图片覆盖的区域, 显示背景颜色.</code></font></p>
+<h5 id="background-repeat"><a href="#background-repeat" class="headerlink" title="background-repeat"></a><strong>background-repeat</strong></h5><p>取值:</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">repeat-x: 在水平方向上平铺</span><br><span class="line"></span><br><span class="line">repeat-y: 在垂直方向上平铺</span><br><span class="line"></span><br><span class="line">repeat: 在水平和垂直方向上都平铺, 这是默认值(但是 Qt 好像有 bug, 设置了 repeat 反而不会平铺, 不设置才平铺)</span><br><span class="line"></span><br><span class="line">no-repeat: 不平铺</span><br></pre></td></tr></tbody></table></figure>
+
+<p>作用: <font color="orange"><code>设置背景图片的平铺方式.</code> </font></p>
+<p>例子: </p>
+<p>给一个 QTextEdit 设置背景图片,代码和效果分别如下</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">QTextEdit{</span><br><span class="line">	<span class="attribute">background-color</span>: skyblue;</span><br><span class="line">	<span class="attribute">background-image</span>: <span class="built_in">url</span>(<span class="string">:/resource/girl.jpg</span>);</span><br><span class="line">	<span class="attribute">background-repeat</span>: no-repeat;<span class="comment">/*repeat-x; repeat-y; repeat;*/</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>效果图：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081535428.png" alt="repeat-x">	<img src="https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081535917.png" alt="repeat-y"></p>
+<p>​	            											</p>
+<p>  <img src="https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081535678.png" alt="repeat	"><img src="https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081535053.png" alt="no-repeat">  </p>
+<p>​															</p>
+<h5 id="background-position"><a href="#background-position" class="headerlink" title="background-position"></a><strong>background-position</strong></h5><p>取值:</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">top</span>: 向上对齐 left: 向左对齐</span><br><span class="line"></span><br><span class="line">bottom: 向下对齐 right:向右对齐</span><br><span class="line"></span><br><span class="line">center: 居中</span><br></pre></td></tr></tbody></table></figure>
+
+<p>格式:</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">background-position</span>: 水平对齐方式 垂直对齐方式;</span><br></pre></td></tr></tbody></table></figure>
+
+<p>这是 css 规定的标准顺序, 而 qss 并未严格规定, 但建议按照 css 的顺序写</p>
+<p>作用: <font color="orange"><code>设置背景图片的对齐方式, 默认情况下向左向上对齐,</code></font></p>
+<p>举例: 水平向左垂直居中对齐, 代码和效果如下</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">QTextEdit{</span><br><span class="line">	<span class="attribute">background-color</span>: skyblue;</span><br><span class="line">	<span class="attribute">background-image</span>: <span class="built_in">url</span>(<span class="string">:/resource/girl.jpg</span>);</span><br><span class="line">	<span class="attribute">background-position</span>: right center; </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>效果图：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081535623.png"></p>
+<h5 id="background-attachment"><a href="#background-attachment" class="headerlink" title="background-attachment"></a><strong>background-attachment</strong></h5><p>取值:</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">scroll : 滚动, 这是默认值</span><br><span class="line"></span><br><span class="line">fixed: 固定</span><br></pre></td></tr></tbody></table></figure>
+
+<p>作用: <font color="orange">设置背景图片在带滚动条的控件(QAbstractScrollArea)中是固定在一个位置还是随着滚动条滚动.</font></p>
+<p>比如: css 代码分别如下</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">QTextEdit{</span><br><span class="line">	<span class="attribute">background-color</span>: skyblue;</span><br><span class="line">	<span class="attribute">background-image</span>: <span class="built_in">url</span>(<span class="string">:/resource/girl.jpg</span>);</span><br><span class="line">	<span class="attribute">background-repeat</span>: no-repeat;<span class="comment">/*repeat-x; repeat-y; repeat;*/</span></span><br><span class="line">	<span class="attribute">background-position</span>: right center;</span><br><span class="line">	<span class="attribute">background-attachment</span>: scroll; </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">QTextEdit{</span><br><span class="line">	<span class="attribute">background-color</span>: skyblue;</span><br><span class="line">	<span class="attribute">background-image</span>: <span class="built_in">url</span>(<span class="string">:/resource/girl.jpg</span>);</span><br><span class="line">    <span class="attribute">background-repeat</span>: no-repeat;<span class="comment">/*repeat-x; repeat-y; repeat;*/</span></span><br><span class="line">	<span class="attribute">background-position</span>: right center;</span><br><span class="line">	<span class="attribute">background-attachment</span>: fixed; </span><br><span class="line">} </span><br></pre></td></tr></tbody></table></figure>
+
+<p>效果图</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081541879.png" alt="scroll "><img src="https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081541064.png" alt="fixed"></p>
+<p>​																	</p>
+<h5 id="background-clip"><a href="#background-clip" class="headerlink" title="background-clip"></a><strong>background-clip</strong></h5><p>取值:</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">margin</span>: 外边距矩形</span><br><span class="line"></span><br><span class="line">border: 边框矩形</span><br><span class="line"></span><br><span class="line">padding: 内边距矩形</span><br><span class="line"></span><br><span class="line">content: 内容矩形</span><br></pre></td></tr></tbody></table></figure>
+
+<p>作用: <font color="orange"><code>设置背景颜色覆盖的区域, 默认情况下背景只覆盖内边距矩形, 如果没有指定, 默认值为 border</code></font></p>
+<p>例子: 为了区别各矩形, 我们先给 QTextEdit 设置边框,内边距和外边距, 为了区别明显, 我们将边框宽度设置大一点</p>
+<p>代码和图片如下:</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">QTextEdit{</span><br><span class="line">    <span class="attribute">background-color</span>: skyblue;</span><br><span class="line">	<span class="attribute">border</span>: <span class="number">20px</span> solid purple;</span><br><span class="line">	<span class="attribute">padding</span>: <span class="number">20px</span>;</span><br><span class="line">	<span class="attribute">margin</span>: <span class="number">20px</span>;</span><br><span class="line">	<span class="attribute">background-image</span>: <span class="built_in">url</span>(<span class="string">:/resource/girl.jpg</span>);</span><br><span class="line">	<span class="attribute">background-repeat</span>: no-repeat;<span class="comment">/*repeat-x; repeat-y; repeat;*/</span></span><br><span class="line">	<span class="attribute">background-position</span>: left top;</span><br><span class="line">	<span class="attribute">background-attachment</span>: fixed; </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>效果图：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205101117655.png"></p>
+<p>分别将 background-clip 属性的值设为 margin, border, padding, content, </p>
+<p>效果图如下</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081542686.png" alt="margin "><img src="https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081548247.png" alt="border"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081543791.png" alt="padding"><img src="https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081543463.png" alt="content"></p>
+<pre><code>                                                                 content
+</code></pre>
+<p><font color="orange"><code>可见, background-clip 属性只对背景的渲染区域有关系</code></font>, 背景图片始终是靠在 padding 边上</p>
+<h5 id="background-origin"><a href="#background-origin" class="headerlink" title="background-origin"></a><strong>background-origin</strong></h5><p>取值: 与 background-clip 一样</p>
+<p>作用: 与 background-position 和 background-image 一起使用,<font color="orange"> 指明背景图片的覆盖范围矩形</font>,如果没有指定, <font color="orange">默认为 padding</font></p>
+<p>下面是分别设置为 margin, border, padding 和 content 的代码和效果图</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">QTextEdit{</span><br><span class="line">	<span class="attribute">background-color</span>: skyblue;</span><br><span class="line">	<span class="attribute">border</span>: <span class="number">20px</span> solid purple;</span><br><span class="line">	<span class="attribute">padding</span>: <span class="number">20px</span>;</span><br><span class="line">	<span class="attribute">margin</span>: <span class="number">20px</span>;</span><br><span class="line">	<span class="attribute">background-image</span>: <span class="built_in">url</span>(<span class="string">:/resource/girl.jpg</span>);</span><br><span class="line">	 <span class="comment">/*background-repeat: no-repeat;*/</span><span class="comment">/*repeat-x; repeat-y; repeat;*/</span></span><br><span class="line">	<span class="attribute">background-position</span>: left top;</span><br><span class="line">	<span class="attribute">background-attachment</span>: fixed;</span><br><span class="line">	<span class="attribute">background-clip</span>: margin; <span class="comment">/*border; padding; content;*/</span></span><br><span class="line">	<span class="attribute">background-origin</span>: margin; <span class="comment">/*border; padding; content;*/</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>效果图：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081548330.png" alt=" margin "><img src="https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081549270.png" alt="border"></p>
+<p>​																	</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081808678.png" alt="padding"><img src="https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081549494.png" alt="content"></p>
+<p>注意观察 border 与 padding 的图片, 它们是不同的, 差别就是 border 的 20 个像素所造成的不一致。</p>
+<h5 id="背景属性的连写格式"><a href="#背景属性的连写格式" class="headerlink" title="背景属性的连写格式"></a><strong>背景属性的连写格式</strong></h5><p>格式:</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">background</span>: color image repeat position;</span><br></pre></td></tr></tbody></table></figure>
+
+<p><font color="orange"><code>在这种连写格式中, 只能包含着四个属性, 其他几个仍然需要单独写, 而且这四个属性可以省略任何一个, 最多可以省略三个, 也就是最少需要保留一个,即属性值不能为空</code></font></p>
+<p><font color="red"><code>另外让人比较迷惑的是, 在这种连写方式中,repeat 确实是平铺了图片, 而单独写时, 它又是不平铺的, 具体原因还未找到.</code></font></p>
+<p>举个例子:</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">QTextEdit{</span><br><span class="line">	<span class="attribute">border</span>: <span class="number">20px</span> solid purple;</span><br><span class="line">	<span class="attribute">padding</span>: <span class="number">20px</span>;</span><br><span class="line">	<span class="attribute">margin</span>: <span class="number">20px</span>;</span><br><span class="line">	<span class="attribute">background</span>: skyblue <span class="built_in">url</span>(<span class="string">:/resource/girl.jpg</span>) repeat left top; </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>效果图</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081552920.png"></p>
+<h4 id="前景属性-color"><a href="#前景属性-color" class="headerlink" title="前景属性 color"></a><strong>前景属性</strong> <strong>color</strong></h4><p>与背景相对应, 背景设置的是控件的最底层的颜色, 作为背景, 但 <font color="orange"><code>color 设置的前景色, 也就是控件文字的颜色</code></font>, color 属性是被所有 widget 都支持的.</p>
+<p>格式:</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">color</span>: Brush类型的值;</span><br></pre></td></tr></tbody></table></figure>
+
+<p>举个例子:</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">QTextEdit{</span><br><span class="line">	<span class="attribute">color</span>: red;</span><br><span class="line">	<span class="attribute">background-color</span>: skyblue; </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081556014.png"></p>
+<h4 id="边框属性-border"><a href="#边框属性-border" class="headerlink" title="**边框属性 border"></a>**<strong>边框属性</strong> <strong>border</strong></h4><p>边框属性有四种书写方式, 同样, 先逐一进行分析, 最后给出书写格式</p>
+<h5 id="border-width"><a href="#border-width" class="headerlink" title="border-width"></a><strong>border-width</strong></h5><p>取值: ?px 像素宽度, 数值后面一定要加上像素单位 px, 也有其他单位, 但不推荐使用</p>
+<p>作用:用于边框宽度</p>
+<p>例子:</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">QTextEdit{</span><br><span class="line">	<span class="attribute">border-width</span>: <span class="number">10px</span>;</span><br><span class="line">	<span class="attribute">border-style</span>: solid;</span><br><span class="line">	<span class="attribute">border-color</span>:purple;</span><br><span class="line">	<span class="attribute">padding</span>: <span class="number">20px</span>;</span><br><span class="line">	<span class="attribute">margin</span>: <span class="number">20px</span>; </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>效果图</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081557565.png"></p>
+<h5 id="border-style"><a href="#border-style" class="headerlink" title="border-style"></a><strong>border-style</strong></h5><p>设置边框的渲染样式.</p>
+<p>取值以及效果如下:</p>
+<p>dashed </p>
+<p><img src="https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081557030.png"></p>
+<p>dot-dash </p>
+<p><img src="https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081557540.png"></p>
+<p>dot-dot-dash</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081557180.png"></p>
+<p>dotted</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081558909.png"></p>
+<p>double</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081558333.png"></p>
+<p>groove</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081558590.png"></p>
+<p>inset</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081558125.png"></p>
+<p>outset</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081558853.png"></p>
+<p>ridge</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081559284.png"></p>
+<p>solid</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081559793.png"></p>
+<p>none</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081559309.png"></p>
+<h5 id="border-color"><a href="#border-color" class="headerlink" title="border-color"></a><strong>border-color</strong></h5><p>取值: Brush 类型</p>
+<p>作用: 设置边框的颜色</p>
+<h5 id="border-radius"><a href="#border-radius" class="headerlink" title="border-radius"></a><strong>border-radius</strong></h5><p>取值: 水平半径 垂直半径;</p>
+<p>均是以像素为单位, 值必须带 px, 第二个值是可选的, 如果只有一个值, 表示同时水平半径和垂直半径, 如果有两个值, 则第一个代表水平半径, 第二个代表垂直半径.</p>
+<p>示例图</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081600183.png"></p>
+<p>作用: 设置边框四个角的弧度</p>
+<p>举个例子:</p>
+<p>代码 1:</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">QTextEdit{</span><br><span class="line">	border-width: 10px;</span><br><span class="line">	border-style: solid;</span><br><span class="line">	border-color: red;</span><br><span class="line">	border-radius: 50px;</span><br><span class="line">	padding: 20px;</span><br><span class="line">	margin: 20px; </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>代码 2:</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">QTextEdit{</span><br><span class="line">	<span class="attribute">border-width</span>: <span class="number">10px</span>;</span><br><span class="line">	<span class="attribute">border-style</span>: solid;</span><br><span class="line">	<span class="attribute">border-color</span>: red;</span><br><span class="line">	<span class="attribute">border-radius</span>: <span class="number">50px</span> <span class="number">20px</span>;</span><br><span class="line">	<span class="attribute">padding</span>: <span class="number">20px</span>;</span><br><span class="line">	<span class="attribute">margin</span>: <span class="number">20px</span>; </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081802324.png" alt=""><img src="https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081801057.png" alt="" style="zoom:;"></p>
+<p> 代码 1 效果图 												代码 2 效果图</p>
+<h5 id="border-image"><a href="#border-image" class="headerlink" title="border-image"></a><strong>border-image</strong></h5><p>取值: 这是一个连写格式, 下面给出具体的书写格式, 由于 <font color="orange"><code>Qt 对这个属性支持不是很好, 因此不建议使用</code></font>, 下面简要介绍一下</p>
+<p>格式:</p>
+<p>CSS 的连写格式如下, 每一项分别代表分开写时的一个属性.</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">border-image</span>: border-image-source border-image-slice (fill)/ border-image-width</span><br><span class="line">/ border-image-outset border-image-repeat</span><br></pre></td></tr></tbody></table></figure>
+
+<p>其中,<font color="orange"> <code>fill, border-image-width 和 border-image-outset 在 Qt 中不被支持</code></font>, 而且 Qt 只支持连写格式, 因此在 Qt 中, 我们实际的代码格式是</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">border-image</span>: border-image-source border-image-slice border-image-repeat</span><br></pre></td></tr></tbody></table></figure>
+
+<p>下面简略说一下每项的含义:</p>
+<blockquote>
+<p>border-image-source: <font color="orange">图片路径,还是只支持本地路径和 Qt 资源文件路径.</font></p>
+<p>border-image-slice: 图片切片, 单位只能是像素值, 因此数值不必带单位 px, 它最多可以指 定 4 个值,按照顺序分别代表上右下左, 最少指定 1 个值, 左省略时和右相同,下省略时和上相同, 右省略时和上相同; 它们的含义是, 距图片顶部, 右侧, 下部, 左侧分别按照指定的像素值进行切片, 将图片分成 四个角(左上,右上,右下,左下) + 四个边(上右下左) + 中间部分 = 共 9 个部分, 在 CSS 中, 如果指定了 fill, 则中间部分会覆盖元素(控件)的背景, 否则中间部分默认被省略</p>
+<p>border-image-repeat: 最多两个值最少一个值, 第一个值表示水平方向, 第二个值表示垂直方向. 作用是指定边框图片的四条边和四个角的平铺方式,不包括中间部分, 有三种取值, 分别为 <strong>stretch</strong>(默认), <strong>round</strong>(均分平铺), <strong>repeat</strong>(平铺). stretch 表示拉伸四条边相应的切片图片,来填补边框的间隙.round 是把四个角和四条边分成均等区域然后用背景图片切好能铺满整个边框空隙, 不能多也不能少, 正好合适. repeat 是做直接复制填满空隙.</p>
+</blockquote>
+<p>下面是一个切片的具体示例:利用上面这张图片,来看一下 border-image 的一些效果图</p>
+<img src="C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20220508160643576.png" alt="" style="zoom:150%;">
+
+<p>效果 1:</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">QTextEdit{</span><br><span class="line">	<span class="attribute">border</span>: <span class="number">30px</span> solid red;</span><br><span class="line">	<span class="attribute">border-image</span>: <span class="built_in">url</span>(<span class="string">:/resource/border.png</span>) <span class="number">30</span> round;</span><br><span class="line">	<span class="attribute">background-color</span>: skyblue;</span><br><span class="line">	<span class="attribute">background-image</span>: <span class="built_in">url</span>(<span class="string">:/resource/girl.jpg</span>); </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081607846.png"></p>
+<p>效果 2:</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">QTextEdit{</span><br><span class="line">	<span class="attribute">border</span>: <span class="number">30px</span> solid red;</span><br><span class="line">	<span class="attribute">border-image</span>: <span class="built_in">url</span>(<span class="string">:/resource/border.png</span>) <span class="number">30</span> stretch;</span><br><span class="line">	<span class="attribute">background-color</span>: skyblue;</span><br><span class="line">	<span class="attribute">background-image</span>: <span class="built_in">url</span>(<span class="string">:/resource/girl.jpg</span>);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081609325.png"></p>
+<p>效果 3:</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">QTextEdit{</span><br><span class="line">	<span class="attribute">border</span>: <span class="number">30px</span> solid red;</span><br><span class="line">	<span class="attribute">border-image</span>: <span class="built_in">url</span>(<span class="string">:/resource/border.png</span>) <span class="number">30</span> repeat;</span><br><span class="line">	<span class="attribute">background-color</span>: skyblue;</span><br><span class="line">	<span class="attribute">background-image</span>: <span class="built_in">url</span>(<span class="string">:/resource/girl.jpg</span>); </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081609923.png"></p>
+<p>效果 4:</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">QTextEdit{</span><br><span class="line">	<span class="attribute">border</span>: <span class="number">30px</span> solid red;</span><br><span class="line">	<span class="attribute">border-image</span>: <span class="built_in">url</span>(<span class="string">:/resource/border.png</span>) <span class="number">30</span> repeat stretch;</span><br><span class="line">	<span class="attribute">background-color</span>: skyblue;</span><br><span class="line">	<span class="attribute">background-image</span>: <span class="built_in">url</span>(<span class="string">:/resource/girl.jpg</span>); </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081610885.png"></p>
+<h5 id="格式-10"><a href="#格式-10" class="headerlink" title="格式"></a><strong>格式</strong></h5><p>border 属性的 style, color, width 可以连写也可以单独写, 并且可以分别设置四条边的边框,</p>
+<p>下面进行详细介绍</p>
+<h6 id="连写格式-1"><a href="#连写格式-1" class="headerlink" title="连写格式 1"></a><strong>连写格式</strong> <strong>1</strong></h6><figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">border</span>: width style color;</span><br></pre></td></tr></tbody></table></figure>
+
+<p>这种格式将四条边框的宽度, 风格, 颜色全部设置为一样.</p>
+<p>例子如下</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">QTextEdit{</span><br><span class="line">	<span class="attribute">border</span>: <span class="number">10px</span> solid red;</span><br><span class="line">	<span class="attribute">background-color</span>: skyblue; </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<img src="C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20220508161138157.png" alt="">
+
+<h6 id="连写格式-2"><a href="#连写格式-2" class="headerlink" title="连写格式 2"></a><strong>连写格式</strong> <strong>2</strong></h6><p>这种格式设置指定方向的边框的样式, 可以只设置一条边, 格式如下</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">border-top</span>: width style color;</span><br><span class="line"></span><br><span class="line"><span class="attribute">border-right</span>: width style color;</span><br><span class="line"></span><br><span class="line"><span class="attribute">border-bottom</span>: width style color;</span><br><span class="line"></span><br><span class="line"><span class="attribute">border-left</span>: width style color;</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<p>例子如下:</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">QTextEdit{</span><br><span class="line">	<span class="attribute">border-top</span>: <span class="number">10px</span> solid red;</span><br><span class="line">	<span class="attribute">background-color</span>: skyblue; </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<img src="C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20220508161311854.png" alt="">
+
+<p><strong>连写格式</strong> <strong>3</strong> </p>
+<p>这种连写格式是指定一种属性, 按照上右下左四个方向进行设置边框, 格式如下</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">border-style</span>:上 右 下 左;</span><br><span class="line"></span><br><span class="line"><span class="attribute">border-width</span>:上 右 下 左;</span><br><span class="line"></span><br><span class="line"><span class="attribute">border-color</span>:上 右 下 左;</span><br></pre></td></tr></tbody></table></figure>
+
+<p>其中, 后三个可以省略, 左省略则与右相同, 下省略则与上相同, 右省略与上相同</p>
+<p>这里给两个示例:</p>
+<p>示例 1:</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">QTextEdit{</span><br><span class="line">	<span class="attribute">border-style</span>: solid dashed dotted double;</span><br><span class="line">	<span class="attribute">border-color</span>: red green blue purple;</span><br><span class="line">	<span class="attribute">border-width</span>: <span class="number">5px</span> <span class="number">10px</span> <span class="number">15px</span> <span class="number">20px</span>;</span><br><span class="line">	<span class="attribute">background-color</span>: skyblue; </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<img src="C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20220508161913218.png" alt="">
+
+<p>示例 2:</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">QTextEdit{</span><br><span class="line">	<span class="attribute">border-style</span>: solid dashed ;</span><br><span class="line">	<span class="attribute">border-color</span>: red green blue;</span><br><span class="line">	<span class="attribute">border-width</span>: <span class="number">10px</span>;</span><br><span class="line">	<span class="attribute">background-color</span>: skyblue; </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<p><strong>单写格式</strong> </p>
+<p>单写格式指的是, 对每条边框的每个属性分别进行设置, 格式如下</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">border-top-width</span> 		<span class="attribute">border-top-style</span> 		<span class="attribute">border-top-color</span></span><br><span class="line"></span><br><span class="line"><span class="attribute">border-right-width</span> 		<span class="attribute">border-right-style</span> 		<span class="attribute">border-right-color</span></span><br><span class="line"></span><br><span class="line"><span class="attribute">border-bottom-width</span> 	<span class="attribute">border-bottom-style</span> 	<span class="attribute">border-bottom-color</span></span><br><span class="line"></span><br><span class="line"><span class="attribute">border-left-width</span> 		<span class="attribute">border-left-style</span> 		<span class="attribute">border-left-color</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h4 id="字体属性-font"><a href="#字体属性-font" class="headerlink" title="字体属性 font"></a><strong>字体属性</strong> <strong>font</strong></h4><h5 id="font-style"><a href="#font-style" class="headerlink" title="font-style"></a><strong>font-style</strong></h5><p>作用: 设置字体风格</p>
+<p>取值:</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">normal</span>: 正常</span><br><span class="line"></span><br><span class="line">italic: 斜体</span><br><span class="line"></span><br><span class="line">oblique: 倾斜的字体</span><br></pre></td></tr></tbody></table></figure>
+
+<p>关于 italic 和 oblique 的区别:</p>
+<p>他们都是向右倾斜的文字, 大多数情况下看不出任何区别, 但是原理却不一样.</p>
+<p>要搞清楚这个问题，首先要明白字体是怎么回事。一种字体有粗体、斜体、下划线、删除线</p>
+<p>等诸多属性。但是并不是所有字体都做了这些，一些不常用的字体，或许就只有个正常体，如果你用 Italic，</p>
+<p>就没有效果了,这时候就要用 Oblique.</p>
+<p><font color="orange"><code>可以理解成 Italic 是使用文字的斜体，Oblique 是让没有斜体属性的文字倾斜！</code></font></p>
+<h5 id="font-weight"><a href="#font-weight" class="headerlink" title="font-weight"></a><strong>font-weight</strong></h5><p>作用: 设置文字的粗细</p>
+<p>取值:</p>
+<p>它有两种取值, 一种是单次表示:</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">normal</span>: 正常粗细</span><br><span class="line"></span><br><span class="line">bold: 加粗</span><br></pre></td></tr></tbody></table></figure>
+
+<p>另一种是整数表示, 整数越大, 字体越粗</p>
+<p>100, 200, 300, …, 900 </p>
+<h5 id="font-size"><a href="#font-size" class="headerlink" title="font-size"></a><strong>font-size</strong></h5><p>作用: 设置字体大小</p>
+<p>取值:</p>
+<p>字体大小的取值是一个数值加上单位, 它的单位有 px , pt , 但一般都使用 px, 表示多少个像素, 如 20px, 表示字体的宽和高</p>
+<p>说明:</p>
+<p>注意，<font color="orange"><code>实际上它设置的是字体中字符框的高度；实际的字符字形可能比这些框高或矮（通常会矮）</code></font>。</p>
+<p>各关键字对应的字体必须比一个最小关键字相应字体要高，并且要小于下一个最大关键字对应的字体。</p>
+<h5 id="font-family"><a href="#font-family" class="headerlink" title="font-family"></a><strong>font-family</strong></h5><p>作用: 设置文字字体</p>
+<p>取值: 各种字体名称</p>
+<p>如果字体是中文, 尽量用双引号括起来</p>
+<p>QSS 中 font-family 只能指定一种字体</p>
+<h5 id="连写格式"><a href="#连写格式" class="headerlink" title="连写格式"></a><strong>连写格式</strong></h5><p>字体属性可以单写, 也可以连写, 连写格式如下:</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">font</span>: style weight size family</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<p>这种书写格式中的注意点:</p>
+<blockquote>
+<ol>
+<li><p>style 和 weight 的位置可以交换, 并且可以省略;</p>
+</li>
+<li><p>size 不能被省略</p>
+</li>
+<li><p>size 和 family 必须写在其他两个属性的后面, 并且位置不能交换</p>
+</li>
+<li><p>family 可以省略, 省略后使用默认字体</p>
+</li>
+</ol>
+</blockquote>
+<p>举个例子:</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">QTextEdit{</span><br><span class="line">	<span class="attribute">font</span>: normal normal <span class="number">30px</span> <span class="string">"隶书"</span>;</span><br><span class="line">	<span class="attribute">background-color</span>: skyblue; </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081631678.png"></p>
+<h4 id="文本属性"><a href="#文本属性" class="headerlink" title="文本属性"></a><strong>文本属性</strong></h4><h5 id="text-align"><a href="#text-align" class="headerlink" title="text-align"></a><strong>text-align</strong></h5><p>作用:设置文本的对齐方式</p>
+<p>取值:</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">top</span></span><br><span class="line"></span><br><span class="line"><span class="attribute">bottom</span> </span><br><span class="line"></span><br><span class="line"><span class="attribute">left</span></span><br><span class="line"></span><br><span class="line"><span class="attribute">right</span></span><br><span class="line"></span><br><span class="line">center</span><br></pre></td></tr></tbody></table></figure>
+
+<p><font color="red">注意点: 支持这个属性的控件目前只有 QPushButton 和 QProgressBar.</font></p>
+<p>格式:</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">text-align</span>: 水平对齐方式(left, right, center) 垂直对齐方式(top bottom center);</span><br></pre></td></tr></tbody></table></figure>
+
+<p>举个例子</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">QPushButton{</span><br><span class="line">	<span class="attribute">background-color</span>: pink;</span><br><span class="line">	<span class="attribute">min-height</span>: <span class="number">80px</span>;</span><br><span class="line">	<span class="attribute">text-align</span>: left top; </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081638898.png"></p>
+<h5 id="text-decoration"><a href="#text-decoration" class="headerlink" title="text-decoration"></a><strong>text-decoration</strong></h5><p>作用: 给文本添加装饰</p>
+<p>取值:</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">none</span>: 没有装饰</span><br><span class="line"></span><br><span class="line">underline: 下划线</span><br><span class="line"></span><br><span class="line">overline: 上划线</span><br><span class="line"></span><br><span class="line">line-through: 删除线</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<p>举个例子:</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">QTextEdit{</span><br><span class="line">    <span class="attribute">font</span>: normal normal <span class="number">30px</span> <span class="string">"微软雅黑"</span>; </span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#text_edit_1</span>{</span><br><span class="line">	<span class="attribute">text-decoration</span>: none; </span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#text_edit_2</span>{</span><br><span class="line">	<span class="attribute">text-decoration</span>: underline; </span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#text_edit_3</span>{</span><br><span class="line">	<span class="attribute">text-decoration</span>: overline; </span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#text_edit_4</span>{</span><br><span class="line">	<span class="attribute">text-decoration</span>: line-through; </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081639340.png"></p>
+<h4 id="padding-和-margin"><a href="#padding-和-margin" class="headerlink" title="padding 和 margin"></a><strong>padding</strong> <strong>和</strong> <strong>margin</strong></h4><p>盒模型中的 padding 和 margin 都可以连写, 也可以单独写, 它们都能完成四个方向上的边距设置, <font color="orange"><code>默认情况下都是 0.</code></font></p>
+<p>与边框和其他连写格式一样, 如果它们连写时, 最多可以指定 4 个值, 最少指定 1 个值,指定 4 个时, 分别表示上右下左方向的边距, 省略时, 也有相同的效果, 即左省略时默认和右一样, 下省略时默认和上一样, 右省略时和上一样.</p>
+<p>设置边距时, 数值后面必须要带像素单位, 即 px;</p>
+<h5 id="padding"><a href="#padding" class="headerlink" title="padding"></a><strong>padding</strong></h5><p>padding 既可以连写也可以分四个方向单独设置,</p>
+<p>格式如下</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">padding</span>: 上 右 下 左;</span><br><span class="line"></span><br><span class="line">或</span><br><span class="line"><span class="attribute">padding-top</span>: ?px;</span><br><span class="line"></span><br><span class="line"><span class="attribute">padding-right</span>: ?px;</span><br><span class="line"></span><br><span class="line"><span class="attribute">padding-bottom</span>: ?px;</span><br><span class="line"></span><br><span class="line"><span class="attribute">padding-left</span>: ?px;</span><br></pre></td></tr></tbody></table></figure>
+
+<h5 id="margin"><a href="#margin" class="headerlink" title="margin"></a><strong>margin</strong></h5><p>格式与 padding 类似, 具体如下</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">margin</span>: 上 右 下 左; </span><br><span class="line"></span><br><span class="line">或</span><br><span class="line"><span class="attribute">margin</span> -<span class="attribute">top</span>: ?px;</span><br><span class="line"></span><br><span class="line"><span class="attribute">margin</span> -<span class="attribute">right</span>: ?px;</span><br><span class="line"></span><br><span class="line"><span class="attribute">margin</span> -<span class="attribute">bottom</span>: ?px;</span><br><span class="line"></span><br><span class="line"><span class="attribute">margin</span> -<span class="attribute">left</span>: ?px;</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<p><font color="orange"><code>由于 Qt 将整个盒子看做是一个控件, 因此在布局时, 不会考虑每个盒子的垂直方向的外边距是否有合并现象等, 所以一个控件的外边距只会对自己产生影响, 不会对其他的控件产生影响.</code></font></p>
+<p>下面看一个例子:</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">QTextEdit{</span><br><span class="line">	<span class="attribute">border</span>: <span class="number">2px</span> solid red;</span><br><span class="line">	<span class="attribute">background</span>: skyblue;</span><br><span class="line">	<span class="attribute">background-clip</span>: margin;</span><br><span class="line">	<span class="attribute">font</span>: normal normal <span class="number">30px</span> <span class="string">"微软雅黑"</span>; </span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#text_edit_1</span>{ </span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">5px</span>; </span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">5px</span>; </span><br><span class="line">    <span class="attribute">text-decoration</span>: none; </span><br><span class="line">} <span class="selector-id">#text_edit_2</span>{ </span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">10px</span>; </span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">10px</span>; </span><br><span class="line">    <span class="attribute">text-decoration</span>: underline; </span><br><span class="line">} <span class="selector-id">#text_edit_3</span>{ </span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">15px</span>; </span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">15px</span>; </span><br><span class="line">    <span class="attribute">text-decoration</span>: overline; </span><br><span class="line">} <span class="selector-id">#text_edit_4</span>{ </span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">20px</span>; </span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">20px</span>; </span><br><span class="line">    <span class="attribute">text-decoration</span>: line-through; </span><br><span class="line">} </span><br></pre></td></tr></tbody></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081644843.png"></p>
+<h4 id="width-与-height"><a href="#width-与-height" class="headerlink" title="width 与 height"></a><strong>width</strong> <strong>与</strong> <strong>height</strong></h4><h5 id="width-height"><a href="#width-height" class="headerlink" title="width, height"></a><strong>width, height</strong></h5><ul>
+<li>这两个属性设置的是<font color="orange"><code>盒子内容</code></font>的宽高.</li>
+<li>这两个属性只对子控件选择器选中的对象有效</li>
+<li>这两个属性的取值均是像素值, 即数字加像素单位 px;</li>
+</ul>
+<h5 id="max-width-min-width-与-max-height-min-height"><a href="#max-width-min-width-与-max-height-min-height" class="headerlink" title="max-width min width 与 max-height min-height"></a><strong>max-width min width</strong> <strong>与</strong> <strong>max-height min-height</strong></h5><ul>
+<li>这四个属性对所有的 widget 都有效, 用来设置盒子内容的最小或最大尺寸</li>
+<li>当最小宽度与最大宽度相等时, 意味着给这个盒子的内容设置了一个固定宽度.</li>
+<li>当最小高度与最大高度相等时, 意味着给这个盒子的内容设置了一个固定高度.</li>
+</ul>
+<p>举个例子:</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">QComboBox{ </span><br><span class="line">    <span class="attribute">background-color</span>: skyblue; </span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid red; </span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">10px</span>; </span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">10px</span>; </span><br><span class="line">    <span class="attribute">background-clip</span>: content; </span><br><span class="line">    <span class="attribute">min-height</span>: <span class="number">50px</span>; </span><br><span class="line">    <span class="attribute">max-height</span>: <span class="number">50px</span>; </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081645397.png"></p>
+<p><strong>outline</strong> </p>
+<p>outline （轮廓）是控件有焦点时, 绘制在边框边缘的外围,可起到突出作用,轮廓线不占据控</p>
+<p>件, 也不一定是矩形.</p>
+<p>它有如下属性,</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">outline</span></span><br><span class="line"></span><br><span class="line"><span class="attribute">outline-color</span></span><br><span class="line"></span><br><span class="line"><span class="attribute">outline-offset</span></span><br><span class="line"></span><br><span class="line"><span class="attribute">outline-style</span></span><br><span class="line"></span><br><span class="line"><span class="attribute">outline</span>-radius</span><br><span class="line"></span><br><span class="line"><span class="attribute">outline</span>-<span class="attribute">bottom</span>-<span class="attribute">left</span>-radius</span><br><span class="line"></span><br><span class="line"><span class="attribute">outline</span>-<span class="attribute">bottom</span>-<span class="attribute">right</span>-radius</span><br><span class="line"></span><br><span class="line"><span class="attribute">outline</span>-<span class="attribute">top</span>-<span class="attribute">left</span>-radius</span><br><span class="line"></span><br><span class="line"><span class="attribute">outline</span>-<span class="attribute">top</span>-<span class="attribute">right</span>-radius</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<p>这里对这些属性不做详细介绍, 只需要知道, 当我们想在一个控件有焦点时, 不绘制轮廓,</p>
+<p>只需要这样做,</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">outline</span>: none;</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h3 id="属性结语"><a href="#属性结语" class="headerlink" title="属性结语"></a><strong>属性结语</strong></h3><p>这一小节主要列举了一些常用的属性, 并列举了它们的用法和取值等, 还有其他一些属性并未介绍, 但很可能在开发中需要用到. 这里啰嗦一下, 这种总结性质的东西, 不可能尽善尽美罗列所有, 如果有需要, 还是要去自己查看 Qt 官方给的资料, 查阅文档搜寻有用的知识也是一种很重要的技能.</p>
+<h2 id="Brush-类型介绍"><a href="#Brush-类型介绍" class="headerlink" title="Brush 类型介绍"></a><strong>Brush</strong> <strong>类型介绍</strong></h2><p>brush 一般用来设置颜色, 其取值有 3 种, 分别是 <font color="orange">Color</font>, <font color="orange">Gradient </font>和 <font color="orange">PaletteRole</font>, 下面简单介绍一下</p>
+<h3 id="Color"><a href="#Color" class="headerlink" title="Color"></a><strong>Color</strong></h3><p>color 本身又支持很多格式, 列举所有格式, 如下:</p>
+<ul>
+<li><p>rgb(r, g, b) 每个数字表示每个通道的值, 依次分别是红绿蓝</p>
+</li>
+<li><p>rgba(r, g, b, a) 与 rgb 相同, a 代表 α 通道, 是一个范围 0~1 的浮点数, 表示透明度, 1 代表不透明, 0 表示全透明</p>
+</li>
+<li><p>hsv(h, s, v)</p>
+</li>
+<li><p>hsva(h, s, v, a)</p>
+</li>
+<li><p>#rrggbb: 16 进制表示的 rgb 值, 每个值占两位, 但如果每个通道的两位都一样, 可以简写为</p>
+</li>
+<li><p>#rgb, 如#66FFAA 可以简写为 #6FA, 并且大小写不敏感.</p>
+</li>
+<li><p>name: 常见的表示颜色的单次, 如 red, green, blue, yellow, purple 等</p>
+<p><font color="orange"><code>常用的是 rgb, rgba, #rrggbb, name</code></font></p>
+</li>
+</ul>
+<h3 id="Gradient"><a href="#Gradient" class="headerlink" title="Gradient"></a><strong>Gradient</strong></h3><p>可实现渐变效果,三种取值:</p>
+<ul>
+<li>qlineargradient 线性渐变</li>
+<li>qradialgradient 径向渐变</li>
+<li>qconicalgradient 锥形渐变</li>
+</ul>
+<p>它们分别对应了 Qt 的 3 个类, <font color="orange"><code>QLinearGradient</code></font>, <font color="orange"><code>QRadialGradient</code></font>, <font color="orange"><code>QConicalGradient</code></font>, 参数可以</p>
+<p>参考它们的函数, 这里不多赘述</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">QTextEdit{ </span><br><span class="line">    <span class="attribute">border</span>: <span class="number">2px</span> solid red; </span><br><span class="line">    <span class="attribute">background-color</span>: <span class="built_in">qlineargradient</span>(x1:<span class="number">0</span>, y1:<span class="number">0</span>, x2:<span class="number">1</span>, y2:<span class="number">1</span>, stop:<span class="number">0</span> </span><br><span class="line">							<span class="number">#ace</span>, stop: <span class="number">0.4</span> <span class="number">#f96</span>, stop:<span class="number">1</span> <span class="number">#ace</span>); </span><br><span class="line">    <span class="attribute">background-clip</span>: margin; </span><br><span class="line">    <span class="attribute">font</span>: normal normal <span class="number">30px</span> <span class="string">"微软雅黑"</span>; </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081658453.png"></p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">QTextEdit{ </span><br><span class="line">    <span class="attribute">border</span>: <span class="number">2px</span> solid red; </span><br><span class="line">    <span class="attribute">background</span>: <span class="built_in">qradialgradient</span>(cx:<span class="number">0</span>, cy:<span class="number">0</span>, radius: <span class="number">1</span>, </span><br><span class="line">        			fx:<span class="number">0.5</span>, fy:<span class="number">0.5</span>, stop:<span class="number">0</span> <span class="number">#ace</span>, stop:<span class="number">1</span> <span class="number">#f96</span>); </span><br><span class="line">    <span class="attribute">background-clip</span>: margin; </span><br><span class="line">    <span class="attribute">font</span>: normal normal <span class="number">30px</span> <span class="string">"微软雅黑"</span>; </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081659550.png"></p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">QTextEdit{ </span><br><span class="line">    <span class="attribute">border</span>: <span class="number">2px</span> solid red; </span><br><span class="line">    <span class="attribute">background</span>: <span class="built_in">qconicalgradient</span>(cx:<span class="number">0.5</span>, cy:<span class="number">0.5</span>, angle:<span class="number">30</span>, </span><br><span class="line">                       stop:<span class="number">0</span> <span class="number">#ace</span>, stop:<span class="number">1</span> <span class="number">#f96</span>); </span><br><span class="line">    <span class="attribute">background-clip</span>: margin; </span><br><span class="line">    <span class="attribute">font</span>: normal normal <span class="number">30px</span> <span class="string">"微软雅黑"</span>; </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h3 id="Qt-官方链接"><a href="#Qt-官方链接" class="headerlink" title="Qt 官方链接"></a><strong>Qt</strong> <strong>官方链接</strong></h3><p>链接地址: <a target="_blank" rel="noopener" href="http://doc.qt.io/qt-5/stylesheet.html">http://doc.qt.io/qt-5/stylesheet.html</a></p>
+<p>assistan 搜索方法: 输入 style sheet 即可, 注意两个单词之间有空格, 然后进入</p>
+<p>Qt Style Sheets Reference 专题, 如图:</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205081701854.png"></p>
+<h3 id="加载QSS文件方法"><a href="#加载QSS文件方法" class="headerlink" title="加载QSS文件方法"></a>加载QSS文件方法</h3><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//可用过qApp对象设置整个程序的qss或者通过this指针设置单前界面的qss</span></span><br><span class="line"><span class="comment">// 方法一</span></span><br><span class="line">qApp-&gt;<span class="built_in">setStyleSheet</span>(<span class="string">"file:///:qss/defaultStyle.qss"</span>); <span class="comment">//通过qApp对象设置</span></span><br><span class="line">qApp-&gt;<span class="built_in">setStyleSheet</span>(<span class="built_in">QString</span>(<span class="string">"file:///%1"</span>).<span class="built_in">arg</span>(qssFileName));</span><br><span class="line"></span><br><span class="line"><span class="keyword">this</span>-&gt;<span class="built_in">setStyleSheet</span>(<span class="string">"file:///:qss/defaultStyle.qss"</span>); <span class="comment">//通过this对象设置当前界面的qss</span></span><br><span class="line"><span class="keyword">this</span>-&gt;<span class="built_in">setStyleSheet</span>(<span class="built_in">QString</span>(<span class="string">"file:///%1"</span>).<span class="built_in">arg</span>(qssFileName));</span><br><span class="line"></span><br><span class="line"><span class="comment">// 方法二</span></span><br><span class="line">QString qss;  </span><br><span class="line"><span class="function">QFile <span class="title">qssFile</span><span class="params">(<span class="string">":/qss/luffy.qss"</span>)</span></span>;  <span class="comment">//样式表文件</span></span><br><span class="line">qssFile.<span class="built_in">open</span>(QFile::ReadOnly);   </span><br><span class="line"><span class="keyword">if</span> (qssFile.<span class="built_in">isOpen</span>()) {        </span><br><span class="line">    qss = <span class="built_in">QLatin1String</span>(qssFile.<span class="built_in">readAll</span>());       </span><br><span class="line">    qApp-&gt;<span class="built_in">setStyleSheet</span>(qss);       </span><br><span class="line">    qssFile.<span class="built_in">close</span>();  </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">欧阳</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://ouyujia.github.io/2022/05/07/QSS%E5%85%A5%E9%97%A8/">https://ouyujia.github.io/2022/05/07/QSS入门/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://ouyujia.github.io" target="_blank">相遇之初</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/QT/">QT</a><a class="post-meta__tags" href="/tags/QSS/">QSS</a><a class="post-meta__tags" href="/tags/CSS/">CSS</a></div><div class="post_share"><div class="social-share" data-image="/img/default_top_img/default_top_img.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/reward/wechat.jpg" target="_blank"><img class="post-qr-code-img" src="/img/reward/wechat.jpg" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/img/reward/alipay.jpg" target="_blank"><img class="post-qr-code-img" src="/img/reward/alipay.jpg" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/05/05/CPU%E4%B8%8A%E4%B8%8B%E6%96%87/"><img class="prev-cover" src="https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205051748864.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">CPU上下文</div></div></a></div><div class="next-post pull-right"><a href="/2022/05/09/%E5%8F%AF%E8%B0%83%E7%94%A8%E5%AF%B9%E8%B1%A1%E5%8C%85%E8%A3%85%E5%99%A8%E3%80%81%E7%BB%91%E5%AE%9A%E5%99%A8/"><img class="next-cover" src="https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205091515262.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">可调用对象包装器、绑定器</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2023/04/28/QTMingW%E6%B7%BBDump%E5%8A%9F%E8%83%BD/" title="QT使用MingW编译器添加Dump调试功能"><img class="cover" src="https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205051748864.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-04-28</div><div class="title">QT使用MingW编译器添加Dump调试功能</div></div></a></div><div><a href="/2023/05/01/QT%E4%B8%B2%E5%8F%A3%E9%80%9A%E8%AE%AF%E9%94%99%E8%AF%AF%E7%A0%81%E8%A7%A3%E6%9E%90/" title="QT串口通讯错误码解析"><img class="cover" src="https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205051748864.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-05-01</div><div class="title">QT串口通讯错误码解析</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">欧阳</div><div class="author-info__description">工作之余记录自己踩过的坑</div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">34</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">21</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">11</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/ouyujia.github.io"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="mailto:ouyujia@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="tencent://AddContact/?fromId=45&amp;fromSubId=1&amp;subcmd=all&amp;uin=1929913191&amp;website=www.oicqzone.com" target="_blank" title="QQ"><i class="fa-brands fa-qq"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">一直走就好了~</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95"><span class="toc-text">语法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="toc-text">基本语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-text">选择器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%9A%E7%94%A8%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-text">通用选择器</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A0%BC%E5%BC%8F"><span class="toc-text">格式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%E7%82%B9"><span class="toc-text">注意点</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%80%E8%88%AC%E7%94%A8%E6%B3%95"><span class="toc-text">一般用法</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%B1%BB%E5%9E%8B%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-text">类型选择器</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A0%BC%E5%BC%8F-1"><span class="toc-text">格式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%E7%82%B9-1"><span class="toc-text">注意点</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%80%E8%88%AC%E7%94%A8%E6%B3%95-1"><span class="toc-text">一般用法</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%B1%BB%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-text">类选择器</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A0%BC%E5%BC%8F-2"><span class="toc-text">格式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%80%E8%88%AC%E7%94%A8%E6%B3%95-2"><span class="toc-text">一般用法</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ID-%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-text">ID 选择器</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A0%BC%E5%BC%8F-3"><span class="toc-text">格式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%E7%82%B9-2"><span class="toc-text">注意点</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%80%E8%88%AC%E7%94%A8%E6%B3%95-3"><span class="toc-text">一般用法</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%8E%E4%BB%A3%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-text">后代选择器</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A0%BC%E5%BC%8F-4"><span class="toc-text">格式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%E7%82%B9-3"><span class="toc-text">注意点</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%80%E8%88%AC%E7%94%A8%E6%B3%95-4"><span class="toc-text">一般用法</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%90%E5%85%83%E7%B4%A0%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-text">子元素选择器</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A0%BC%E5%BC%8F-5"><span class="toc-text">格式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%80%E8%88%AC%E7%94%A8%E6%B3%95-5"><span class="toc-text">一般用法</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B1%9E%E6%80%A7%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-text">属性选择器</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A0%BC%E5%BC%8F-6"><span class="toc-text">格式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%E7%82%B9-4"><span class="toc-text">注意点</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%E7%9A%84%E8%A7%A3%E9%87%8A"><span class="toc-text">官方文档的解释:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%80%E8%88%AC%E7%94%A8%E6%B3%95-6"><span class="toc-text">一般用法</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B9%B6%E9%9B%86%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-text">并集选择器</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A0%BC%E5%BC%8F-7"><span class="toc-text">格式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%E7%82%B9-5"><span class="toc-text">注意点</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%A4%E4%B8%AA%E7%89%B9%E6%AE%8A%E7%9A%84%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-text">两个特殊的选择器</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AD%90%E6%8E%A7%E4%BB%B6%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-text">子控件选择器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A0%BC%E5%BC%8F-8"><span class="toc-text">格式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AD%90%E6%8E%A7%E4%BB%B6%E8%A1%A8%EF%BC%88%E5%8F%82%E8%80%83%EF%BC%89"><span class="toc-text">子控件表（参考）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BC%AA%E7%B1%BB%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-text">伪类选择器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A0%BC%E5%BC%8F-9"><span class="toc-text">格式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BC%AA%E7%8A%B6%E6%80%81%E8%A1%A8%EF%BC%88%E5%8F%82%E8%80%83%EF%BC%89"><span class="toc-text">伪状态表（参考）</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B2%A1%E6%9C%89%E9%80%89%E6%8B%A9%E5%99%A8%E7%9A%84%E6%83%85%E5%86%B5"><span class="toc-text">没有选择器的情况</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%89%E6%8B%A9%E5%99%A8%E7%9A%84%E5%8C%B9%E9%85%8D%E8%A7%84%E5%88%99"><span class="toc-text">选择器的匹配规则</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Qss-%E7%9A%84%E7%89%B9%E6%80%A7"><span class="toc-text">Qss 的特性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B1%82%E5%8F%A0%E6%80%A7"><span class="toc-text">层叠性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%A7%E6%89%BF%E6%80%A7-Qt-Version-gt-x3D-5-7"><span class="toc-text">继承性(Qt-Version &gt;&#x3D; 5.7)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%98%E5%85%88%E7%BA%A7"><span class="toc-text">优先级</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E6%AD%A5%EF%BC%9A-%E8%AE%BE%E7%BD%AE%E6%96%B9%E5%BC%8F%E6%89%80%E4%BA%A7%E7%94%9F%E7%9A%84%E4%BC%98%E5%85%88%E7%BA%A7%E9%97%AE%E9%A2%98"><span class="toc-text">第一步： 设置方式所产生的优先级问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5%EF%BC%9A%E6%A0%B7%E5%BC%8F%E8%A1%A8%E6%9C%AC%E8%BA%AB%E7%9A%84%E4%BC%98%E5%85%88%E7%BA%A7%E9%97%AE%E9%A2%98"><span class="toc-text">第二步：样式表本身的优先级问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%98%E5%85%88%E7%BA%A7%E5%88%A4%E6%96%AD%E7%9A%84%E4%B8%89%E7%A7%8D%E6%96%B9%E5%BC%8F"><span class="toc-text">优先级判断的三种方式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%97%B4%E6%8E%A5%E9%80%89%E4%B8%AD"><span class="toc-text">间接选中</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%B8%E5%90%8C%E9%80%89%E6%8B%A9%E5%99%A8-%E7%9B%B4%E6%8E%A5%E9%80%89%E4%B8%AD"><span class="toc-text">相同选择器(直接选中)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8D%E5%90%8C%E9%80%89%E6%8B%A9%E5%99%A8-%E7%9B%B4%E6%8E%A5%E9%80%89%E4%B8%AD"><span class="toc-text">不同选择器(直接选中)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%98%E5%85%88%E7%BA%A7%E6%9D%83%E9%87%8D"><span class="toc-text">优先级权重</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Qt-%E5%AE%98%E6%96%B9%E5%85%B3%E4%BA%8E%E5%86%B2%E7%AA%81%E8%A7%A3%E5%86%B3%E7%9A%84%E8%AF%B4%E6%98%8E"><span class="toc-text">Qt 官方关于冲突解决的说明</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%92%E6%A8%A1%E5%9E%8B"><span class="toc-text">盒模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E7%9B%92%E6%A8%A1%E5%9E%8B"><span class="toc-text">**什么是盒模型? **</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%92%E6%A8%A1%E5%9E%8B%E4%B8%AD%E7%9A%84%E5%AE%BD%E5%BA%A6%E4%B8%8E%E9%AB%98%E5%BA%A6"><span class="toc-text">盒模型中的宽度与高度</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B1%9E%E6%80%A7"><span class="toc-text">属性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%83%8C%E6%99%AF%E5%B1%9E%E6%80%A7-background"><span class="toc-text">背景属性 background</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#background-color"><span class="toc-text">background-color</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#background-image"><span class="toc-text">background-image</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#background-repeat"><span class="toc-text">background-repeat</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#background-position"><span class="toc-text">background-position</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#background-attachment"><span class="toc-text">background-attachment</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#background-clip"><span class="toc-text">background-clip</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#background-origin"><span class="toc-text">background-origin</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%83%8C%E6%99%AF%E5%B1%9E%E6%80%A7%E7%9A%84%E8%BF%9E%E5%86%99%E6%A0%BC%E5%BC%8F"><span class="toc-text">背景属性的连写格式</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%89%8D%E6%99%AF%E5%B1%9E%E6%80%A7-color"><span class="toc-text">前景属性 color</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BE%B9%E6%A1%86%E5%B1%9E%E6%80%A7-border"><span class="toc-text">**边框属性 border</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#border-width"><span class="toc-text">border-width</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#border-style"><span class="toc-text">border-style</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#border-color"><span class="toc-text">border-color</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#border-radius"><span class="toc-text">border-radius</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#border-image"><span class="toc-text">border-image</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A0%BC%E5%BC%8F-10"><span class="toc-text">格式</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E8%BF%9E%E5%86%99%E6%A0%BC%E5%BC%8F-1"><span class="toc-text">连写格式 1</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E8%BF%9E%E5%86%99%E6%A0%BC%E5%BC%8F-2"><span class="toc-text">连写格式 2</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%97%E4%BD%93%E5%B1%9E%E6%80%A7-font"><span class="toc-text">字体属性 font</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#font-style"><span class="toc-text">font-style</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#font-weight"><span class="toc-text">font-weight</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#font-size"><span class="toc-text">font-size</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#font-family"><span class="toc-text">font-family</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%BF%9E%E5%86%99%E6%A0%BC%E5%BC%8F"><span class="toc-text">连写格式</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%87%E6%9C%AC%E5%B1%9E%E6%80%A7"><span class="toc-text">文本属性</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#text-align"><span class="toc-text">text-align</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#text-decoration"><span class="toc-text">text-decoration</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#padding-%E5%92%8C-margin"><span class="toc-text">padding 和 margin</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#padding"><span class="toc-text">padding</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#margin"><span class="toc-text">margin</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#width-%E4%B8%8E-height"><span class="toc-text">width 与 height</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#width-height"><span class="toc-text">width, height</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#max-width-min-width-%E4%B8%8E-max-height-min-height"><span class="toc-text">max-width min width 与 max-height min-height</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B1%9E%E6%80%A7%E7%BB%93%E8%AF%AD"><span class="toc-text">属性结语</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Brush-%E7%B1%BB%E5%9E%8B%E4%BB%8B%E7%BB%8D"><span class="toc-text">Brush 类型介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Color"><span class="toc-text">Color</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Gradient"><span class="toc-text">Gradient</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Qt-%E5%AE%98%E6%96%B9%E9%93%BE%E6%8E%A5"><span class="toc-text">Qt 官方链接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A0%E8%BD%BDQSS%E6%96%87%E4%BB%B6%E6%96%B9%E6%B3%95"><span class="toc-text">加载QSS文件方法</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/05/01/QT%E4%B8%B2%E5%8F%A3%E9%80%9A%E8%AE%AF%E9%94%99%E8%AF%AF%E7%A0%81%E8%A7%A3%E6%9E%90/" title="QT串口通讯错误码解析"><img src="https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205051748864.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="QT串口通讯错误码解析"/></a><div class="content"><a class="title" href="/2023/05/01/QT%E4%B8%B2%E5%8F%A3%E9%80%9A%E8%AE%AF%E9%94%99%E8%AF%AF%E7%A0%81%E8%A7%A3%E6%9E%90/" title="QT串口通讯错误码解析">QT串口通讯错误码解析</a><time datetime="2023-05-01T08:43:26.000Z" title="发表于 2023-05-01 16:43:26">2023-05-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/04/28/QTMingW%E6%B7%BBDump%E5%8A%9F%E8%83%BD/" title="QT使用MingW编译器添加Dump调试功能"><img src="https://cdn.jsdelivr.net/gh/ouyujia/blogImg/img/202205051748864.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="QT使用MingW编译器添加Dump调试功能"/></a><div class="content"><a class="title" href="/2023/04/28/QTMingW%E6%B7%BBDump%E5%8A%9F%E8%83%BD/" title="QT使用MingW编译器添加Dump调试功能">QT使用MingW编译器添加Dump调试功能</a><time datetime="2023-04-28T08:43:26.000Z" title="发表于 2023-04-28 16:43:26">2023-04-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/05/28/QT%E6%95%B0%E6%8D%AE%E5%BA%93/" title="QT数据库"><img src="/img/default_top_img/default_top_img.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="QT数据库"/></a><div class="content"><a class="title" href="/2022/05/28/QT%E6%95%B0%E6%8D%AE%E5%BA%93/" title="QT数据库">QT数据库</a><time datetime="2022-05-28T11:54:44.000Z" title="发表于 2022-05-28 19:54:44">2022-05-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/05/28/QT%E6%A8%A1%E5%9E%8B-%E8%A7%86%E5%9B%BE/" title="QT模型/视图"><img src="/img/default_top_img/default_top_img.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="QT模型/视图"/></a><div class="content"><a class="title" href="/2022/05/28/QT%E6%A8%A1%E5%9E%8B-%E8%A7%86%E5%9B%BE/" title="QT模型/视图">QT模型/视图</a><time datetime="2022-05-28T11:54:22.000Z" title="发表于 2022-05-28 19:54:22">2022-05-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/05/28/QT%E6%A0%B7%E5%BC%8F%E5%9F%BA%E7%B1%BB/" title="QT样式基类"><img src="/img/default_top_img/default_top_img.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="QT样式基类"/></a><div class="content"><a class="title" href="/2022/05/28/QT%E6%A0%B7%E5%BC%8F%E5%9F%BA%E7%B1%BB/" title="QT样式基类">QT样式基类</a><time datetime="2022-05-28T11:53:44.000Z" title="发表于 2022-05-28 19:53:44">2022-05-28</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/img/default_top_img/default_top_img.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By 欧阳</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi, welcome to my <a href="https://ouyujia.github.io/">blog</a>!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="chat_btn" type="button" title="聊天"><i class="fas fa-sms"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">本地搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>(() => {
+  const $mermaidWrap = document.querySelectorAll('#article-container .mermaid-wrap')
+  if ($mermaidWrap.length) {
+    window.runMermaid = () => {
+      window.loadMermaid = true
+      const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+      Array.from($mermaidWrap).forEach((item, index) => {
+        const mermaidSrc = item.firstElementChild
+        const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+        const mermaidID = 'mermaid-' + index
+        const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+        mermaid.mermaidAPI.render(mermaidID, mermaidDefinition, (svgCode) => {
+          mermaidSrc.insertAdjacentHTML('afterend', svgCode)
+        })
+      })
+    }
+
+    const loadMermaid = () => {
+      window.loadMermaid ? runMermaid() : getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(runMermaid)
+    }
+
+    window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+  }
+})()</script><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'uj1iGWrB2oeD104tl0gqxNCP-gzGzoHsz',
+      appKey: 'Xf38NpY2yXzSSImLdo96JX9n',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !false) {
+  if (false) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-heart.min.js" async="async" mobile="false"></script><script>(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/3fbcf592.js","daovoice")
+</script><script>var isChatBtn = true
+daovoice('init', {
+  app_id: '3fbcf592',},{
+  launcher: { 
+     disableLauncherIcon: isChatBtn // 悬浮 ICON 是否显示
+  },
+});
+daovoice('update');
+
+if (isChatBtn) {
+  var chatBtnFn = () => {
+    var chatBtn = document.getElementById("chat_btn")
+    chatBtn.addEventListener("click", function(){
+      daovoice('show')
+    });
+  }
+  chatBtnFn()
+} else {
+  if (true) {
+    function chatBtnHide () {
+      daovoice('update', {},{
+        launcher: { 
+        disableLauncherIcon: true // 悬浮 ICON 是否显示
+        },
+      });
+    }
+    function chatBtnShow () {
+      daovoice('update', {},{
+        launcher: { 
+        disableLauncherIcon: false // 悬浮 ICON 是否显示
+        },
+      });
+    }
+  }
+}</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
