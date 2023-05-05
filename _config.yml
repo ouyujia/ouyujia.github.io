@@ -117,7 +117,7 @@ theme: butterfly
 deploy:
   type: git
   repo: git@github.com:ouyujia/ouyujia.github.io.git
-  branch: master
+  branch: main
 
 
 algolia:
