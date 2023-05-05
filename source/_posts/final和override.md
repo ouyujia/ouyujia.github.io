@@ -141,3 +141,8 @@ public:
 ```
 
 上述代码中第 13 行和第 22 行就是显示指定了要重写父类的<font color='orange'> test()</font> 方法，使用了<font color='orange'> override </font>关键字之后，假设在重写过程中因为误操作，写错了函数名或者函数参数或者返回值编译器都会提示语法错误，提高了程序的正确性，降低了出错的概率。
+
+### 参考资料
+
+[final 和 override | 爱编程的大丙 (subingwen.cn)](https://subingwen.cn/cpp/final/)
+

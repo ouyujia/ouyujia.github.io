@@ -150,4 +150,7 @@ int main(void)
 
 <font color='red'>`最后在强调一点：using 语法和 typedef 一样，并不会创建出新的类型，它们只是给某些类型定义了新的别名。using 相较于 typedef 的优势在于定义函数指针别名时看起来更加直观，并且可以给模板定义别名。`</font>
 
+### 参考资料
+
+[using的使用 | 爱编程的大丙 (subingwen.cn)](https://subingwen.cn/cpp/using/)
 
