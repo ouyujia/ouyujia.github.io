@@ -53,6 +53,8 @@
           
           <category> QT </category>
           
+          <category> QSerialPort </category>
+          
       </categories>
       
       
@@ -103,7 +105,9 @@
       
       <categories>
           
-          <category> Qt </category>
+          <category> QT </category>
+          
+          <category> MingW </category>
           
       </categories>
       
