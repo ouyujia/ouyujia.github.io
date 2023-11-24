@@ -313,7 +313,7 @@ Qt使用信号与槽机制来解决这个问题，程序员只需要指定一个
 
    信号和槽一定要在对象定义之后进行连接才能生效
 
-5. 信号声明为私有方法其他类对象连接失败(其他博客里提及,本人验证了放在私有里也是可以的,索性也列在这里供大家参考)
+5. 槽函数声明为私有方法在其他类对象连接失败(其他博客里提及,本人验证了放在私有里也是可以的,索性也列在这里供大家参考)
 
    test.h
 
@@ -378,6 +378,18 @@ Qt使用信号与槽机制来解决这个问题，程序员只需要指定一个
    执行结果
 
    ![执行结果](https://cdn.jsdelivr.net/gh/ouyujia/blog-img/img/1683285517791.png)
+
+   后面在实际开发中发现：A类槽函数定义为私有，在B类中通过信号连接A类私有槽函数，编译提示错误
+
+   ```c++
+   // 在MainWidget类中连接LocalSocket类的私有槽handleReceiveCmd失败
+   connect(this, &MainWidget::signalReceiveCmd, m_localSocket, &LocalSocket::handleReceiveCmd);
+   ```
+
+   提示错误
+
+   > mainwidget.cpp:44:79: error: 'handleReceiveCmd' is a private member of 'LocalSocket'
+   > localsocket.h:63:10: note: declared private here
 
 ### 虚拟槽函数
 
