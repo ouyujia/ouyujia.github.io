@@ -6,7 +6,9 @@ updated:
 tags: 
   - QT
   - 串口
-categories: QT
+categories: 
+  - - QT
+    - QSerialPort
 keywords:
 description:
 top_img:

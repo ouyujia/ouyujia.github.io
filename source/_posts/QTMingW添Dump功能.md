@@ -7,7 +7,9 @@ tags:
   - QT
   - MingW
   - Dump
-categories: Qt
+categories:
+  - - QT
+    - MingW
 keywords:
 description:
 top_img:
